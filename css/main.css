@@ -1,4 +1,6 @@
-* {
+*,
+*:after,
+*:before {
     --main-color: orange;
     --D-color: #343434;
     box-sizing: border-box;
