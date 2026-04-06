@@ -8,6 +8,33 @@ body {
     font-family: monospace;
 }
 
+header {
+    width: 200px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 200px auto;
+    background-color: brown;
+}
+#logo {
+    fill: #FFF;
+}
+
+#poster {
+    position: relative;
+    width: 100%;
+}
+#poster > img {
+    width: 100%;
+    filter: brightness(30%);
+}
+
+#poster > h1 {
+    color: #FFF;
+    top: 2rem;
+    left: 2rem;
+    position: absolute;
+}
+
 footer {
     background-color: cadetblue;
 }
