@@ -104,7 +104,10 @@ main {
 }
 
 footer {
+    border-top: 1px solid var(--D-color);
     grid-area: F;
+    padding: 1rem;
+    margin-top: 2rem;
 }
 
 @media (orientation: portrait) {
