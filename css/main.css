@@ -1,8 +1,13 @@
 * {
+    --D-color: #343434;
+    --D-main: orange;
     box-sizing: border-box;
 }
 
 body {
+    background-color: #000;
+    color: aliceblue;
+    
     width: 100%;
     min-height: 100vh;
     display: grid;
@@ -60,6 +65,42 @@ header > nav > a {
 
 main {
     grid-area: M;
+}
+
+
+#dizziness {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #000;
+    border-radius: 8px;
+    border: 1px solid var(--D-color);
+}
+#task {
+    display: flex;
+    grid-gap: 1rem;
+    & > div:last-child {
+        color: var(--D-main);
+    }
+}
+#task > div {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--D-color);
+}
+#display {
+    display: flex;
+    grid-gap: 2px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+#display > div {
+    width: 14px;
+    height: 100%;
+    background-color: white;
+}
+#display > .a {
+    background-color: var(--D-main)
 }
 
 footer {
