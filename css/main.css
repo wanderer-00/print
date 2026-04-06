@@ -105,7 +105,6 @@ main {
 
 footer {
     grid-area: F;
-    background-color: cadetblue;
 }
 
 @media (orientation: portrait) {
