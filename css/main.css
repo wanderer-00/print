@@ -103,11 +103,33 @@ main {
     background-color: var(--main-color)
 }
 
+#clients {
+    width: 100%;
+    height: 140px;
+    display: flex;
+    grid-gap: 2rem;
+    background-color: blueviolet;
+}
+#clients svg {
+    height: 100%;
+    border: 1px solid red;
+}
+
+
+
 footer {
     border-top: 1px solid var(--D-color);
     grid-area: F;
     padding: 1rem;
     margin-top: 2rem;
+}
+footer svg {
+    display: ;
+    height: 100px;
+}
+footer a {
+    display: inline-block;
+    border: 1px solid blue;
 }
 
 @media (orientation: portrait) {
