@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+
+    <!-- главные стили -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- header -->
+    <link rel="stylesheet" href="css/header.css">
+
+    <!-- footer -->
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+    <header></header>
+
+    <main>
+        <div id="poster">
+            <video src="#"></video>
+        </div>
+
+        <!-- калькулятор -->
+        <div id="calc">
+            <lable for="count">Тираж</lable>
+            <input id="count" type="number" value="1">
+
+            <lable for="file">Загрузите своё лого</lable>
+            <input id="file" type="file">
+
+            <label for="choice">Выберите вариант:</label>
+            <select id="choice">
+                <option value="1">Вариант 1</option>
+                <option value="2" selected>Вариант 2 (выбран по умолчанию)</option>
+                <option value="3" disabled>Вариант 3 (недоступен)</option>
+            </select>
+
+            <div id="price"></div>
+        </div>
+
+        <!-- slider -->
+        <div id="galery"></div>
+
+        <!-- наши клиенты -->
+        <div id="clients"></div>
+    </main>
+
+    <footer></footer>
+    
+    <!-- спрайт с svg-иконками -->
+    <svg style="display: none;">
+
+        <!-- логотип сайта -->
+        <symbol id="logo" viewBox="0 -960 960 960">
+            <path d="M198-160 20-480l180-320h160L180-480l104 186 312-506h164l180 320-180 320H600l180-320-104-184-310 504H198Z" />
+        </symbol>
+        
+        <!--  -->
+        <symbol id="" viewBox="">
+             
+        </symbol>
+    </svg>
+
+</body>
+
+<!-- header -->
+<script type="text/javascript" src="script/header.js"></script>
+
+<!-- footer -->
+<script type="text/javascript" src="script/footer.js"></script>
+
+</html>
