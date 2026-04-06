@@ -5,7 +5,6 @@ header.innerHTML = `
         <svg>
             <use xlink:href="#logo"></use>
         </svg>
-        <p>LOGO</p>
     </a>
 
     <nav>
