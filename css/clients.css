@@ -1,4 +1,4 @@
-@import "normalize.css";
+/*@import "normalize.css";*/
 
 #clients {
     display: grid;
@@ -13,8 +13,10 @@
     --line: hsl(0 0% 95% / 0.25);
     --size: 60px;
     content: "";
+/*
     height: 100vh;
     width: 100vw;
+*/
     position: fixed;
     background: linear-gradient(90deg,
             var(--line) 1px,
@@ -33,7 +35,7 @@
         container-type: size;
         scale: var(--scale);
         width: 100vw;
-        height: 100px;
+        height: 200px;
         min-height: 100px;
         min-width: 300px;
         max-width: calc(100% - 2rem);
