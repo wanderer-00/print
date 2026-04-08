@@ -7,7 +7,7 @@
     <!-- метаописание -->
     <meta name="description" content="Заказ типографских услуг на текстиле">
     <!-- -300ms к загрузке сайта -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     
     <!-- изменение цвета адресной строки и вкладок -->
     <!-- Chrome и Android -->
@@ -21,10 +21,13 @@
     <title>Главная</title>
 
     <!-- главные стили -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css" fetchpriority="high">
+    
+    <!-- poster -->
+    <link rel="preload" as="image" href="img/poster.jpg" fetchpriority="high">
 
     <!-- нам доверяют -->
-    <link rel="stylesheet" href="css/clients.css">
+    <link rel="stylesheet" href="css/clients.css" media="print" onload="this.media='all'">
 </head>
 
 <body>
@@ -209,19 +212,19 @@
 
 </body>
 
-<!-- favicon -->
-<script type="text/javascript" src="script/favicon.js"></script>
-
 <!-- header -->
-<script type="text/javascript" src="script/header.js"></script>
+<script type="text/javascript" src="script/header.js" fetchpriority="high"></script>
 
-<!-- footer -->
-<script type="text/javascript" src="script/footer.js"></script>
+<!-- favicon -->
+<script type="text/javascript" src="script/favicon.js" defer></script>
 
 <!-- загрузка типографии -->
-<script type="text/javascript" src="script/dizziness.js"></script>
+<script type="text/javascript" src="script/dizziness.js" defer></script>
 
 <!-- нам доверяют -->
-<script type="text/javascript" src="script/clients.js"></script>
+<script type="text/javascript" src="script/clients.js" defer></script>
+
+<!-- footer -->
+<script type="text/javascript" src="script/footer.js" defer></script>
 
 </html>
