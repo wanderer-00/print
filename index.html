@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- основной язык сайта -->
 <html lang="ru">
-
 <head>
     <!-- кодировка сайта -->
     <meta charset="UTF-8">
@@ -9,6 +8,15 @@
     <meta name="description" content="Заказ типографских услуг на текстиле">
     <!-- -300ms к загрузке сайта -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- изменение цвета адресной строки и вкладок -->
+    <!-- Chrome и Android -->
+    <meta name="theme-color" content="#4285f4">
+    <!-- Safari (iOS) -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Яндекс браузер -->
+    <meta name="viewport" content="ya-title=#4285f4, ya-dock=#4285f4">
+
     <!-- текст в вкладке браузера -->
     <title>Главная</title>
 
@@ -20,11 +28,10 @@
 </head>
 
 <body>
-    <header></header>
+    <header class="no-select"></header>
 
     <main>
         <div id="poster">
-            <img src="img/poster.jpg" alt="DTF-принтер в работе">
             <h1>Заменить на видео таймлапс</h1>
         </div>
 
@@ -100,20 +107,7 @@
         </div>
     </main>
 
-    <footer>
-        <h2>сайт создан при помощи</h2>
-        <a href="index.html" aria-label="Google Fonts">
-            <svg>
-                <use xlink:href="#googleFonts"></use>
-            </svg>
-        </a>
-
-        <a href="index.html" aria-label="Google model viewer">
-            <svg>
-                <use xlink:href="#modelviewer"></use>
-            </svg>
-        </a>
-    </footer>
+    <footer></footer>
 
     <!-- спрайт с svg-иконками -->
     <svg style="display: none;">
@@ -214,6 +208,9 @@
     </svg>
 
 </body>
+
+<!-- favicon -->
+<script type="text/javascript" src="script/favicon.js"></script>
 
 <!-- header -->
 <script type="text/javascript" src="script/header.js"></script>
