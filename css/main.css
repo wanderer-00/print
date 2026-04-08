@@ -20,7 +20,8 @@ border: 1px solid blue
 */
 
 a {
-    text-decoration: none
+    text-decoration: none;
+    color:#FFF;
 }
 
 body {
