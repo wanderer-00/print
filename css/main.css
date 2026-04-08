@@ -109,8 +109,13 @@ main {
     grid-area: M;
 }
 
+#calc {
+    display: grid;
+    grid-gap: 1rem;
+}
 
-#dizziness {
+#dizziness,
+#calc {
     margin: 1rem;
     padding: 1rem;
     background-color: #000;

@@ -13,7 +13,7 @@ footer.innerHTML = `
             <h2>Contact's</h2>
             <ul>
                 <li><a href="#">print@gmail.com</a></li>
-                <li><a href="#">+7(999)123-45-67</a></li>
+                <li><a href="tel:+79872972282">+7(987)297-22-82</a></li>
             </ul>
         </div>
         
