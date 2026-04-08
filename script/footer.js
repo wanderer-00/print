@@ -12,7 +12,7 @@ footer.innerHTML = `
         <div>
             <h2>Contact's</h2>
             <ul>
-                <li><a href="mailto:artsowa777@gmail.com Обсудить заказ&body=Здравствуйте!">artsowa777@gmail.com</a></li>
+                <li><a href="mailto:artsowa777@gmail.com">artsowa777@gmail.com</a></li>
                 <li><a href="tel:+79872972282">+7(987)297-22-82</a></li>
             </ul>
         </div>
