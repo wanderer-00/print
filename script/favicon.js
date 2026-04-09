@@ -41,7 +41,6 @@ const maxRepeats = 99;
 
 const myTimer = setInterval(() => {
     counter++;
-    console.log(`Повтор №${counter}`);
     setDynamicFavicon(counter);
 
     if (counter === maxRepeats) {

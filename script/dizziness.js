@@ -4,7 +4,7 @@ const tasks = document.getElementById('task');
 // обработка JSON
 async function loadData() {
     try {
-        const response = await fetch('../data/dizziness.json'); // путь к файлу
+        const response = await fetch('data/dizziness.json'); // путь к файлу
         const data = await response.json(); // парсим JSON в объект JS
         console.log(data); // работаем с данными
 

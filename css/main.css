@@ -21,7 +21,7 @@ border: 1px solid blue
 
 a {
     text-decoration: none;
-    color:#FFF;
+    color: #FFF;
 }
 
 body {
@@ -109,10 +109,37 @@ main {
     grid-area: M;
 }
 
-#calc {
+
+
+#calc_3d {
+    width: 100%;
+    aspect-ratio: 2/1;
     display: grid;
-    grid-gap: 1rem;
+    grid-template-columns: auto 1fr;
+    background-color: #434343;
 }
+#calc {
+    max-width: 400px;
+}
+
+#btn_cluster {
+    display: flex;
+    grid-gap: 1rem;
+    flex-wrap: wrap;
+}
+#calc > div {
+    margin-bottom: 1rem;
+}
+.model-btn {
+    padding: 10px;
+}
+
+model-viewer {
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+}
+
 
 #dizziness,
 #calc {
@@ -149,7 +176,7 @@ main {
 #display > div {
     width: 14px;
     height: 100%;
-    /*    background-color: white;*/
+    background-color: white;
 }
 
 #display > .a {

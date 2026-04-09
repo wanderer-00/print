@@ -52,33 +52,57 @@
         <div id="poster">
             <h1>Заменить на видео таймлапс</h1>
         </div>
+        
+        <div id="calc_3d">
+            <!-- калькулятор -->
+            <div id="calc">
+                <div>
+                    <lable for="count">Тираж</lable><br>
+                    <input id="count" type="number" value="1">
+                </div>
 
-        <!-- калькулятор -->
-        <div id="calc">
-            <div>
-                <lable for="count">Тираж</lable><br>
-                <input id="count" type="number" value="1">
+                <div id="btn">
+                    <button
+                    class="model-btn"
+                    data-model="3d/tshirt.glb"
+                    >Футболка</button>
+
+                    <button
+                    class="model-btn"
+                    data-model="3d/helmet.glb"
+                    >Кепка</button>
+
+                    <button
+                    class="model-btn"
+                    disabled
+                    >Зонт</button>
+
+                    <button
+                    class="model-btn"
+                    disabled
+                    >Худи</button>
+                </div>
+
+                <div id="price"></div>
             </div>
             
-            <div>
-                <button>Футболка</button>
-                <button>Кепка</button>
-                <button>Зонт</button>
-                <button>Худи</button>
-            </div>
-
-            <div>
-                <lable for="file">Загрузите своё лого</lable><br>
-                <input id="file" type="file">
-            </div>
-
-            <div id="price">1 000 р</div>
+            <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
+            <model-viewer
+            src="3d/helmet.glb"
+            ar
+            environment-image=""
+            shadow-intensity="1"
+            camera-orbit="100deg 90deg"
+            camera-controls
+            touch-action="pan-y"
+            disable-zoom></model-viewer>
+            
+            <!-- переключение 3D моделей в калькуляторе -->
+            <script src="script/model.js"></script>
         </div>
 
-        
-
         <div id="dizziness">
-            <div id="task"></div> 
+            <div id="task"></div>
             <h1>Нагрузка на производство - малая</h1>
             <hr>
             <div>
@@ -234,6 +258,9 @@
 
 <!-- загрузка типографии -->
 <script type="text/javascript" src="script/dizziness.js" defer></script>
+
+<!-- калькулятор -->
+<script type="text/javascript" src="script/calc.js" defer></script>
 
 <!-- нам доверяют -->
 <script type="text/javascript" src="script/clients.js" defer></script>
