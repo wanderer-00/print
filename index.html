@@ -18,7 +18,7 @@
     <!-- Safari (iOS) -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- Яндекс браузер -->
-<!--    <meta name="viewport" content="ya-title=#4285f4, ya-dock=#4285f4">-->
+    <!--    <meta name="viewport" content="ya-title=#4285f4, ya-dock=#4285f4">-->
 
     <!-- текст в вкладке браузера -->
     <title>Главная</title>
@@ -52,51 +52,32 @@
         <div id="poster">
             <h1>Заменить на видео таймлапс</h1>
         </div>
-        
+
         <div id="calc_3d">
             <!-- калькулятор -->
             <div id="calc">
                 <div>
-                    <lable for="count">Тираж</lable>
-                    <input id="count" type="number" value="1">
+                    <button class="count btn" onclick="minus()">-</button>
+                    <input class="count" id="count" type="number" placeholder="кол-во" min="1" value="1">
+                    <button class="count btn" onclick="plus()">+</button>
                 </div>
 
                 <div id="btn_cluster">
-                    <button
-                    class="model-btn"
-                    data-model="3d/tshirt.glb"
-                    >Футболка</button>
+                    <button class="model-btn btn" data-model="3d/tshirt.glb">Футболка</button>
 
-                    <button
-                    class="model-btn"
-                    data-model="3d/cap.glb"
-                    >Кепка</button>
+                    <button class="model-btn btn" data-model="3d/cap.glb">Кепка</button>
 
-                    <button
-                    class="model-btn"
-                    disabled
-                    >Зонт</button>
+                    <button class="model-btn btn" data-model="3d/umbrella.glb">Зонт</button>
 
-                    <button
-                    class="model-btn"
-                    disabled
-                    >Худи</button>
+                    <button class="model-btn btn" data-model="3d/hoodie.glb">Худи</button>
                 </div>
 
                 <div id="price"></div>
             </div>
-            
+
             <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
-            <model-viewer
-            src="3d/tshirt.glb"
-            ar
-            environment-image=""
-            shadow-intensity="1"
-            camera-orbit="100deg 90deg"
-            camera-controls
-            touch-action="pan-y"
-            disable-zoom></model-viewer>
-            
+            <model-viewer src="3d/tshirt.glb" environment-image="" shadow-intensity="1" camera-orbit="100deg 90deg" camera-controls touch-action="pan-y" disable-zoom></model-viewer>
+
             <!-- переключение 3D моделей в калькуляторе -->
             <script src="script/model.js"></script>
         </div>
@@ -114,7 +95,9 @@
         </div>
 
         <!-- slider -->
-        <div id="galery"></div>
+        <div id="galery">
+
+        </div>
 
         <!-- наши клиенты -->
         <h2>Наши клиенты</h2>
@@ -254,18 +237,16 @@
 </body>
 
 <!-- favicon -->
-<script type="text/javascript" src="script/favicon.js" defer></script>
-
-<!-- загрузка типографии -->
-<script type="text/javascript" src="script/dizziness.js" defer></script>
+<!--<script type="text/javascript" src="script/favicon.js" defer></script>-->
 
 <!-- калькулятор -->
 <script type="text/javascript" src="script/calc.js" defer></script>
+
+<!-- загрузка типографии -->
+<script type="text/javascript" src="script/dizziness.js" defer></script>
 
 <!-- нам доверяют -->
 <script type="text/javascript" src="script/clients.js" defer></script>
 
 <!-- footer -->
-<script type="text/javascript" src="script/footer.js" defer></script>
-
-</html>
+<script type="text/javascript" src="script/footer.js" defer></script></html>

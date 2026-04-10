@@ -35,5 +35,4 @@ footer.innerHTML = `
                     <use xlink:href="#modelviewer"></use>
                 </svg>
             </a>
-        </div>
-`;
+        </div>`;

@@ -4,6 +4,9 @@
 *:before {
     --main-color: orange;
     --D-color: #343434;
+    
+    color: aliceblue;
+    font-family: monospace;
     box-sizing: border-box;
 }
 
@@ -13,12 +16,6 @@
     color: #000;
 }
 
-/*
-svg {
-border: 1px solid blue
-}
-*/
-
 a {
     text-decoration: none;
     color: #FFF;
@@ -26,7 +23,6 @@ a {
 
 body {
     background-color: #000;
-    color: aliceblue;
 
     width: 100%;
     min-height: 100vh;
@@ -37,7 +33,6 @@ body {
         "H F";
     margin: 0;
     padding: 0;
-    font-family: monospace;
 }
 
 .no-select {
@@ -116,28 +111,53 @@ main {
     aspect-ratio: 2/1;
     display: grid;
     grid-template-columns: auto 1fr;
+    align-items: start; /* не растягивать дочернии блоки по высоте */
 }
 #calc {
-    max-width: 400px;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-areas:
+        "count price"
+        "cloth cloth";
 }
-
+/* кол-во */
+input.count::-webkit-outer-spin-button,
+input.count::-webkit-inner-spin-button {
+    /* удаление встроенных кнопок */
+    -webkit-appearance: none;
+}
+input.count {
+    width: 60px;
+    border: none;
+    padding: 4px;
+    text-align: center;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+}
+button.count {
+    background: none;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+/* одежда */
 #btn_cluster {
+    grid-area: cloth;
     display: flex;
     grid-gap: 1rem;
     flex-wrap: wrap;
 }
-#calc > div {
-    margin-bottom: 1rem;
+/* цена */
+#price {
+    grid-area: price;
+    font-size: 2rem;
 }
-.model-btn {
-    padding: 10px;
-}
-
+/* 3D модель */
 model-viewer {
     width: 100%;
     height: 100%;
     border: 1px solid red;
 }
+
 
 
 #dizziness,
@@ -158,10 +178,15 @@ model-viewer {
     }
 }
 
-#task > div {
+.btn {
     padding: 8px;
     border-radius: 4px;
     border: 1px solid var(--D-color);
+    background-color: transparent;
+    cursor: pointer;
+    &:hover {
+        color: var(--main-color);
+    }
 }
 
 #display {
@@ -289,8 +314,10 @@ footer svg {
     }
     
     #calc_3d {
+        /* не растягивать дочернии блоки по ширине */
+        justify-items: start;
         aspect-ratio: 1/1;
-        grid-template-columns: 100%;
+        grid-template-columns: auto;
         grid-template-rows: auto auto;
     }
     model-viewer {

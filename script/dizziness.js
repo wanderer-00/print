@@ -11,13 +11,13 @@ async function loadData() {
         // заполнение заказов
         for (i = 0; i < data.length; i++) {
             tasks.innerHTML += `
-                <div>${data[i][0]}</div>
+                <div class="btn">${data[i][0]}</div>
             `;
             for (n = 0; n < data[i][1]; n++) {
                 display.innerHTML += `<div class="a${i}"></div>`
             }
         }
-        tasks.innerHTML += '<div>Ваш заказ</div>'
+        tasks.innerHTML += '<div class="btn">Ваш заказ</div>'
 
     } catch (error) {
         console.error('Ошибка загрузки:', error);
