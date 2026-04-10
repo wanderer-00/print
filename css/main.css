@@ -116,7 +116,6 @@ main {
     aspect-ratio: 2/1;
     display: grid;
     grid-template-columns: auto 1fr;
-    background-color: #434343;
 }
 #calc {
     max-width: 400px;
@@ -287,6 +286,16 @@ footer svg {
         grid-gap: 1rem;
         grid-template-columns: repeat(3, auto);
         grid-template-rows: auto 1fr;
+    }
+    
+    #calc_3d {
+        aspect-ratio: 1/1;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto;
+    }
+    model-viewer {
+        width: 100%;
+        aspect-ratio: 1;
     }
 
     footer {
