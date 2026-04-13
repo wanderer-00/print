@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Тестовый полигон</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div id="statistics">
+            <div id="fps">FPS - 00</div>
+            <div id="vertex"></div>
+            <div id="triangle"></div>
+            <div id="material"></div>
+            <div id="baseColor"></div>
+            <div id="metallic"></div>
+            <div id="opacity"></div>
+            <div id="roughness"></div>
+            <div id="normalMap"></div>
+            <div id="emission"></div>
+        </div>
+    </header>
+    <main>
+        <!-- скрипт -->
+        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
+        
+        <model-viewer
+        src="../3d/tshirt.glb"
+        environment-image=""
+        shadow-intensity="1"
+        camera-orbit="100deg 90deg"
+        camera-controls
+        touch-action="pan-y"
+        disable-zoom
+        ></model-viewer>
+
+    </main>
+    <footer></footer>
+</body>
+
+<!-- FPS -->
+<script src="script/fps.js"></script>
+
+<!-- кол-во вершин -->
+<script src="script/vertex.js"></script>
+
+<!-- список материалов -->
+<script src="script/material.js"></script>
+
+</html>
