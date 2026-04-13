@@ -8,43 +8,73 @@
 
 <body>
     <header>
-        <div id="statistics">
-            <div id="fps">FPS - 00</div>
-            <div id="vertex"></div>
-            <div id="triangle"></div>
-            <div id="material"></div>
-            <div id="baseColor"></div>
-            <div id="metallic"></div>
-            <div id="opacity"></div>
-            <div id="roughness"></div>
-            <div id="normalMap"></div>
-            <div id="emission"></div>
+        <!-- кол-во кадров в секунду (плавность анимаций) -->
+        <div id="fps">
+            FPS <b>?</b>
         </div>
+
+        <!-- кол-во вершин, из которых состоит геометрия 3D модели -->
+        <div id="vertex">
+            Вершин <b>?</b>
+        </div>
+
+        <!-- кол-во полигонов, из которых состоит геометрия 3D модели -->
+        <div id="triangle">
+            Полигонов <b>?</b>
+        </div>
+        
+        <!-- список материалов -->
+        <div id="materialsList"></div>
+
     </header>
     <main>
+        <div id="statistics">
+
+
+
+            <!-- Изменение основного цвета материала. [red, green, blue, alpha] (каждое значение может быть от 0 до 1) (alpha - прозрачность) -->
+            <div id="baseColor"></div>
+
+            <!-- Степень «металличности» поверхности (диапазон от 0 до 1) -->
+            <div id="metallic" class="control">
+                <label for="metallic-range">Металличность</label>
+                <div id="metallic_value">0.0</div>
+                <input type="range" id="metallic-range" min="0" max="1" step="0.1" value="0">
+            </div>
+
+            <!-- Шероховатость: Насколько поверхность матовая или глянцевая [0 зеркальная, 1 матовая] -->
+            <div id="roughness" class="control">
+                <label for="roughness-range">Шерховатость</label>
+                <div id="roughness_value">1.0</div>
+                <input type="range" id="roughness-range" min="0" max="1" step="0.1" value="1">
+            </div>
+
+            <!--  -->
+            <div id="normalMap"></div>
+            
+            <!-- Цвет и интенсивность собственного свечения материала (для светящихся элементов) -->
+            <div id="emission"></div>
+            
+            <div class="controls">
+                <!-- baseColor -->
+                <label for="color-picker">Цвет модели:</label>
+                <input type="color" id="color-picker" value="#ffffff">
+            </div>
+        </div>
+        
         <!-- скрипт -->
         <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
         
         <model-viewer
         src="../3d/tshirt.glb"
-        environment-image=""
         shadow-intensity="1"
         camera-orbit="100deg 90deg"
         camera-controls
         touch-action="pan-y"
         disable-zoom
+        lighting-color="#FFFFFF"
+        intensity="1.5"
         ></model-viewer>
-
-        <div class="controls">
-
-            <!-- metallic -->
-            <label for="metallic-range">Металличность:</label>
-            <input type="range" id="metallic-range" min="0" max="1" step="0.01" value="0">
-            
-            <!-- baseColor -->
-            <label for="color-picker">Цвет модели:</label>
-            <input type="color" id="color-picker" value="#ffffff">
-        </div>
 
     </main>
     <footer></footer>
@@ -54,6 +84,8 @@
 <script src="script/fps.js"></script>
 
 <!-- список материалов -->
+<script src="data/materials.js"></script>
+<!-- управление материалами -->
 <script src="script/material.js"></script>
 
 <!-- metallic -->
@@ -61,5 +93,8 @@
 
 <!-- baseColor -->
 <script src="script/baseColor.js"></script>
+
+<!-- вес файла -->
+<script src="script/size.js"></script>
 
 </html>

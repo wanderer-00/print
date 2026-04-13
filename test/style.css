@@ -1,28 +1,162 @@
 * {
+    --input-thumb-width: 6px;
+    --input-thumb-height: 20px;
+    --input-thumb-color: red;
+    --input-thumb-border-radius: 0;
+    --input-thumb-h-center: calc(var(--input-thumb-height) / 2 * -1 + 2px);
+
+    --padding: 1rem;
+    --border-color: #343434;
     color: #FFF;
+    box-sizing: border-box;
     font-family: monospace;
 }
 
 body {
+    margin: 0;
+    padding: var(--padding);
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
     font-size: 1em;
     background-color: #121212;
 }
 
+header {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: var(--padding);
+    margin-bottom: var(--padding);
+}
+
+/* список материалов */
+#materialsList > button {
+    /* 1. Сброс дефолтных стилей браузера */
+    appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+
+    /* 2. Стилизация */
+    border-right: 1px solid var(--border-color);
+    padding: 0 1.6rem;
+    &:last-child {
+        border-right: none;
+    }
+    
+    /* 3. Эффекты перехода (плавность) */
+    transition: all 0.5s ease;
+
+    /* при наведении курсора */
+    &:hover {
+        color: orange;
+    }
+    &.active {
+        color: red;
+    }
+}
+
+main {
+    align-items: start;
+    /* Ключевое свойство */
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-gap: var(--padding);
+    grid-template-columns: 1fr 3fr;
+}
+
 model-viewer {
     width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    border: 1px solid red;
+    height: 100%;
+    border: 1px solid var(--border-color);
 }
 
 #statistics {
-    display: flex;
+    display: grid;
     grid-gap: 1rem;
     margin-bottom: 1rem;
-} 
+}
 
-#statistics > div {
-    padding: 0.6rem;
-    border: 1px solid #343434;
+#statistics > div,
+header > div {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
+}
+
+#materialsList {
+    display: flex;
+    padding: 0;
+}
+
+.control {
+    display: grid;
+    grid-gap: 18px;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+        "title value"
+        "range range";
+}
+
+.control input {
+    grid-area: range;
+}
+
+
+
+input[type="range"] {
+    -webkit-appearance: none;
+    /* Убирает дефолт в Chrome/Safari/Edge */
+    appearance: none;
+    width: 100%;
+    background: transparent;
+    /* Убирает фон самого инпута */
+    cursor: pointer;
+}
+
+/* Убираем контур при фокусе (по желанию) */
+input[type="range"]:focus {
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: var(--input-thumb-height);
+    width: var(--input-thumb-width);
+    background: var(--input-thumb-color);
+    border-radius: var(--input-thumb-border-radius);
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+    margin-top: var(--input-thumb-h-center);
+    /* Центрируем ползунок относительно дорожки */
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
+    height: var(--input-thumb-height);
+    width: var(--input-thumb-width);
+    background: var(--input-thumb-color);
+    border-radius: var(--input-thumb-border-radius);
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    background: #ddd;
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    background: #ddd;
 }

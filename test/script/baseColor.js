@@ -12,7 +12,7 @@ colorPicker.addEventListener('input', (event) => {
     });
 
     const baseColor_div = document.getElementById('baseColor');
-    baseColor_div.innerHTML = `rgba: ( ${color[0]}, ${color[1]}, ${color[2]}, ${color[3]})`;
+    baseColor_div.innerHTML = `rgba: ( ${color[0].toFixed(1)}, ${color[1].toFixed(1)}, ${color[2].toFixed(1)}, ${color[3].toFixed(1)})`;
 });
 
 // Функция для перевода HEX в формат 0-1
@@ -20,6 +20,6 @@ function hexToRgb(hex) {
     const r = parseInt(hex.slice(1, 3), 16) / 255;
     const g = parseInt(hex.slice(3, 5), 16) / 255;
     const b = parseInt(hex.slice(5, 7), 16) / 255;
-    const a = 1;
-    return [r, g, b, a]; // 1 — это непрозрачность (alpha)
+    const a = 1; // непрозрачность (alpha) [0 - 1]
+    return [r, g, b, a];
 }

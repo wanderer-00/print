@@ -1,3 +1,15 @@
+const materialsList = document.getElementById('materialsList');
+for (m=0; m<materialData.length; m++) {
+    if (m==0) {
+        materialsList.innerHTML += `<button class="active">${materialData[m]}</button>`
+    } else {
+        materialsList.innerHTML += `<button>${materialData[m]}</button>`
+    }
+};
+
+
+
+
 let modelViewer = document.getElementsByTagName('model-viewer')[0];
 
 modelViewer.addEventListener('load', () => {
@@ -38,21 +50,26 @@ modelViewer.addEventListener('load', () => {
     const materials = modelViewer.model.materials;
 
     materials.forEach((material, index) => {
-        const material_div = document.getElementById('material');
-        material_div.innerHTML = `Материал №${index}: ${material.name}`;
-
+        
+//        const material_div = document.getElementById('material');
+//        materialsList.innerHTML += `Материал №${index}: ${material.name}`;
+        
+        material.pbrMetallicRoughness.setMetallicFactor(0);
+        material.pbrMetallicRoughness.setRoughnessFactor(1);
+//        material.setEmissiveFactor([0, 0, 0]);
+        
         // получение baseColor
         const color = material.pbrMetallicRoughness.baseColorFactor;
         console.log(`Цвет:`, color);
         
         // baseColor
         const baseColor_div = document.getElementById('baseColor');
-        baseColor_div.innerHTML = `rgba: ( ${color[0]}, ${color[1]}, ${color[2]}, ${color[3]})`;
+        baseColor_div.innerHTML = `rgba: ( ${color[0].toFixed(1)}, ${color[1].toFixed(1)}, ${color[2].toFixed(1)}, ${color[3].toFixed(1)})`;
         
         // Достаем значение metallicFactor
         const metallic_div = document.getElementById('metallic');
         
-        const metallic = material.pbrMetallicRoughness.metallicFactor;
-        metallic_div.innerHTML = `metallic: ${metallic}`;
+//        const metallic = material.pbrMetallicRoughness.metallicFactor;
+//        metallic_div.innerHTML = `metallic: ${metallic}`;
     });
 });
