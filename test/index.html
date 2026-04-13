@@ -35,6 +35,17 @@
         disable-zoom
         ></model-viewer>
 
+        <div class="controls">
+
+            <!-- metallic -->
+            <label for="metallic-range">Металличность:</label>
+            <input type="range" id="metallic-range" min="0" max="1" step="0.01" value="0">
+            
+            <!-- baseColor -->
+            <label for="color-picker">Цвет модели:</label>
+            <input type="color" id="color-picker" value="#ffffff">
+        </div>
+
     </main>
     <footer></footer>
 </body>
@@ -42,10 +53,13 @@
 <!-- FPS -->
 <script src="script/fps.js"></script>
 
-<!-- кол-во вершин -->
-<script src="script/vertex.js"></script>
-
 <!-- список материалов -->
 <script src="script/material.js"></script>
+
+<!-- metallic -->
+<script src="script/metallic.js"></script>
+
+<!-- baseColor -->
+<script src="script/baseColor.js"></script>
 
 </html>
