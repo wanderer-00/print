@@ -1,29 +1,56 @@
-/* глобальные стили и переменные */
-*,
-*:after,
-*:before {
-    --main-color: orange;
-    --D-color: #343434;
-    
-    color: aliceblue;
-    font-family: monospace;
-    box-sizing: border-box;
+:root {
+    /* цвет фона */
+    --bg-color: #FEFEFE;
+    /* цвет текста */
+    --text-color: #121212;
+    /* акцентный цвет */
+    --main-color: red;
+    /* цвет границ */
+    --border-color: #343434;
 }
 
-/* кастомизация выделения текста */
-::selection {
-    background: var(--main-color);
-    color: #000;
+/* Цвета для темной темы */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: black;
+        --text-color: white;
+        --border-color: #343434;
+    }
 }
+
+/* стили, применимые ко всем элементам страницы */
+*,
+*:after,
+*:before {box-sizing: border-box}
+
+/* кастомизация выделения текста */
+::selection {background: var(--main-color)}
 
 a {
     text-decoration: none;
-    color: #FFF;
+    color: var(--main-color);
+}
+
+/* обнуление стилей */
+button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    /* Убирает системные стили браузера (iOS/Safari) */
+    appearance: none;
+    /* Убирает контур при фокусе (но лучше настроить свой :focus!) */
+    outline: none;
 }
 
 body {
-    background-color: #000;
-
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    font-family: monospace;
     width: 100%;
     min-height: 100vh;
     display: grid;
@@ -56,10 +83,10 @@ header {
     grid-gap: 1rem;
     grid-template-columns: 100%;
     grid-template-rows: 200px auto;
-    background-color: var(--main-color);
 }
 
 header svg {
+    fill: var(--main-color);
     height: 100%;
     aspect-ratio: 1;
 }
@@ -74,10 +101,10 @@ header > nav {
 header > nav > a {
     text-align: center;
     white-space: nowrap;
-    color: white;
+    color: var(--text-color);
     padding: 14px 20px;
-    background-color: #000;
     border-radius: 8px;
+    border: 1px solid var(--border-color)
 }
 
 #logo {
@@ -127,17 +154,16 @@ input.count::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 input.count {
+    color: var(--text-color);
     width: 60px;
     border: none;
     padding: 4px;
     text-align: center;
     background-color: transparent;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--border-color);
 }
 button.count {
-    background: none;
     font-size: 1.4em;
-    cursor: pointer;
 }
 /* одежда */
 #btn_cluster {
@@ -155,7 +181,6 @@ button.count {
 model-viewer {
     width: 100%;
     height: 100%;
-    border: 1px solid red;
 }
 
 
@@ -164,9 +189,9 @@ model-viewer {
 #calc {
     margin: 1rem;
     padding: 1rem;
-    background-color: #000;
+    background-color: var(--bg-color);
     border-radius: 8px;
-    border: 1px solid var(--D-color);
+    border: 1px solid var(--border-color);
 }
 
 #task {
@@ -181,8 +206,7 @@ model-viewer {
 .btn {
     padding: 8px;
     border-radius: 4px;
-    border: 1px solid var(--D-color);
-    background-color: transparent;
+    border: 1px solid var(--border-color);
     cursor: pointer;
     &:hover {
         color: var(--main-color);
@@ -200,7 +224,7 @@ model-viewer {
 #display > div {
     width: 14px;
     height: 100%;
-    background-color: white;
+    background-color: var(--text-color);
 }
 
 #display > .a {
@@ -222,7 +246,7 @@ model-viewer {
 
 
 footer {
-    border-top: 1px solid var(--D-color);
+    border-top: 1px solid var(--border-color);
     grid-area: F;
     padding: 1rem;
     margin-top: 100px;
@@ -274,18 +298,6 @@ footer ul li {
 footer svg {
     height: 40px;
     aspect-ratio: 1;
-}
-
-.a0 {
-    background-color: orange
-}
-
-.a1 {
-    background-color: orangered
-}
-
-.a2 {
-    background-color: red
 }
 
 @media (orientation: portrait) {

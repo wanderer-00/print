@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        color: white;
+        background-color: black;
+    }
+    
+    #syncCluster {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #syncCluster>model-viewer {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+    }
+</style>
+
+<body>
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
+
+    <div id="syncCluster">
+        <div>наши</div>
+        <div>конкуренты</div>
+        <model-viewer id="m1" src="../../3d/tshirt.glb" interaction-prompt="none" camera-controls touch-action="pan-y"></model-viewer>
+        <model-viewer id="m2" src="../../3d/tshirt.glb" interaction-prompt="none" camera-controls touch-action="pan-y"></model-viewer>
+    </div>
+
+
+</body>
+
+<script>
+    const mv1 = document.querySelector('#m1');
+    const mv2 = document.querySelector('#m2');
+
+    let isUpdating = false;
+
+    const sync = (source, target) => {
+        if (isUpdating) return;
+        isUpdating = true;
+
+        // Получаем текущие координаты камеры (theta - горизонт, phi - вертикаль, radius - зум)
+        const orbit = source.getCameraOrbit();
+
+        // Устанавливаем их второй модели
+        target.cameraOrbit = `${orbit.theta}rad ${orbit.phi}rad ${orbit.radius}m`;
+
+        // Мгновенно перемещаем камеру без "плавного доезда"
+        target.jumpCameraToGoal();
+
+        // Разрешаем следующее обновление в следующем кадре анимации
+        requestAnimationFrame(() => {
+            isUpdating = false;
+        });
+    };
+
+    // Функция инициализации событий
+    const initSync = () => {
+        mv1.addEventListener('camera-change', () => sync(mv1, mv2));
+        mv2.addEventListener('camera-change', () => sync(mv2, mv1));
+    };
+
+    // Важно: ждем полной готовности элементов model-viewer
+    customElements.whenDefined('model-viewer').then(() => {
+        initSync();
+    });
+
+
+
+
+
+    // кто | какой цвет
+    function applyMaterialSettings(event, color = [1, 1, 1, 1]) {
+        // выбираем 1-ый материал
+        const material = event.target.model.materials[0];
+        // меняем цвет
+        material.pbrMetallicRoughness.setBaseColorFactor(color);
+        // шерховатость 100%
+        material.pbrMetallicRoughness.setRoughnessFactor(1);
+    }
+
+    // 2. Используем её в обработчиках
+    mv1.addEventListener('load', (e) => applyMaterialSettings(e, [.0, .0, .0, 1]));
+    mv2.addEventListener('load', (e) => applyMaterialSettings(e, [.1, .1, .1, 1]));
+</script></html>

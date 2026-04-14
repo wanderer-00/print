@@ -24,15 +24,5 @@ footer.innerHTML = `
         
         <div>
             <h2>Powered By</h2>
-            <a href="https://fonts.google.com/icons" aria-label="Google Fonts">
-                <svg>
-                    <use xlink:href="#googleFonts"></use>
-                </svg>
-            </a>
-
-            <a href="https://modelviewer.dev/" aria-label="Google model viewer">
-                <svg>
-                    <use xlink:href="#modelviewer"></use>
-                </svg>
-            </a>
+            <a href="https://fonts.google.com/icons" aria-label="Google Fonts"><svg><use xlink:href="#googleFonts"></use></svg></a><a href="https://modelviewer.dev/" aria-label="Google model viewer"><svg><use xlink:href="#modelviewer"></use></svg></a>
         </div>`;
