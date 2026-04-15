@@ -7,13 +7,37 @@
     --main-color: #FF2002;
     /* цвет границ */
     --border-color: #343434;
-    --a-bg: ;
+    --a-bg: #301426;
 }
 
 /* стили, применимые ко всем элементам страницы */
 *,
 *:after,
-*:before {box-sizing: border-box}
+*:before {
+    box-sizing: border-box;
+/*    border: 1px solid red;*/
+}
+
+/* 1. Ширина всей полосы прокрутки */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* 2. Фон дорожки (трека) */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+/* 3. Сам ползунок */
+::-webkit-scrollbar-thumb {
+  background: var(--text-color);
+}
+
+/* 4. Ползунок при наведении */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-color);
+}
 
 /* кастомизация выделения текста */
 ::selection {background: var(--main-color)}
@@ -47,19 +71,26 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    
+    
 }
 
 /* ограничение размеров страницы */
 #pageLayout {
     margin: 0 auto;
-    max-width: 1600px;
+    max-width: 1601px;
     display: grid;
-    grid-gap: 48px;
+    grid-gap: 1rem;
     grid-template-rows: 1fr;
-    grid-template-columns: 144px minmax(0, 18fr) 144px;
+    grid-template-columns: 300px minmax(0, 18fr) 144px;
     grid-template-areas:
         "H M"
         "H F";
+
+    background-image: url('../1.svg');
+    background-repeat: repeat;
+    background-size: 100px;
+    background-position: 50px 50px;
 }
 
 .no-select {
@@ -82,14 +113,17 @@ header {
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: 100%;
-    grid-template-rows: 200px auto;
+    grid-template-rows: auto 1fr;
+}
+
+header > a {
+    height: 80px;
 }
 
 header svg {
     width: 80px;
-    fill: var(--main-color);
-    height: 100%;
-    aspect-ratio: 1;
+    height: 80px;
+    fill: var(--text-color);
 }
 
 header > nav {
@@ -108,10 +142,6 @@ header > nav > a {
     &:hover {
         background-color: var(--a-bg);
     }
-}
-
-#logo {
-    fill: #FFF
 }
 
 #poster {
@@ -304,7 +334,8 @@ footer svg {
 }
 
 @media (orientation: portrait) {
-    body {
+    #pageLayout {
+        grid-gap: 0;
         grid-template-columns: 100%;
         grid-template-rows: auto 1fr 1fr;
         grid-template-areas:
@@ -314,11 +345,16 @@ footer svg {
     }
 
     header {
+        display: flex;
         position: relative;
         width: 100%;
         height: auto;
     }
-
+    
+    header > a {
+        margin: auto;
+    }
+    
     header > nav {
         display: flex;
         flex-wrap: wrap;

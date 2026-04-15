@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 100 100">
+    <rect x="0" y="0" width="100" height="100" stroke-width="1" fill="none" stroke="white"></rect>
+    <g fill="none" stroke-width="2" stroke="white">
+        <path d="M0 10 0 0 10 0"></path>
+        <path d="M100 10 100 0 90 0"></path>
+        <path d="M100 90 100 100 90 100"></path>
+        <path d="M0 90 0 100 10 100"></path>
+    </g>
+</svg>
