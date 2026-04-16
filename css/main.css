@@ -4,7 +4,7 @@
     /* цвет текста */
     --text-color: oklch(59.1300% 0.0761 338.9500);
     /* акцентный цвет */
-    --main-color: #FF2002;
+    --main-color: oklch(67.7000% 0.2678 30.3917);
     /* цвет границ */
     --border-color: #343434;
     --a-bg: #301426;
@@ -108,12 +108,13 @@ body {
 
 header {
     height: 100vh;
+    
     position: fixed;
     grid-area: H;
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: 6rem;
     grid-template-columns: 100%;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: 300px auto 1fr;
 }
 
 header > a {
@@ -276,13 +277,49 @@ model-viewer {
     height: 100%;
 }
 
+h3 {
+    color: antiquewhite;
+    font-size: 1.2rem;
+}
+
+#questionAnswer {
+    font-size: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+#questionAnswer > div {
+    width: 100%;
+    border: 1px solid var(--text-color);
+}
+
+#questionAnswer button {
+    color: var(--main-color);
+    width: 100%;
+    padding: 12px 16px;
+    text-align: left;
+}
+
+#questionAnswer  div.answer {
+    height: 0;
+    overflow: hidden;
+}
+
+#questionAnswer p {
+    color: antiquewhite;
+    margin: 0;
+    padding: 0 16px 16px 16px;
+}
+
+#questionAnswer h4 {
+    margin: 0;
+}
 
 
 footer {
-    border-top: 1px solid var(--border-color);
     grid-area: F;
-    padding: 1rem;
-    margin-top: 100px;
+    padding: 1rem 0;
     display: grid;
     grid-gap: 0 4rem;
     grid-template-areas:
@@ -337,7 +374,7 @@ footer svg {
     #pageLayout {
         grid-gap: 0;
         grid-template-columns: 100%;
-        grid-template-rows: auto 1fr 1fr;
+        grid-template-rows: auto 1fr auto;
         grid-template-areas:
             "H"
             "M"
@@ -377,17 +414,17 @@ footer svg {
 
     footer {
         grid-template-areas:
-            "about about"
-            "contact powered"
-            "copyright copyright";
-        grid-template-columns: 1fr 1fr;
+            "about about about"
+            "contact powered copyright";
+        grid-template-columns: auto auto 1fr;
     }
 
     footer div:nth-child(2) {
         text-align: left;
     }
 
-    footer div:nth-child(4) {
+    footer div:nth-child(4),
+    footer div:nth-child(3) {
         text-align: right;
     }
 }
