@@ -502,9 +502,10 @@ footer svg {
 
     footer {
         grid-template-areas:
-            "about about about"
-            "contact powered copyright";
-        grid-template-columns: auto auto 1fr;
+            "about about"
+            "contact powered"
+            "copyright copyright";
+        grid-template-columns: auto 1fr;
     }
 
     footer div:nth-child(2) {
