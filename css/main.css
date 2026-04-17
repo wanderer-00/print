@@ -450,6 +450,7 @@ footer svg {
 
 @media (orientation: portrait) {
     #pageLayout {
+        width: 100%;
         margin: 0 1rem;
         grid-gap: 0;
         grid-template-columns: 1fr;
@@ -464,10 +465,13 @@ footer svg {
     }
 
     header {
-        display: flex;
+        display: block;
         position: relative;
         width: 100%;
+        grid-gap: 0rem;
         height: auto;
+        grid-template-columns: auto 1fr;
+        
     }
     
     header > a {
