@@ -18,7 +18,10 @@
 /* стили, применимые ко всем элементам страницы */
 *,
 *:after,
-*:before {box-sizing: border-box}
+*:before {
+    box-sizing: border-box;
+    border: 1px solid blue
+}
 
 ::-webkit-scrollbar {width: 10px}
 /* трек */
@@ -59,11 +62,6 @@ html {
 a {
     text-decoration: none;
     color: var(--main-color);
-}
-
-/* Принудительно задаем белый цвет для всех материалов */
-model-viewer#wireframe-demo {
-    --base-color: #ffffff;
 }
 
 /* обнуление стилей */

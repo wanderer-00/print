@@ -277,35 +277,6 @@
     </div>
 </body>
 
-<script>
-    
-const modelViewer = document.querySelector('#wireframe-demo');
-
-modelViewer.addEventListener('load', () => {
-  // Получаем доступ к сцене Three.js
-  const symbols = Object.getOwnPropertySymbols(modelViewer);
-  const sceneSymbol = symbols.find(s => s.description === 'scene');
-  const scene = modelViewer[sceneSymbol];
-
-  scene.traverse((obj) => {
-    if (obj.isMesh) {
-      // 1. Отключаем основную текстуру
-      obj.material.map = null; 
-      
-      // 2. Включаем режим сетки
-      obj.material.wireframe = true;
-      
-      // 3. Красим ребра сетки
-      obj.material.color.set('white'); // Ярко-зеленый
-      
-      obj.material.needsUpdate = true;
-    }
-  });
-});
-
-    
-</script>
-
 <!-- favicon -->
 <script type="text/javascript" src="script/favicon.js" defer></script>
 

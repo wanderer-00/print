@@ -12,6 +12,11 @@
     font-family: monospace;
 }
 
+/* Принудительно задаем белый цвет для всех материалов */
+model-viewer#wireframe-demo {
+    --base-color: #ffffff;
+}
+
 body {
     margin: 0;
     padding: var(--padding);
