@@ -101,10 +101,8 @@ body {
     color: var(--text-color);
     background-color: var(--bg-color);
     font-family: 'JetBrains Mono', monospace;
-    width: 100%;
     min-height: 100vh;
     margin: 0;
-    padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -450,7 +448,7 @@ footer svg {
 
 @media (orientation: portrait) {
     #pageLayout {
-        width: 100%;
+        width: calc(100vw - 2rem);
         margin: 0 1rem;
         grid-gap: 0;
         grid-template-columns: 1fr;
@@ -467,11 +465,7 @@ footer svg {
     header {
         display: block;
         position: relative;
-        width: 100%;
-        grid-gap: 0rem;
         height: auto;
-        grid-template-columns: auto 1fr;
-        
     }
     
     header > a {
