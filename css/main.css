@@ -450,9 +450,13 @@ footer svg {
 
 @media (orientation: portrait) {
     #pageLayout {
+        margin: 0 1rem;
         grid-gap: 0;
-        grid-template-columns: 100%;
-        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 1fr;
+        grid-template-rows:
+            auto
+            1fr
+            auto;
         grid-template-areas:
             "H"
             "M"
@@ -473,12 +477,6 @@ footer svg {
     header > nav {
         display: flex;
         flex-wrap: wrap;
-    }
-    header > nav > a {
-        
-    }
-    #pageLayout {
-        margin: 0 1rem;
     }
     #calc_3d {
         grid-template-columns: 1fr;
