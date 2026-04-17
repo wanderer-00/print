@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<style>
+  :root {
+    --bg-color: #0b0e14; /* Темный фон как у Марсиан */
+    --color1: rgba(255, 45, 125, 0.6); /* Розовый */
+    --color2: rgba(0, 212, 255, 0.5);   /* Голубой */
+    --color3: rgba(112, 0, 255, 0.6);   /* Фиолетовый */
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    overflow: hidden;
+  }
+
+  /* Основной контейнер */
+  .gradient-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Контейнер для кругов с общим размытием */
+  .blur-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: blur(100px); /* Сила размытия */
+  }
+
+  /* Общие стили для кругов */
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: screen; /* Цвета красиво смешиваются */
+    animation: move 20s infinite alternate;
+  }
+
+  .c1 {
+    width: 500px;
+    height: 500px;
+    background: var(--color1);
+    top: -10%;
+    left: 10%;
+  }
+
+  .c2 {
+    width: 600px;
+    height: 600px;
+    background: var(--color2);
+    bottom: -10%;
+    right: 5%;
+    animation-duration: 25s;
+    animation-delay: -5s;
+  }
+
+  .c3 {
+    width: 450px;
+    height: 450px;
+    background: var(--color3);
+    top: 30%;
+    left: 40%;
+    animation-duration: 15s;
+    animation-delay: -2s;
+  }
+
+  /* Анимация плавного движения */
+  @keyframes move {
+    from { transform: translate(0, 0) rotate(0deg); }
+    to { transform: translate(150px, 80px) rotate(10deg); }
+  }
+
+  /* Эффект шума (Grain) поверх всего */
+  .noise {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    opacity: 0.04; /* Едва заметный шум */
+    pointer-events: none;
+    background-image: url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://w3.org"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
+  }
+
+  /* Контент поверх фона */
+  h1 {
+    color: white;
+    font-family: sans-serif;
+    z-index: 20;
+    font-size: 4rem;
+    letter-spacing: -2px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="gradient-wrapper">
+    <div class="noise"></div>
+    <div class="blur-container">
+      <div class="circle c1"></div>
+      <div class="circle c2"></div>
+      <div class="circle c3"></div>
+    </div>
+    <h1>Evil Design.</h1>
+  </div>
+
+</body>
+</html>

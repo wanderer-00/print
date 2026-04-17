@@ -28,7 +28,28 @@
 ::-webkit-scrollbar-thumb:hover {background: var(--main-color)}
 
 /* кастомизация выделения текста */
-::selection {background: var(--main-color)}
+::selection {
+    color: var(--dark-bg);
+    background: var(--main-color);
+}
+
+/* Обычное начертание */
+@font-face {
+    font-family: 'JetBrains Mono'; /* Имя, которое вы будете использовать в коде */
+    src: url('../fonts/JetBrainsMono-Regular.ttf') format('ttf');
+    font-weight: 400; /* Normal */
+    font-style: normal;
+    font-display: swap; /* Шрифт появится сразу после загрузки, не блокируя текст */
+}
+
+/* Жирное начертание */
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('../fonts/JetBrainsMono-Bold.ttf') format('ttf');
+    font-weight: 700; /* Bold */
+    font-style: normal;
+    font-display: swap;
+}
 
 /* плавный scroll к якорю */
 html {
@@ -40,10 +61,10 @@ a {
     color: var(--main-color);
 }
 
-  /* Принудительно задаем белый цвет для всех материалов */
-  model-viewer#wireframe-demo {
+/* Принудительно задаем белый цвет для всех материалов */
+model-viewer#wireframe-demo {
     --base-color: #ffffff;
-  }
+}
 
 /* обнуление стилей */
 button {
@@ -61,14 +82,33 @@ button {
     outline: none;
 }
 
+h1, h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;          /* Используйте ExtraBold, если есть файл */
+    letter-spacing: -0.01em;   /* Сближаем буквы, чтобы убрать "дырки" */
+    line-height: 1.1;          /* Уменьшаем межстрочный интервал */
+    text-transform: uppercase; /* Опционально: моноширинные шрифты в капсе выглядят очень технологично */
+}
+
+p {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -.04em;   /* Совсем легкое сужение для аккуратности */
+    line-height: 1.6;          /* Даем тексту "дышать", увеличивая интервал */
+}
+
+
 body {
     color: var(--text-color);
     background-color: var(--bg-color);
-    font-family: monospace;
+    font-family: 'JetBrains Mono', monospace;
     width: 100%;
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ограничение размеров страницы */
@@ -77,7 +117,7 @@ body {
     max-width: 1601px;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 200px minmax(0, 18fr) 100px;
+    grid-template-columns: 300px minmax(0, 18fr) 100px;
     grid-template-areas:
         "H M"
         "H F";
