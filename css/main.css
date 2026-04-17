@@ -32,7 +32,6 @@
 
 /* плавный scroll к якорю */
 html {
-    pointer-events: none;
     scroll-behavior: smooth;
 }
 
@@ -63,7 +62,6 @@ button {
 }
 
 body {
-    pointer-events: none;
     color: var(--text-color);
     background-color: var(--bg-color);
     font-family: monospace;
@@ -86,16 +84,13 @@ body {
     z-index: 2; /* Поверх канваса */
 }
 
-/*
 .grid-overlay {
     inset: 0;
-    pointer-events: none;
     background-color: var(--bg-color);
     background-size: var(--cell) var(--cell);
     background-repeat: repeat;
     background-position: calc(var(--cell) / -2) calc(var(--cell) / -2);
 }
-*/
 
 .no-select {
     -webkit-touch-callout: none;
@@ -171,8 +166,6 @@ main {
     border-style: solid;
     border-width: 0 1px;
 }
-
-
 
 #calc_3d {
     width: 100%;
@@ -372,6 +365,7 @@ footer {
     border-color: var(--border-color);
     border-style: solid;
     border-width: 0 1px;
+    background-color: var(--dark-bg)
 }
 
 footer > div:nth-child(1) {

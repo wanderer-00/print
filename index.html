@@ -26,7 +26,7 @@
     <title>Главная</title>
     
     <!-- poster -->
-<!--    <link rel="preload" as="image" href="img/poster.jpg" fetchpriority="high">-->
+    <link rel="preload" as="image" href="img/poster.jpg" fetchpriority="high">
     <!-- главные стили -->
     <link rel="stylesheet" href="css/main.css">
     <!-- нам доверяют -->
@@ -35,10 +35,9 @@
     <link rel="stylesheet" href="css/net.css">
 </head>
 
-<body>
+<body class="grid-overlay">
     
     <!-- UI-панель ручной настройки параметров сетки -->
-<!--
     <div class="panel">
         <p class="panel-title">Настройка Сетки</p>
 
@@ -65,9 +64,8 @@
             <input id="crossThickness" type="range" min="1" max="3" step="0.1" value="3" />
         </div>
     </div>
--->
 
-    <div id="pageLayout" class="grid-overlay">
+    <div id="pageLayout">
 
         <header class="no-select">
             <a href="#" aria-label="На главную страницу">
@@ -136,7 +134,7 @@
                 <model-viewer id="wireframe-demo" src="3d/tshirt.glb" shadow-intensity="0" camera-orbit="100deg 90deg" camera-controls touch-action="pan-y" disable-zoom></model-viewer>
 
                 <!-- переключение 3D моделей в калькуляторе -->
-<!--                <script src="script/model.js"></script>-->
+                <script src="script/model.js"></script>
             </div>
 
             <!-- наши клиенты -->
@@ -298,7 +296,7 @@ modelViewer.addEventListener('load', () => {
       obj.material.wireframe = true;
       
       // 3. Красим ребра сетки
-      obj.material.color.set('#00ff00'); // Ярко-зеленый
+      obj.material.color.set('white'); // Ярко-зеленый
       
       obj.material.needsUpdate = true;
     }
@@ -309,7 +307,7 @@ modelViewer.addEventListener('load', () => {
 </script>
 
 <!-- favicon -->
-<!--<script type="text/javascript" src="script/favicon.js" defer></script>-->
+<script type="text/javascript" src="script/favicon.js" defer></script>
 
 <!-- анимация -->
 <script src="script/animation.js"></script>
