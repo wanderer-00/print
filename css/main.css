@@ -6,46 +6,45 @@
     /* акцентный цвет */
     --main-color: oklch(67.7000% 0.2678 30.3917);
     /* цвет границ */
-    --border-color: #343434;
+    --border-color: rgba(46, 21, 36, 1);
     --a-bg: #301426;
+    --dark-bg: #18000F;
+    
+    /* сеть */
+    --cell: 100px;
+    --bg: #020305;
 }
 
 /* стили, применимые ко всем элементам страницы */
 *,
 *:after,
-*:before {
-    box-sizing: border-box;
-/*    border: 1px solid red;*/
-}
+*:before {box-sizing: border-box}
 
-/* 1. Ширина всей полосы прокрутки */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* 2. Фон дорожки (трека) */
-::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 10px;
-}
-
-/* 3. Сам ползунок */
-::-webkit-scrollbar-thumb {
-  background: var(--text-color);
-}
-
-/* 4. Ползунок при наведении */
-::-webkit-scrollbar-thumb:hover {
-  background: var(--main-color);
-}
+::-webkit-scrollbar {width: 10px}
+/* трек */
+::-webkit-scrollbar-track {background: transparent}
+/* ползунок */
+::-webkit-scrollbar-thumb {background: var(--text-color)}
+::-webkit-scrollbar-thumb:hover {background: var(--main-color)}
 
 /* кастомизация выделения текста */
 ::selection {background: var(--main-color)}
+
+/* плавный scroll к якорю */
+html {
+    pointer-events: none;
+    scroll-behavior: smooth;
+}
 
 a {
     text-decoration: none;
     color: var(--main-color);
 }
+
+  /* Принудительно задаем белый цвет для всех материалов */
+  model-viewer#wireframe-demo {
+    --base-color: #ffffff;
+  }
 
 /* обнуление стилей */
 button {
@@ -64,6 +63,7 @@ button {
 }
 
 body {
+    pointer-events: none;
     color: var(--text-color);
     background-color: var(--bg-color);
     font-family: monospace;
@@ -71,8 +71,6 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    
-    
 }
 
 /* ограничение размеров страницы */
@@ -80,17 +78,21 @@ body {
     margin: 0 auto;
     max-width: 1601px;
     display: grid;
-    grid-gap: 1rem;
     grid-template-rows: 1fr;
-    grid-template-columns: 300px minmax(0, 18fr) 144px;
+    grid-template-columns: 200px minmax(0, 18fr) 100px;
     grid-template-areas:
         "H M"
         "H F";
+    z-index: 2; /* Поверх канваса */
+}
 
-    background-image: url('../1.svg');
+.grid-overlay {
+    inset: 0;
+    pointer-events: none;
+    background-color: var(--bg-color);
+    background-size: var(--cell) var(--cell);
     background-repeat: repeat;
-    background-size: 100px;
-    background-position: 50px 50px;
+    background-position: calc(var(--cell) / -2) calc(var(--cell) / -2);
 }
 
 .no-select {
@@ -163,24 +165,60 @@ header > nav > a {
 
 main {
     grid-area: M;
+    border-color: var(--border-color);
+    border-style: solid;
+    border-width: 0 1px;
 }
 
 
 
 #calc_3d {
     width: 100%;
-    aspect-ratio: 2/1;
     display: grid;
+    grid-template-rows:
+        1fr
+        auto;
     grid-template-columns: auto 1fr;
-    align-items: start; /* не растягивать дочернии блоки по высоте */
+    /* с - calc (калькулятор) */
+    /* v - viewer (поле просмотра) */
+    /* b - buy (купить) */
+    grid-template-areas:
+        "c v"
+        "b v";
+    background-color: var(--dark-bg);
+    border-color: var(--border-color);
+    border-style: solid;
+    border-width: 1px 0;
 }
 #calc {
+    grid-area: c;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 2.5rem;
+    border-right: 1px solid var(--border-color);
+}
+
+#calc canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* На заднем плане */
+}
+
+.content {
     display: grid;
     grid-gap: 1rem;
+    grid-template-rows: auto auto;
     grid-template-areas:
         "count price"
         "cloth cloth";
+    position: relative;
+    z-index: 2; /* Поверх канваса */
 }
+
 /* кол-во */
 input.count::-webkit-outer-spin-button,
 input.count::-webkit-inner-spin-button {
@@ -211,22 +249,23 @@ button.count {
     grid-area: price;
     font-size: 2rem;
 }
-/* 3D модель */
-model-viewer {
+
+#calc_3d model-viewer {
+    grid-area: v;
     width: 100%;
     height: 100%;
 }
 
-
-
-#dizziness,
-#calc {
-    margin: 1rem;
-    padding: 1rem;
-    background-color: var(--bg-color);
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
+#calc_3d > button {
+    grid-area: b;
+    color: var(--main-color);
+    padding: 28px;
+    font-size: 16px;
+    border-color: var(--border-color);
+    border-style: solid;
+    border-width: 1px 1px 0 0 ;
 }
+
 
 #task {
     display: flex;
@@ -238,13 +277,12 @@ model-viewer {
 }
 
 .btn {
-    padding: 8px;
-    border-radius: 4px;
+    padding: 6px 8px;
+    color: black;
+    font-weight: bold;
+    background-color: var(--main-color);
     border: 1px solid var(--border-color);
     cursor: pointer;
-    &:hover {
-        color: var(--main-color);
-    }
 }
 
 #display {
@@ -270,7 +308,9 @@ model-viewer {
     height: 140px;
     display: flex;
     grid-gap: 2rem;
-    background-color: blueviolet;
+    border-color: var(--border-color);
+    border-style: solid;
+    border-width: 1px 0;
 }
 
 #clients svg {
@@ -282,39 +322,38 @@ h3 {
     font-size: 1.2rem;
 }
 
+
+
 #questionAnswer {
     font-size: 1rem;
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
 }
-
 #questionAnswer > div {
     width: 100%;
     border: 1px solid var(--text-color);
+    background-color: var(--dark-bg);
 }
-
 #questionAnswer button {
     color: var(--main-color);
     width: 100%;
     padding: 12px 16px;
     text-align: left;
 }
-
 #questionAnswer  div.answer {
     height: 0;
     overflow: hidden;
 }
-
 #questionAnswer p {
     color: antiquewhite;
     margin: 0;
     padding: 0 16px 16px 16px;
 }
-
 #questionAnswer h4 {
     margin: 0;
 }
+
 
 
 footer {
@@ -326,6 +365,9 @@ footer {
         "about contact"
         "copyright powered";
     grid-template-columns: 1fr auto;
+    border-color: var(--border-color);
+    border-style: solid;
+    border-width: 0 1px;
 }
 
 footer > div:nth-child(1) {

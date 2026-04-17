@@ -6,34 +6,67 @@
     <!-- кодировка сайта -->
     <meta charset="UTF-8">
     <!-- -300ms к загрузке сайта -->
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- метаописание -->
     <meta name="description" content="Купить футболки кепки шоперы зонты и худи с принтом в Казани оптом">
+    <!--  -->
+    <meta name="author" content="casper sync">
     <!-- запрет на индексирование -->
     <meta name="robots" content="noindex, nofollow">
 
     <!-- изменение цвета адресной строки и вкладок -->
     <!-- Chrome и Android -->
-    <meta name="theme-color" content="#4285f4">
+    <meta name="theme-color" content="red">
     <!-- Safari (iOS) -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- Яндекс браузер -->
-    <!--    <meta name="viewport" content="ya-title=#4285f4, ya-dock=#4285f4">-->
+<!--    <meta name="viewport" content="ya-title=red, ya-dock=red">-->
 
     <!-- текст в вкладке браузера -->
     <title>Главная</title>
-
-    <link rel="stylesheet" href="css/main.css">
-
+    
     <!-- poster -->
     <link rel="preload" as="image" href="img/poster.jpg" fetchpriority="high">
-
+    <!-- главные стили -->
+    <link rel="stylesheet" href="css/main.css">
     <!-- нам доверяют -->
     <link rel="stylesheet" href="css/clients.css" media="print" onload="this.media='all'">
+    <!-- фон сеткой -->
+    <link rel="stylesheet" href="css/net.css">
 </head>
 
 <body>
-    <div id="pageLayout">
+    
+    <!-- UI-панель ручной настройки параметров сетки -->
+    <div class="panel">
+        <p class="panel-title">Настройка Сетки</p>
+
+        <div class="row">
+            <label for="lineColor">Основные линии (alpha)</label>
+            <input id="lineColor" type="color" value="#9c6c8d" />
+            <input id="lineAlpha" type="range" min="0" max="1" step="0.01" value="0.08" />
+        </div>
+
+        <div class="row">
+            <label for="diagColor">Диагонали (alpha)</label>
+            <input id="diagColor" type="color" value="#9c6c8d" />
+            <input id="diagAlpha" type="range" min="0" max="1" step="0.01" value="0.0" />
+        </div>
+
+        <div class="row">
+            <label for="crossColor">Крестики (alpha)</label>
+            <input id="crossColor" type="color" value="#220919" />
+            <input id="crossAlpha" type="range" min="0" max="1" step="0.01" value="1" />
+        </div>
+
+        <div class="row">
+            <label for="crossThickness">Толщина крестика</label>
+            <input id="crossThickness" type="range" min="1" max="3" step="0.1" value="3" />
+        </div>
+    </div>
+
+    <div id="pageLayout" class="grid-overlay">
+
         <header class="no-select">
             <a href="#" aria-label="На главную страницу">
                 <svg>
@@ -42,7 +75,7 @@
             </a>
 
             <nav>
-                <a href="#">Расчитать стоимость</a>
+                <a href="#title_calc">Расчитать стоимость</a>
                 <a href="#">Печать на футболках</a>
                 <a href="#">Нашивки</a>
                 <a href="#">Мерч / вышивка</a>
@@ -52,47 +85,56 @@
         </header>
 
         <main>
+<!--
             <div id="poster">
                 <h1>Заменить на видео таймлапс</h1>
             </div>
-
+-->
+            
+            <h2 id="title_calc">Расчёт стоимости</h2>
             <div id="calc_3d">
                 <!-- калькулятор -->
                 <div id="calc">
-                    <div>
-                        <button class="count btn" onclick="minus()">-</button>
-                        <input class="count" id="count" type="number" placeholder="кол-во" min="1" value="1">
-                        <button class="count btn" onclick="plus()">+</button>
-                    </div>
+                    <canvas id="canvas"></canvas>
+                    
+                    <div class="content">
+                        <div>
+                            <button class="count" onclick="minus()">-</button>
+                            <input class="count" id="count" type="number" placeholder="кол-во" min="1" value="1">
+                            <button class="count" onclick="plus()">+</button>
+                        </div>
 
-                    <div id="btn_cluster">
-                        <button class="model-btn btn" data-model="3d/hoodie.glb">Худи</button>
-                        <button class="model-btn btn" data-model="3d/tshirt.glb">Футболка</button>
-                        <button class="model-btn btn" data-model="3d/umbrella.glb">Зонт</button>
-                        <button class="model-btn btn" data-model="3d/cap.glb">Кепка</button>
-                        <button class="model-btn btn" data-model="3d/shopper.glb">Шоппер</button>
-                    </div>
+                        <div id="btn_cluster">
+                            <button class="model-btn btn" data-model="3d/hoodie.glb">Худи</button>
+                            <button class="model-btn btn" data-model="3d/tshirt.glb">Футболка</button>
+                            <button class="model-btn btn" data-model="3d/umbrella.glb">Зонт</button>
+                            <button class="model-btn btn" data-model="3d/cap.glb">Кепка</button>
+                            <button class="model-btn btn" data-model="3d/shopper.glb">Шоппер</button>
+                        </div>
 
-                    <div id="price"></div>
+                        <div id="price"></div>
+                        
+                        <div id="dizziness">
+                            <div id="task"></div>
+                            <h1>Нагрузка на производство - малая</h1>
+                            <hr>
+                            <div>
+                                <p>Наша текущая загруженность</p>
+                                <h1>71%</h1>
+                                <h1>Период - 1 Неделя</h1>
+                                <div id="display"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
+                
+                <button id="buy">[СВЯЖИСЬ С НАМИ]</button>
+                
                 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
-                <model-viewer src="3d/tshirt.glb" environment-image="" shadow-intensity="1" camera-orbit="100deg 90deg" camera-controls touch-action="pan-y" disable-zoom></model-viewer>
+                <model-viewer id="wireframe-demo" src="3d/tshirt.glb" shadow-intensity="0" camera-orbit="100deg 90deg" camera-controls touch-action="pan-y" disable-zoom></model-viewer>
 
                 <!-- переключение 3D моделей в калькуляторе -->
-                <script src="script/model.js"></script>
-            </div>
-            
-            <div id="dizziness">
-                <div id="task"></div>
-                <h1>Нагрузка на производство - малая</h1>
-                <hr>
-                <div>
-                    <p>Наша текущая загруженность</p>
-                    <h1>71%</h1>
-                    <h1>Период - 1 Неделя</h1>
-                    <div id="display"></div>
-                </div>
+<!--                <script src="script/model.js"></script>-->
             </div>
 
             <!-- наши клиенты -->
@@ -161,7 +203,7 @@
             </symbol>
 
             <!-- КФУ -->
-            <symbol id="KFU" viewBox="0 0 103 123.4" fill="red">
+            <symbol id="KFU" viewBox="0 0 103 123.4">
                 <path d="M1.3,0h100.4h1.2h0.1v0.1v1.2v78.9v0.4l0,0l0,0v0.1l0,0v0.2l0,0v0.5v0.1l0,0c-0.2,4.8-1.6,9.7-4.1,14.4
                     c-2.6,4.8-6.3,9.4-10.8,13.4c-4.8,4.2-10.5,7.8-16.8,10.3c-5.9,2.3-12.3,3.7-19,3.8h-0.7l0,0c-6.7,0-13-1.2-18.9-3.3
                     c-6.2-2.3-11.9-5.5-16.7-9.5s-8.7-8.7-11.5-13.7C1.8,92,0.2,86.8,0,81.6l0,0v-0.1v-1.1v-0.1V1.4V0.2V0.1h0.1L1.3,0L1.3,0z
@@ -218,16 +260,16 @@
                     <g transform="matrix(1.794442,0,0,1.794442,-83.687018,-1135.578)" id="g2918">
                         <g id="g2862">
                             <g clip-path="url(#clipPath2866)" id="g2864">
-                                <path d="m 70.171,674.268 c 2.993,-7.595 -1.887,-12.47 -6.748,-17.353 -4.524,-4.989 -8.509,-10.175 -0.494,-19.508 -2.994,7.594 1.887,12.47 6.744,17.348 4.528,5 8.513,10.179 0.498,19.513" id="path2870" style="fill:#ef3d42;fill-opacity:1;fill-rule:nonzero;stroke:none" />
-                                <path d="m 62.929,683.981 c 2.998,-7.598 -1.88,-12.47 -6.745,-17.35 -4.523,-4.993 -8.507,-10.179 -0.489,-19.512 -2.996,7.6 1.884,12.471 6.744,17.351 4.526,4.994 8.506,10.178 0.49,19.511" id="path2872" style="fill:#00b274;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+                                <path d="m 70.171,674.268 c 2.993,-7.595 -1.887,-12.47 -6.748,-17.353 -4.524,-4.989 -8.509,-10.175 -0.494,-19.508 -2.994,7.594 1.887,12.47 6.744,17.348 4.528,5 8.513,10.179 0.498,19.513" id="path2870" style="fill-opacity:1;fill-rule:nonzero;stroke:none" />
+                                <path d="m 62.929,683.981 c 2.998,-7.598 -1.88,-12.47 -6.745,-17.35 -4.523,-4.993 -8.507,-10.179 -0.489,-19.512 -2.996,7.6 1.884,12.471 6.744,17.351 4.526,4.994 8.506,10.178 0.49,19.511" id="path2872" style="fill-opacity:1;fill-rule:nonzero;stroke:none" />
                             </g>
                         </g>
-                        <path d="m 185.928,653.902 0,-15.524 6.799,0 0,5.683 7.471,0 0,3.398 -7.471,0 0,3.045 14.82,0 0,-12.126 6.8,0 0,12.126 6.16,0 0,3.398 -34.579,0" id="path2874" style="fill:#00b274;fill-opacity:1;fill-rule:nonzero;stroke:none" />
-                        <path d="m 171.34,641.747 0,2.691 8.866,0 0,3.401 -8.866,0 0,2.665 11.388,0 0,3.398 -18.187,0 0,-15.524 18.327,0 0,3.369 -11.528,0" id="path2876" style="fill:#00b274;fill-opacity:1;fill-rule:nonzero;stroke:none" />
-                        <path d="m 99.629,653.902 -18.841,0 0,-3.398 6.021,0 0,-12.126 6.799,0 0,12.126 6.021,0 0,3.398" id="path2878" style="fill:#ef3d42;fill-opacity:1;fill-rule:nonzero;stroke:none" />
-                        <path d="m 104.777,644.26 3.146,6.009 3.011,-6.009 -6.157,0 z m 8.276,9.642 -7.288,0 -8.486,-15.524 4.419,0 1.395,2.665 9.529,0 1.391,-2.665 7.53,0 -8.49,15.524" id="path2880" style="fill:#ef3d42;fill-opacity:1;fill-rule:nonzero;stroke:none" />
-                        <path d="m 156.198,653.902 0,-7.761 -10.874,7.761 -5.277,0 0,-15.524 4.654,0 0,8.541 11.166,-8.541 4.984,0 0,15.524 -4.653,0" id="path2882" style="fill:#00b274;fill-opacity:1;fill-rule:nonzero;stroke:none" />
-                        <path d="m 137.737,653.902 -18.446,0 0,-3.398 6.02,0 0,-12.126 6.8,0 0,12.126 5.626,0 0,3.398" id="path2884" style="fill:#ef3d42;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+                        <path d="m 185.928,653.902 0,-15.524 6.799,0 0,5.683 7.471,0 0,3.398 -7.471,0 0,3.045 14.82,0 0,-12.126 6.8,0 0,12.126 6.16,0 0,3.398 -34.579,0" id="path2874" style="fill-opacity:1;fill-rule:nonzero;stroke:none" />
+                        <path d="m 171.34,641.747 0,2.691 8.866,0 0,3.401 -8.866,0 0,2.665 11.388,0 0,3.398 -18.187,0 0,-15.524 18.327,0 0,3.369 -11.528,0" id="path2876" style="fill-opacity:1;fill-rule:nonzero;stroke:none" />
+                        <path d="m 99.629,653.902 -18.841,0 0,-3.398 6.021,0 0,-12.126 6.799,0 0,12.126 6.021,0 0,3.398" id="path2878" style="fill-opacity:1;fill-rule:nonzero;stroke:none" />
+                        <path d="m 104.777,644.26 3.146,6.009 3.011,-6.009 -6.157,0 z m 8.276,9.642 -7.288,0 -8.486,-15.524 4.419,0 1.395,2.665 9.529,0 1.391,-2.665 7.53,0 -8.49,15.524" id="path2880" style="fill-opacity:1;fill-rule:nonzero;stroke:none" />
+                        <path d="m 156.198,653.902 0,-7.761 -10.874,7.761 -5.277,0 0,-15.524 4.654,0 0,8.541 11.166,-8.541 4.984,0 0,15.524 -4.653,0" id="path2882" style="fill-opacity:1;fill-rule:nonzero;stroke:none" />
+                        <path d="m 137.737,653.902 -18.446,0 0,-3.398 6.02,0 0,-12.126 6.8,0 0,12.126 5.626,0 0,3.398" id="path2884" style="fill-opacity:1;fill-rule:nonzero;stroke:none" />
                     </g>
                 </g>
             </symbol>
@@ -235,20 +277,56 @@
     </div>
 </body>
 
+<script>
+    
+const modelViewer = document.querySelector('#wireframe-demo');
+
+modelViewer.addEventListener('load', () => {
+  // Получаем доступ к сцене Three.js
+  const symbols = Object.getOwnPropertySymbols(modelViewer);
+  const sceneSymbol = symbols.find(s => s.description === 'scene');
+  const scene = modelViewer[sceneSymbol];
+
+  scene.traverse((obj) => {
+    if (obj.isMesh) {
+      // 1. Отключаем основную текстуру
+      obj.material.map = null; 
+      
+      // 2. Включаем режим сетки
+      obj.material.wireframe = true;
+      
+      // 3. Красим ребра сетки
+      obj.material.color.set('#00ff00'); // Ярко-зеленый
+      
+      obj.material.needsUpdate = true;
+    }
+  });
+});
+
+    
+</script>
+
 <!-- favicon -->
 <!--<script type="text/javascript" src="script/favicon.js" defer></script>-->
 
+<!-- анимация -->
+<script src="script/animation.js"></script>
+
 <!-- калькулятор -->
-<script type="text/javascript" src="script/calc.js" defer></script>
+<script src="script/calc.js"></script>
 
 <!-- загрузка типографии -->
-<script type="text/javascript" src="script/dizziness.js" defer></script>
+<script src="script/dizziness.js"></script>
 
 <!-- нам доверяют -->
-<script type="text/javascript" src="script/clients.js" defer></script>
+<script src="script/clients.js"></script>
 
 <!-- воппрос / ответ -->
-<script type="text/javascript" src="script/questionAnswer.js"></script>
+<script src="script/questionAnswer.js"></script>
 
 <!-- footer -->
-<script type="text/javascript" src="script/footer.js" defer></script></html>
+<script src="script/footer.js"></script>
+
+<!-- фон сеткой -->
+<script src="script/net.js"></script>
+</html>

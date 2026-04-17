@@ -22,4 +22,13 @@ function hexToRgb(hex) {
     const b = parseInt(hex.slice(5, 7), 16) / 255;
     const a = 1; // непрозрачность (alpha) [0 - 1]
     return [r, g, b, a];
+};
+
+function setColor(color) {
+    // загрузилась модель?
+    if (!modelViewer.model) return;
+
+    modelViewer.model.materials.forEach((material[0]) => {
+        material.pbrMetallicRoughness.setBaseColorFactor(color);
+    });
 }

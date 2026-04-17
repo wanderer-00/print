@@ -1,22 +1,15 @@
-/*@import "normalize.css";*/
-
 #clients {
     display: grid;
     place-items: center;
-    min-height: 100vh;
     overflow: hidden;
     position: relative;
-    background: hsl(0 0% 2%);
+    background: var(--dark-bg);
 }
 
 #clients::before {
     --line: hsl(0 0% 95% / 0.25);
     --size: 60px;
     content: "";
-/*
-    height: 100vh;
-    width: 100vw;
-*/
     position: fixed;
     background: linear-gradient(90deg,
             var(--line) 1px,
@@ -24,7 +17,7 @@
         linear-gradient(var(--line) 1px, transparent 1px var(--size)) 0 -5vmin / var(--size) var(--size);
     mask: linear-gradient(-15deg, transparent 60%, white);
     top: 0;
-/*    z-index: -1;*/
+    z-index: -1;
 }
 
 #wrapper-slider-logo {
@@ -118,7 +111,7 @@
             place-items: center;
 
             & svg {
-                fill: white;
+                fill: var(--main-color);
                 height: 65%;
             }
         }
