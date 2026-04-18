@@ -10,9 +10,12 @@ colorPicker.addEventListener('input', (event) => {
     modelViewer.model.materials.forEach((material) => {
         material.pbrMetallicRoughness.setBaseColorFactor(color);
     });
-
+    
+    // кол-во знаков после запятой
+    const f = 2;
+    
     const baseColor_div = document.getElementById('baseColor');
-    baseColor_div.innerHTML = `rgba: ( ${color[0].toFixed(1)}, ${color[1].toFixed(1)}, ${color[2].toFixed(1)}, ${color[3].toFixed(1)})`;
+    baseColor_div.innerHTML = `rgba: (${color[0].toFixed(f)}, ${color[1].toFixed(f)}, ${color[2].toFixed(f)}, ${color[3].toFixed(f)})`;
 });
 
 // Функция для перевода HEX в формат 0-1
@@ -28,7 +31,27 @@ function setColor(color) {
     // загрузилась модель?
     if (!modelViewer.model) return;
 
-    modelViewer.model.materials.forEach((material[0]) => {
+    modelViewer.model.materials.forEach((material) => {
         material.pbrMetallicRoughness.setBaseColorFactor(color);
+    });
+    
+    // Получаем доступ к сцене Three.js
+    const symbols = Object.getOwnPropertySymbols(modelViewer);
+    const sceneSymbol = symbols.find(s => s.description === 'scene');
+    const scene = modelViewer[sceneSymbol];
+
+    scene.traverse((obj) => {
+        if (obj.isMesh) {
+            // 1. Отключаем основную текстуру
+            obj.material.map = null;
+
+            // 2. Включаем режим сетки
+            obj.material.wireframe = true;
+
+            // 3. Красим ребра сетки
+            obj.material.color.set('white'); // Ярко-зеленый
+
+            obj.material.needsUpdate = true;
+        }
     });
 }

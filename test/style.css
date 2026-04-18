@@ -165,3 +165,12 @@ input[type="range"]::-moz-range-track {
     height: 4px;
     background: #ddd;
 }
+
+@media (orientation: portrait) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows:
+            auto
+            1fr;
+    }
+}

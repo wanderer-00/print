@@ -1,13 +1,14 @@
-const materialsList = document.getElementById('materialsList');
-for (m=0; m<materialData.length; m++) {
-    if (m==0) {
-        materialsList.innerHTML += `<button class="active">${materialData[m]}</button>`
-    } else {
-        materialsList.innerHTML += `<button>${materialData[m]}</button>`
-    }
+if ( document.getElementById('materialsList') ){
+    const materialsList = document.getElementById('materialsList');
+
+    for (m=0; m<materialData.length; m++) {
+        if (m==0) {
+            materialsList.innerHTML += `<button class="active">${materialData[m]}</button>`
+        } else {
+            materialsList.innerHTML += `<button>${materialData[m]}</button>`
+        }
+    };
 };
-
-
 
 
 let modelViewer = document.getElementsByTagName('model-viewer')[0];
@@ -62,9 +63,8 @@ modelViewer.addEventListener('load', () => {
         const color = material.pbrMetallicRoughness.baseColorFactor;
         console.log(`Цвет:`, color);
         
-        // baseColor
         const baseColor_div = document.getElementById('baseColor');
-        baseColor_div.innerHTML = `rgba: ( ${color[0].toFixed(1)}, ${color[1].toFixed(1)}, ${color[2].toFixed(1)}, ${color[3].toFixed(1)})`;
+        baseColor_div.innerHTML = `rgba: (${color[0].toFixed(2)}, ${color[1].toFixed(2)}, ${color[2].toFixed(2)}, ${color[3].toFixed(2)})`;
         
         // Достаем значение metallicFactor
         const metallic_div = document.getElementById('metallic');

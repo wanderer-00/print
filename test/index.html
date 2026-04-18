@@ -29,9 +29,9 @@
         <div id="triangle">
             Полигонов <b>?</b>
         </div>
-        
+
         <!-- список материалов -->
-        <div id="materialsList"></div>
+<!--        <div id="materialsList"></div>-->
 
     </header>
     <main>
@@ -58,62 +58,28 @@
 
             <!--  -->
             <div id="colors">
-                <button onclick="setColor([1,0,0,1])">красный</button>
+                <button onclick="setColor([1,0,0,1])">Frame</button>
             </div>
-            
+
             <!-- Цвет и интенсивность собственного свечения материала (для светящихся элементов) -->
             <div id="emission"></div>
-            
+
             <div class="controls">
                 <!-- baseColor -->
                 <label for="color-picker">Цвет модели:</label>
-                <input type="color" id="color-picker" value="#ffffff">
+                <input type="color" id="color-picker" value="#FF0000">
             </div>
         </div>
-        
+
         <!-- скрипт -->
         <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
-        
-        <model-viewer
-        src="../3d/tshirt.glb"
-        shadow-intensity="1"
-        camera-orbit="100deg 90deg"
-        camera-controls
-        touch-action="pan-y"
-        disable-zoom
-        lighting-color="#FFFFFF"
-        intensity="1"
-        ></model-viewer>
+
+        <model-viewer id="#wireframe-demo" src="../3d/shopper.glb" camera-orbit="100deg 90deg" camera-controls touch-action="pan-y" lighting-color="#FFFFFF" intensity="1"></model-viewer>
 
     </main>
     <footer></footer>
 </body>
 
-<script>
-    const modelViewer = document.querySelector('#wireframe-demo');
-
-    modelViewer.addEventListener('load', () => {
-      // Получаем доступ к сцене Three.js
-      const symbols = Object.getOwnPropertySymbols(modelViewer);
-      const sceneSymbol = symbols.find(s => s.description === 'scene');
-      const scene = modelViewer[sceneSymbol];
-
-      scene.traverse((obj) => {
-        if (obj.isMesh) {
-          // 1. Отключаем основную текстуру
-          obj.material.map = null; 
-
-          // 2. Включаем режим сетки
-          obj.material.wireframe = true;
-
-          // 3. Красим ребра сетки
-          obj.material.color.set('white'); // Ярко-зеленый
-
-          obj.material.needsUpdate = true;
-        }
-      });
-    });
-</script>
 
 <!-- FPS -->
 <script src="script/fps.js"></script>
@@ -130,6 +96,4 @@
 <script src="script/baseColor.js"></script>
 
 <!-- вес файла -->
-<script src="script/size.js"></script>
-
-</html>
+<script src="script/size.js"></script></html>
