@@ -1,0 +1,78 @@
+#collage {
+	width: 100%;
+/*	background-color: aqua;*/
+	aspect-ratio: 16/9;
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-rows: repeat(4, 1fr);
+	grid-template-columns: repeat(8, 1fr);
+	grid-template-areas:
+		"g1 g1 g1 g3 g3 g6 g6 g6"
+		"g1 g1 g1 g3 g3 g2 g2 g2"
+		"g1 g1 g1 g5 g5 g2 g2 g2"
+		"g4 g4 g4 g7 g7 g2 g2 g2";
+}
+
+#collage > * {
+	background-color: var(--main-color);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#collage > :nth-child(1) {
+	grid-area: g1;
+	background-image: url(../img/sample/hoodie.png);
+}
+
+#collage > :nth-child(2) {
+	grid-area: g2;
+	background-image: url(../img/sample/tshirt.png);
+}
+
+#collage > :nth-child(3) {
+	grid-area: g3;
+	background-image: url(../img/sample/panama.png);
+}
+
+#collage > :nth-child(4) {
+	grid-area: g4;
+	background-image: url('../img/sample/remuvka.png');
+	background-size: 90%;
+}
+
+#collage > *:nth-child(5) {
+	grid-area: g5;
+	background-image: url(../img/sample/noski.png);
+}
+
+#collage > *:nth-child(6) {
+	grid-area: g6;
+	background-image: url(../img/sample/path.jpg);
+	background-size: 90%;
+}
+
+#collage > *:nth-child(7) {
+	grid-area: g7;
+	background-image: url(../img/sample/bag.png);
+}
+
+#collage > *:nth-child(8) {
+	grid-area: g8;
+	background-image: url();
+}
+
+@media (orientation: portrait) {
+	#collage {
+		aspect-ratio: 9/12;
+		grid-template-rows: repeat(6, 1fr);
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-areas:
+			"g1 g1 g1 g3 g3"
+			"g1 g1 g1 g3 g3"
+			"g1 g1 g1 g7 g7"
+			"g6 g6 g4 g4 g4"
+			"g5 g5 g5 g2 g2"
+			"g5 g5 g5 g2 g2";
+	}
+}

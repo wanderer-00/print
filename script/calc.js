@@ -17,6 +17,7 @@ function updatePrice() {
     price.innerHTML = formatter.format(summ);
 };
 
+// максимальный count
 const max = 5000;
 
 const inputCount = document.getElementById('count');
