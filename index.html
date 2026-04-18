@@ -26,7 +26,7 @@
     <title>Главная</title>
     
     <!-- poster -->
-    <link rel="preload" as="image" href="img/poster.jpg" fetchpriority="high">
+<!--    <link rel="preload" as="image" href="img/poster.jpg" fetchpriority="high">-->
     <!-- главные стили -->
     <link rel="stylesheet" href="css/main.css">
     <!-- нам доверяют -->
@@ -100,16 +100,16 @@
                     <div class="content">
                         <div>
                             <button class="count" onclick="minus()">-</button>
-                            <input class="count" id="count" type="number" placeholder="кол-во" min="1" value="1">
+                            <input class="count" id="count" type="number" placeholder="кол-во" min="1" max="3" value="1">
                             <button class="count" onclick="plus()">+</button>
                         </div>
 
                         <div id="btn_cluster">
-                            <button class="model-btn btn" data-model="3d/hoodie.glb">Худи</button>
-                            <button class="model-btn btn" data-model="3d/tshirt.glb">Футболка</button>
-                            <button class="model-btn btn" data-model="3d/umbrella.glb">Зонт</button>
-                            <button class="model-btn btn" data-model="3d/cap.glb">Кепка</button>
-                            <button class="model-btn btn" data-model="3d/shopper.glb">Шоппер</button>
+                            <button class="model-btn btn" data-model="hoodie">Худи</button>
+                            <button class="model-btn btn" data-model="tshirt">Футболка</button>
+                            <button class="model-btn btn" data-model="umbrella">Зонт</button>
+                            <button class="model-btn btn" data-model="cap">Кепка</button>
+                            <button class="model-btn btn" data-model="shopper">Шоппер</button>
                         </div>
 
                         <div id="price"></div>
@@ -128,8 +128,15 @@
                 
                 <button id="buy">[СВЯЖИСЬ С НАМИ]</button>
                 
-                <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
-                <model-viewer id="wireframe-demo" src="3d/tshirt.glb" shadow-intensity="0" camera-orbit="100deg 90deg" camera-controls touch-action="pan-y" disable-zoom></model-viewer>
+				<!--  -->
+                <script type="module" src="script/model-viewer.min.js"></script>
+                
+				<model-viewer
+					id="wireframe-demo"
+					src="3d/hoodie.glb"
+					camera-controls
+					disable-zoom
+                ></model-viewer>
 
                 <!-- переключение 3D моделей в калькуляторе -->
                 <script src="script/model.js"></script>
@@ -274,9 +281,6 @@
         </svg>
     </div>
 </body>
-
-<!-- favicon -->
-<script type="text/javascript" src="script/favicon.js" defer></script>
 
 <!-- анимация -->
 <script src="script/animation.js"></script>

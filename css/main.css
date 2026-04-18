@@ -100,10 +100,9 @@ p {
 body {
     color: var(--text-color);
     background-color: var(--bg-color);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: sans-serif, monospace;
     min-height: 100vh;
     margin: 0;
-    font-size: 0.2rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
