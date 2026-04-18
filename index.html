@@ -24,11 +24,11 @@
 
     <!-- текст в вкладке браузера -->
     <title>Главная</title>
-    
-    <!-- poster -->
-<!--    <link rel="preload" as="image" href="img/poster.jpg" fetchpriority="high">-->
+
     <!-- главные стили -->
     <link rel="stylesheet" href="css/main.css">
+    <!-- header -->
+    <link rel="stylesheet" href="css/header.css">
     <!-- нам доверяют -->
     <link rel="stylesheet" href="css/clients.css" media="print" onload="this.media='all'">
     <!-- фон сеткой -->
@@ -75,15 +75,24 @@
                     <use xlink:href="#logo"></use>
                 </svg>
             </a>
+            
+			<!-- Иконка бургера -->
+			<button class="burger" id="burger" aria-label="кнопка навигации по сайту, друг. Если есть желание помочь с навигацией по сайту для слепых, напиши на мою почту scp742@gmail.com твой вклад будет полезен. я бы поговорил с тобой по телефону">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
 
-            <nav>
-                <a href="#title_calc">Расчитать стоимость</a>
-                <a href="#">Печать на футболках</a>
-                <a href="#">Нашивки</a>
-                <a href="#">Мерч / вышивка</a>
-                <a href="test/index.html">тест 1</a>
-                <a href="test/test2/index.html">тест 2</a>
-            </nav>
+			<nav>
+				<ul>
+					<li><a href="#title_calc">Расчитать стоимость</a></li>
+					<li><a href="#">Печать на футболках</a></li>
+					<li><a href="#">Нашивки</a></li>
+					<li><a href="#">Мерч / вышивка</a></li>
+					<li><a href="test/index.html">тест 1</a></li>
+					<li><a href="test/test2/index.html">тест 2</a></li>
+				</ul>
+			</nav>
         </header>
 
         <main>
@@ -296,6 +305,9 @@
         </svg>
     </div>
 </body>
+
+<!-- бургер-меню -->
+<script src="script/burger.js"></script>
 
 <!-- анимация -->
 <script src="script/animation.js"></script>

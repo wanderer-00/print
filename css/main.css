@@ -141,44 +141,7 @@ body {
     /* Стандартное свойство */
 }
 
-header {
-    height: 100vh;
-    
-    position: fixed;
-    grid-area: H;
-    display: grid;
-    grid-gap: 6rem;
-    grid-template-columns: 100%;
-    grid-template-rows: 300px auto 1fr;
-}
 
-header > a {
-    height: 80px;
-}
-
-header svg {
-    width: 80px;
-    height: 80px;
-    fill: var(--text-color);
-}
-
-header > nav {
-    padding: 1rem;
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-rows: repeat(4, auto) 1fr;
-}
-
-header > nav > a {
-    color: var(--text-color);
-    white-space: nowrap;
-    padding: 10px 8px;
-    border-radius: 4px;
-    
-    &:hover {
-        background-color: var(--a-bg);
-    }
-}
 
 #poster {
     aspect-ratio: 2/1;
@@ -462,20 +425,6 @@ footer svg {
             "F";
     }
 
-    header {
-        display: block;
-        position: relative;
-        height: auto;
-    }
-    
-    header > a {
-        margin: auto;
-    }
-    
-    header > nav {
-        display: flex;
-        flex-wrap: wrap;
-    }
     #calc_3d {
         grid-template-columns: 1fr;
         /* с - calc (калькулятор) */

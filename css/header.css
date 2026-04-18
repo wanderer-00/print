@@ -1,0 +1,100 @@
+:root {
+	/* burger-stroke-width */
+	--b-s-w: 8px;
+	/* burger-size */
+	--b-s: 60px;
+	/* первичный расчёт */
+	--r: calc( var(--b-s) / 2 - var(--b-s-w) / 2);
+}
+
+header {
+	height: 100vh;
+	position: fixed;
+	grid-area: H;
+	display: grid;
+	grid-gap: 6rem;
+	grid-template-columns: 100%;
+	grid-template-rows: 300px auto 1fr;
+}
+
+header > a {
+	height: 80px;
+}
+
+header svg {
+	width: 80px;
+	height: 80px;
+	fill: var(--text-color);
+}
+
+header > nav {
+	padding: 1rem;
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-rows: repeat(4, auto) 1fr;
+}
+
+/* Базовые стили бургера */
+.burger {
+	margin: auto;
+	width: var(--b-s);
+	height: var(--b-s);
+	display: none;
+	flex-direction: column;
+	justify-content: space-between;
+	cursor: pointer;
+	padding: 0;
+	position: relative;
+	z-index: 10;
+}
+
+.burger span {
+	display: block;
+	width: 100%;
+	height: var(--b-s-w);
+	background-color: var(--main-color);
+	transition: all 0.3s ease-in-out;
+}
+
+/* Состояние "крестик" при наличии класса .active */
+.burger.active span:nth-child(1) {
+	transform: translateY( var(--r) ) rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+	opacity: 0;
+	transform: translateX( calc( var(--b-s) * -1 ));
+}
+
+.burger.active span:nth-child(3) {
+	transform: translateY( calc( var(--r) * -1 ) ) rotate(-45deg);
+}
+
+
+header > nav > a {
+	color: var(--text-color);
+	white-space: nowrap;
+	padding: 10px 8px;
+	border-radius: 4px;
+
+	&:hover {
+		background-color: var(--a-bg);
+	}
+}
+
+@media (orientation: portrait) {
+	header {
+		display: grid;
+		grid-gap: 2rem;
+		grid-template-columns: 1fr auto;
+		grid-template-rows: auto;
+		position: relative;
+		height: auto;
+	}
+
+	header > a { margin: auto }
+
+	header > nav { display: none }
+
+	.burger { display: flex }
+}
