@@ -103,6 +103,7 @@ body {
     font-family: 'JetBrains Mono', monospace;
     min-height: 100vh;
     margin: 0;
+    font-size: 0.2rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

@@ -3,8 +3,8 @@ const ctx = canvas.getContext('2d');
 const parent = canvas.parentElement; // Берем родительский блок
 
 let particles = [];
-const connectionDistance = 70; // Дистанция, при которой появляется линия
-const particleCount = 30; // Количество шариков
+const connectionDistance = 100; // Дистанция, при которой появляется линия
+const particleCount = 50; // Количество шариков
 
 // Подгоняем размер под окно
 function resize() {
