@@ -49,7 +49,7 @@
 #collage > *:nth-child(6) {
 	grid-area: g6;
 	background-image: url(../img/sample/path.jpg);
-	background-size: 90%;
+	background-size: 60%;
 }
 
 #collage > *:nth-child(7) {

@@ -95,8 +95,31 @@
 
         <main>
 <!--
+            <div id="postervideo">
+                <video src="" loop autoplay muted></video>
+            </div>
+-->
+            
+            <div class="video-container">
+                <video loop autoplay muted id="myVideo">
+                    <source src="video/poster.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+
+                <div class="content1">
+                    <h1 style="font-size: 10rem">NAME COMPANY</h1>
+                </div>
+            </div>
+            
+            <div style="width: 100%; height: 100vh;"></div>
+
+            
+<!--
             <div id="poster">
-                <h1>Заменить на видео таймлапс</h1>
+                <div>
+                    <h1>GELIUS PRINT</h1>
+                    <video src="video/poster.mp4"></video>
+                </div>
             </div>
 -->
             
@@ -106,6 +129,7 @@
                 <div id="calc">
                     <canvas id="canvas"></canvas>
                     
+<!--
                     <div class="content">
                         <div>
                             <button class="count" onclick="minus()"><svg><use xlink:href="#mns"></use></svg></button>
@@ -120,12 +144,10 @@
                             <button class="model-btn btn" data-model="tshirt">ФУТБОЛКА</button>
                             <button class="model-btn btn" data-model="umbrella">ЗОНТ</button>
                             <button class="model-btn btn" data-model="cap">КЕПКА</button>
-<!--                            <button class="model-btn btn" data-model="shopper">Шоппер</button>-->
                         </div>
 
                         <div id="price"></div>
                         
-<!--
                         <div id="dizziness">
                             <div id="task"></div>
                             <hr>
@@ -135,8 +157,20 @@
                                 <div id="display"></div>
                             </div>
                         </div>
--->
                     </div>
+-->
+                    
+                    <div class="content"></div>
+                    
+                    <div id="cluster"></div>
+                    
+<!--
+                        <div id="btn_cluster">
+
+                        </div>
+-->
+
+                        <div id="price"></div>
                 </div>
                 
                 <button id="buy">[СВЯЖИСЬ С НАМИ]</button>
@@ -146,7 +180,7 @@
                 
 				<model-viewer
 					id="wireframe-demo"
-					src="3d/hoodie.glb"
+					src="3d/tshirt.glb"
 					camera-controls
 					disable-zoom
                 ></model-viewer>
@@ -321,7 +355,10 @@
 <script src="script/animation.js"></script>
 
 <!-- калькулятор -->
-<script src="script/calc.js"></script>
+<!--<script src="script/calc.js"></script>-->
+
+<!-- калькулятор -->
+<script src="script/cluster.js"></script>
 
 <!-- загрузка типографии -->
 <!--<script src="script/dizziness.js"></script>-->
