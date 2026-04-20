@@ -71,9 +71,7 @@
 
         <header class="no-select">
             <a href="#" aria-label="На главную страницу">
-                <svg>
-                    <use xlink:href="#logo"></use>
-                </svg>
+                <svg><use xlink:href="#logo"></use></svg>
             </a>
             
 			<!-- Иконка бургера -->
@@ -110,16 +108,18 @@
                     
                     <div class="content">
                         <div>
-                            <button class="count" onclick="minus()">-</button>
-                            <input class="count" id="count" type="number" placeholder="кол-во" min="1" max="3" value="1">
-                            <button class="count" onclick="plus()">+</button>
+                            <button class="count" onclick="minus()"><svg><use xlink:href="#mns"></use></svg></button>
+                            
+                            <input class="count" id="count" type="number" placeholder="? ?" min="1" max="3" value="1">
+                            
+                            <button class="count" onclick="plus()"><svg><use xlink:href="#pls"></use></svg></button>
                         </div>
 
                         <div id="btn_cluster">
-                            <button class="model-btn btn" data-model="hoodie">Худи</button>
-                            <button class="model-btn btn" data-model="tshirt">Футболка</button>
-                            <button class="model-btn btn" data-model="umbrella">Зонт</button>
-                            <button class="model-btn btn" data-model="cap">Кепка</button>
+                            <button class="model-btn btn" data-model="hoodie">ХУДИ</button>
+                            <button class="model-btn btn" data-model="tshirt">ФУТБОЛКА</button>
+                            <button class="model-btn btn" data-model="umbrella">ЗОНТ</button>
+                            <button class="model-btn btn" data-model="cap">КЕПКА</button>
 <!--                            <button class="model-btn btn" data-model="shopper">Шоппер</button>-->
                         </div>
 
@@ -302,6 +302,14 @@
                     </g>
                 </g>
             </symbol>
+            
+            <symbol id="mns" viewBox="0 0 24 24">
+				<line x1="5" y1="12" x2="19" y2="12"></line>
+            </symbol>
+            <symbol id="pls" viewBox="0 0 24 24">
+				<line x1="12" y1="5" x2="12" y2="19"></line>
+				<line x1="5" y1="12" x2="19" y2="12"></line>
+            </symbol>
         </svg>
     </div>
 </body>
@@ -316,7 +324,7 @@
 <script src="script/calc.js"></script>
 
 <!-- загрузка типографии -->
-<script src="script/dizziness.js"></script>
+<!--<script src="script/dizziness.js"></script>-->
 
 <!-- нам доверяют -->
 <script src="script/clients.js"></script>

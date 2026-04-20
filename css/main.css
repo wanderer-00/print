@@ -1,466 +1,550 @@
 :root {
-    /* цвет фона */
-    --bg-color: oklch(13.5900% 0.0648 343.4124);
-    /* цвет текста */
-    --text-color: oklch(59.1300% 0.0761 338.9500);
-    /* акцентный цвет */
-    --main-color: oklch(67.7000% 0.2678 30.3917);
-    /* цвет границ */
-    --border-color: rgba(46, 21, 36, 1);
-    --a-bg: #301426;
-    --dark-bg: #18000F;
-    
-    /* сеть */
-    --cell: 100px;
-    --bg: #020305;
+	/* цвет фона */
+	--bg-color: oklch(13.5900% 0.0648 343.4124);
+	/* цвет текста */
+	--text-color: oklch(59.1300% 0.0761 338.9500);
+	/* акцентный цвет */
+	--main-color: oklch(67.7000% 0.2678 30.3917);
+	/* цвет границ */
+	--border-color: rgba(46, 21, 36, 1);
+	--a-bg: #301426;
+	--dark-bg: #18000F;
+
+	/* сеть */
+	--cell: 100px;
+	--bg: #020305;
 }
 
 /* стили, применимые ко всем элементам страницы */
 *,
 *:after,
 *:before {
-    box-sizing: border-box;
-/*    border: 1px solid blue*/
+	box-sizing: border-box;
+	/*    border: 1px solid blue*/
 }
 
-::-webkit-scrollbar {width: 10px}
+::-webkit-scrollbar {
+	width: 10px
+}
+
 /* трек */
-::-webkit-scrollbar-track {background: transparent}
+::-webkit-scrollbar-track {
+	background: transparent
+}
+
 /* ползунок */
-::-webkit-scrollbar-thumb {background: var(--text-color)}
-::-webkit-scrollbar-thumb:hover {background: var(--main-color)}
+::-webkit-scrollbar-thumb {
+	background: var(--text-color)
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--main-color)
+}
 
 /* кастомизация выделения текста */
 ::selection {
-    color: var(--dark-bg);
-    background: var(--main-color);
+	color: var(--dark-bg);
+	background: var(--main-color);
 }
 
 /* Обычное начертание */
 @font-face {
-    font-family: 'JetBrains Mono';
-    src: url('../fonts/JetBrainsMono-Regular.ttf') format('ttf');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap; /* Шрифт появится сразу после загрузки, не блокируя текст */
+	font-family: 'JetBrains Mono';
+	src: url('../fonts/JetBrainsMono-Regular.ttf') format('ttf');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	/* Шрифт появится сразу после загрузки, не блокируя текст */
 }
 
 /* Жирное начертание */
 @font-face {
-    font-family: 'JetBrains Mono';
-    src: url('../fonts/JetBrainsMono-Bold.ttf') format('ttf');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'JetBrains Mono';
+	src: url('../fonts/JetBrainsMono-Bold.ttf') format('ttf');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
 }
 
 /* плавный scroll к якорю */
 html {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 a {
-    text-decoration: none;
-    color: var(--main-color);
+	text-decoration: none;
+	color: var(--main-color);
 }
 
 /* обнуление стилей */
 button {
-    padding: 0;
-    margin: 0;
-    border: none;
-    border-radius: 0;
-    background: none;
-    color: inherit;
-    font: inherit;
-    cursor: pointer;
-    /* Убирает системные стили браузера (iOS/Safari) */
-    appearance: none;
-    /* Убирает контур при фокусе (но лучше настроить свой :focus!) */
-    outline: none;
+	padding: 0;
+	margin: 0;
+	border: none;
+	border-radius: 0;
+	background: none;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+	/* Убирает системные стили браузера (iOS/Safari) */
+	appearance: none;
+	/* Убирает контур при фокусе (но лучше настроить свой :focus!) */
+	outline: none;
 }
 
-h1, h2 {
-    font-family: 'JetBrains Mono', system-ui, monospace;
-    font-weight: 800;          /* Используйте ExtraBold, если есть файл */
-    letter-spacing: -0.01em;   /* Сближаем буквы, чтобы убрать "дырки" */
-    line-height: 1.1;          /* Уменьшаем межстрочный интервал */
-    text-transform: uppercase; /* Опционально: моноширинные шрифты в капсе выглядят очень технологично */
+h1,
+h2 {
+	font-family: 'JetBrains Mono', system-ui, monospace;
+	font-weight: 800;
+	/* Используйте ExtraBold, если есть файл */
+	letter-spacing: -0.01em;
+	/* Сближаем буквы, чтобы убрать "дырки" */
+	line-height: 1.1;
+	/* Уменьшаем межстрочный интервал */
+	text-transform: uppercase;
+	/* Опционально: моноширинные шрифты в капсе выглядят очень технологично */
 }
 
 p {
-    font-family: 'JetBrains Mono', system-ui, monospace;
-    font-weight: 400;
-    font-size: 16px;
-    letter-spacing: -.04em;   /* Совсем легкое сужение для аккуратности */
-    line-height: 1.6;          /* Даем тексту "дышать", увеличивая интервал */
+	font-family: 'JetBrains Mono', system-ui, monospace;
+	font-weight: 400;
+	font-size: 16px;
+	letter-spacing: -.04em;
+	/* Совсем легкое сужение для аккуратности */
+	line-height: 1.6;
+	/* Даем тексту "дышать", увеличивая интервал */
 }
 
 
 body {
 	font-family: 'JetBrains Mono', system-ui, monospace;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    min-height: 100vh;
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+	color: var(--text-color);
+	background-color: var(--bg-color);
+	min-height: 100vh;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 /* ограничение размеров страницы */
 #pageLayout {
-    margin: 0 auto;
-    max-width: 1601px;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 300px minmax(0, 18fr) 100px;
-    grid-template-areas:
-        "H M"
-        "H F";
-    z-index: 2; /* Поверх канваса */
+	margin: 0 auto;
+	max-width: 1601px;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 300px minmax(0, 18fr) 100px;
+	grid-template-areas:
+		"H M"
+		"H F";
+	z-index: 2;
+	/* Поверх канваса */
 }
 
 .grid-overlay {
-    inset: 0;
-    background-color: var(--bg-color);
-    background-size: var(--cell) var(--cell);
-    background-repeat: repeat;
-    background-position: calc(var(--cell) / -2) calc(var(--cell) / -2);
+	inset: 0;
+	background-color: var(--bg-color);
+	background-size: var(--cell) var(--cell);
+	background-repeat: repeat;
+	background-position: calc(var(--cell) / -2) calc(var(--cell) / -2);
 }
 
 .no-select {
-    -webkit-touch-callout: none;
-    /* iOS Safari */
-    -webkit-user-select: none;
-    /* Chrome, Safari, Opera */
-    -moz-user-select: none;
-    /* Firefox */
-    -ms-user-select: none;
-    /* Internet Explorer/Edge */
-    user-select: none;
-    /* Стандартное свойство */
+	-webkit-touch-callout: none;
+	/* iOS Safari */
+	-webkit-user-select: none;
+	/* Chrome, Safari, Opera */
+	-moz-user-select: none;
+	/* Firefox */
+	-ms-user-select: none;
+	/* Internet Explorer/Edge */
+	user-select: none;
+	/* Стандартное свойство */
 }
 
 
 
 #poster {
-    aspect-ratio: 2/1;
-    position: relative;
-    background-image: url(../img/poster.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+	aspect-ratio: 2/1;
+	position: relative;
+	background-image: url(../img/poster.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 
 #poster > h1 {
-    color: #FFF;
-    top: 2rem;
-    left: 2rem;
-    position: absolute;
+	color: #FFF;
+	top: 2rem;
+	left: 2rem;
+	position: absolute;
 }
 
 main {
-    grid-area: M;
-    border-color: var(--border-color);
-    border-style: solid;
-    border-width: 0 1px;
+	grid-area: M;
+	border-color: var(--border-color);
+	border-style: solid;
+	border-width: 0 1px;
 }
 
 #calc_3d {
-    width: 100%;
-    display: grid;
-    grid-template-rows:
-        1fr
-        auto;
-    grid-template-columns: auto 1fr;
-    /* с - calc (калькулятор) */
-    /* v - viewer (поле просмотра) */
-    /* b - buy (купить) */
-    grid-template-areas:
-        "c v"
-        "b v";
-    background-color: var(--dark-bg);
-    border-color: var(--border-color);
-    border-style: solid;
-    border-width: 1px 0;
+	width: 100%;
+	display: grid;
+	grid-template-rows:
+		1fr auto;
+	grid-template-columns: auto 1fr;
+	/* с - calc (калькулятор) */
+	/* v - viewer (поле просмотра) */
+	/* b - buy (купить) */
+	grid-template-areas:
+		"c v"
+		"b v";
+	background-color: var(--dark-bg);
+	border-color: var(--border-color);
+	border-style: solid;
+	border-width: 1px 0;
 }
+
 #calc {
-    grid-area: c;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 2.5rem;
-    border-right: 1px solid var(--border-color);
+	grid-area: c;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 2.5rem;
+	border-right: 1px solid var(--border-color);
 }
 
 #calc canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1; /* На заднем плане */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	/* На заднем плане */
 }
 
 .content {
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-        "count price"
-        "cloth cloth";
-    position: relative;
-    z-index: 2;
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-rows: auto auto;
+	grid-template-columns: auto 1fr;
+	grid-template-areas:
+		"count price"
+		"cloth cloth";
+	position: relative;
+	z-index: 2;
+}
+
+.content > div:first-child {
+	display: grid;
+	grid-gap: 0rem;
+	grid-template-columns: auto 1fr;
+	grid-template-rows: repeat(2, 1fr);
 }
 
 /* кол-во */
 input.count::-webkit-outer-spin-button,
 input.count::-webkit-inner-spin-button {
-    /* удаление встроенных кнопок */
-    -webkit-appearance: none;
+	/* удаление встроенных кнопок */
+	-webkit-appearance: none;
 }
+
+input[type="number"]:focus { outline: none }
+/* Основной современный стандарт */
+input::placeholder {
+  color: var(--dark-bg);
+  opacity: 1; /* Нужно для Firefox, чтобы цвет был ярким */
+}
+
+/* Для старых версий Internet Explorer */
+input:-ms-input-placeholder { color: var(--dark-bg) }
+
+/* Для Microsoft Edge */
+input::-ms-input-placeholder { color: var(--dark-bg) }
+
+
 input.count {
-    color: var(--text-color);
-    width: 60px;
-    border: none;
-    padding: 4px;
-    text-align: center;
-    background-color: transparent;
-    border-bottom: 1px solid var(--border-color);
+	padding: 0 1rem;
+	grid-row: span 2;
+	text-align: center;
+	font-size: 5rem;
+	font-weight: bolder;
+	color: var(--dark-bg);
+	border: 1px solid var(--border-color);
+	background-color: var(--main-color);
 }
+
 button.count {
-    font-size: 1.4em;
+	border: 1px solid var(--border-color);
+	background-color: var(--main-color);
+	line-height: 0;
+
+	& > svg {
+		height: 50px;
+		aspect-ratio: 1/1;
+		stroke: var(--dark-bg);
+		stroke-width: 4px;
+	}
 }
+
+
 /* одежда */
 #btn_cluster {
-    grid-area: cloth;
-    display: flex;
-    grid-gap: 1rem;
-    flex-wrap: wrap;
+	grid-area: cloth;
+	display: flex;
+	grid-gap: 1rem;
+	flex-wrap: wrap;
 }
+
 /* цена */
 #price {
-    grid-area: price;
-    font-size: 2rem;
+	grid-area: price;
+	font-size: 2rem;
 }
 
 #calc_3d model-viewer {
-    grid-area: v;
-    width: 100%;
-    height: 100%;
+	grid-area: v;
+	width: 100%;
+	height: 100%;
 }
 
 #calc_3d > button {
-    grid-area: b;
-    color: var(--main-color);
-    padding: 28px;
-    font-size: 16px;
-    border-color: var(--border-color);
-    border-style: solid;
-    border-width: 1px 1px 0 0 ;
+	grid-area: b;
+	color: var(--main-color);
+	padding: 28px;
+	font-size: 16px;
+	border-color: var(--border-color);
+	border-style: solid;
+	border-width: 1px 1px 0 0;
 }
 
 
 #task {
-    display: flex;
-    grid-gap: 1rem;
+	display: flex;
+	grid-gap: 1rem;
 
-    & > div:last-child {
-        color: var(--main-color);
-    }
+	& > div:last-child {
+		color: var(--main-color);
+	}
 }
 
 .btn {
-    padding: 6px 8px;
-    color: black;
-    font-weight: bold;
-    background-color: var(--main-color);
-    border: 1px solid var(--border-color);
-    cursor: pointer;
+	padding: 6px 8px;
+	color: black;
+	font-weight: bold;
+	background-color: var(--main-color);
+	border: 1px solid var(--border-color);
+	cursor: pointer;
 }
 
 #display {
-    display: flex;
-    grid-gap: 2px;
-    height: 80px;
-    overflow: hidden;
-    border-radius: 4px;
+	display: flex;
+	grid-gap: 2px;
+	height: 80px;
+	overflow: hidden;
+	border-radius: 4px;
 }
 
 #display > div {
-    width: 14px;
-    height: 100%;
-    background-color: var(--text-color);
+	width: 14px;
+	height: 100%;
+	background-color: var(--text-color);
 }
 
 #display > .a {
-    background-color: var(--main-color)
+	background-color: var(--main-color)
 }
 
 #clients {
-    width: 100%;
-    height: 140px;
-    display: flex;
-    grid-gap: 2rem;
-    border-color: var(--border-color);
-    border-style: solid;
-    border-width: 1px 0;
+	width: 100%;
+	height: 140px;
+	display: flex;
+	grid-gap: 2rem;
+	border-color: var(--border-color);
+	border-style: solid;
+	border-width: 1px 0;
 }
 
 #clients svg {
-    height: 100%;
+	height: 100%;
 }
 
 h3 {
-    color: antiquewhite;
-    font-size: 1.2rem;
+	color: antiquewhite;
+	font-size: 1.2rem;
 }
 
 
 
 #questionAnswer {
-    font-size: 1rem;
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
+	font-size: 1rem;
+	display: flex;
+	gap: 0.5rem;
+	flex-wrap: wrap;
 }
+
 #questionAnswer > div {
-    width: 100%;
-    border-style: solid;
-    border-color: var(--border-color);
-    border-width: 1px 0;
-    background-color: var(--dark-bg);
+	width: 100%;
+	border-style: solid;
+	border-color: var(--border-color);
+	border-width: 1px 0;
+	background-color: var(--dark-bg);
 }
+
 #questionAnswer button {
-    color: var(--main-color);
-    width: 100%;
-    padding: 12px 16px;
-    text-align: left;
+	color: var(--main-color);
+	width: 100%;
+	padding: 12px 16px;
+	text-align: left;
 }
-#questionAnswer  div.answer {
-    height: 0;
-    overflow: hidden;
+
+#questionAnswer div.answer {
+	overflow: hidden;
 }
+
 #questionAnswer p {
-    color: antiquewhite;
-    margin: 0;
-    padding: 0 16px 16px 16px;
+	color: antiquewhite;
+	margin: 0;
+	padding: 0 16px 16px 16px;
 }
-#questionAnswer h4 {
-    margin: 0;
+
+#questionAnswer .question button {
+	display: grid;
+	grid-template-columns: 1fr auto;
+
+	& svg {
+		height: 100%;
+		stroke: var(--text-color);
+		stroke-width: 2px;
+	}
+}
+
+.answer {
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	transition: all 0.4s ease;
+	/* Скорость анимации */
+}
+
+/* Класс, который будет добавлять JavaScript */
+.answer.is-open {
+	max-height: 500px;
+	/* Достаточная высота для контента */
+	opacity: 1;
+	/* Возвращаем вертикальные отступы */
 }
 
 
 
 footer {
-    grid-area: F;
-    padding: 1rem 0;
-    display: grid;
-    grid-gap: 0 4rem;
-    grid-template-areas:
-        "about contact"
-        "copyright powered";
-    grid-template-columns: 1fr auto;
-    border-color: var(--border-color);
-    border-style: solid;
-    border-width: 0 1px;
-    background-color: var(--dark-bg)
+	grid-area: F;
+	padding: 1rem 0;
+	display: grid;
+	grid-gap: 0 4rem;
+	grid-template-areas:
+		"about contact"
+		"copyright powered";
+	grid-template-columns: 1fr auto;
+	border-color: var(--border-color);
+	border-style: solid;
+	border-width: 0 1px;
+	background-color: var(--dark-bg)
 }
 
 footer > div:nth-child(1) {
-    grid-area: about;
-    text-align: justify;
+	grid-area: about;
 }
 
 footer > div:nth-child(2) {
-    grid-area: contact
+	grid-area: contact
 }
 
 footer > div:nth-child(3) {
-    grid-area: copyright
+	grid-area: copyright
 }
 
 footer > div:nth-child(4) {
-    grid-area: powered
+	grid-area: powered
 }
 
 footer div:nth-child(2),
 footer div:nth-child(4) {
-    white-space: nowrap;
-    text-align: right;
+	white-space: nowrap;
+	text-align: right;
 }
 
 footer ul {
-    list-style-type: none;
-    /* Убирает сами маркеры */
-    padding: 0;
-    /* Убирает стандартный отступ слева */
-    margin: 0;
-    /* Убирает внешние отступы (по желанию) */
+	list-style-type: none;
+	/* Убирает сами маркеры */
+	padding: 0;
+	/* Убирает стандартный отступ слева */
+	margin: 0;
+	/* Убирает внешние отступы (по желанию) */
 }
 
 footer ul li {
-    line-height: 2.5;
-    /* Коэффициент от размера шрифта */
+	line-height: 2.5;
+	/* Коэффициент от размера шрифта */
 }
 
 footer svg {
-    height: 40px;
-    aspect-ratio: 1;
+	height: 40px;
+	aspect-ratio: 1;
 }
 
 @media (orientation: portrait) {
-    #pageLayout {
-        width: calc(100vw - 2rem);
-        margin: 0 1rem;
-        grid-gap: 0;
-        grid-template-columns: 1fr;
-        grid-template-rows:
-            auto
-            1fr
-            auto;
-        grid-template-areas:
-            "H"
-            "M"
-            "F";
-    }
+	#pageLayout {
+		width: calc(100vw - 2rem);
+		margin: 0 1rem;
+		grid-gap: 0;
+		grid-template-columns: 1fr;
+		grid-template-rows:
+			auto 1fr auto;
+		grid-template-areas:
+			"H"
+			"M"
+			"F";
+	}
 
-    #calc_3d {
-        grid-template-columns: 1fr;
-        /* с - calc (калькулятор) */
-        /* v - viewer (поле просмотра) */
-        /* b - buy (купить) */
-        grid-template-areas:
-            "c"
-            "b"
-            "v";
-    }
-    #calc {
-        border-width: 0;
-    }
-    #calc_3d > button {
-        border-width: 1px 0;
-    }
+	#calc_3d {
+		grid-template-columns: 1fr;
+		/* с - calc (калькулятор) */
+		/* v - viewer (поле просмотра) */
+		/* b - buy (купить) */
+		grid-template-areas:
+			"c"
+			"b"
+			"v";
+	}
 
-    model-viewer {
-        width: 100%;
-        aspect-ratio: 1;
-    }
+	#calc {
+		border-width: 0;
+	}
 
-    footer {
-        grid-template-areas:
-            "about about"
-            "contact powered"
-            "copyright copyright";
-        grid-template-columns: auto 1fr;
-    }
+	#calc_3d > button {
+		border-width: 1px 0;
+	}
 
-    footer div:nth-child(2) {
-        text-align: left;
-    }
+	model-viewer {
+		width: 100%;
+		aspect-ratio: 1;
+	}
 
-    footer div:nth-child(4),
-    footer div:nth-child(3) {
-        text-align: right;
-    }
+	footer {
+		grid-template-areas:
+			"about about"
+			"contact powered"
+			"copyright copyright";
+		grid-template-columns: auto 1fr;
+	}
+
+	footer div:nth-child(2) {
+		text-align: left;
+	}
+
+	footer div:nth-child(4),
+	footer div:nth-child(3) {
+		text-align: right;
+	}
 }
