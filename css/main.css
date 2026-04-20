@@ -20,7 +20,7 @@
 *:after,
 *:before {
 	box-sizing: border-box;
-	/*    border: 1px solid blue*/
+    border: 1px solid blue
 }
 
 ::-webkit-scrollbar {
@@ -208,9 +208,6 @@ main {
 #calc {
 	grid-area: c;
 	position: relative;
-	width: 100%;
-	height: 100%;
-	padding: 2.5rem;
 	border-right: 1px solid var(--border-color);
 }
 
@@ -412,9 +409,10 @@ h3 {
 #questionAnswer .question button {
 	display: grid;
 	grid-template-columns: 1fr auto;
+    align-items: center;
 
 	& svg {
-		height: 100%;
+		height: 16px;
 		stroke: var(--text-color);
 		stroke-width: 2px;
 	}
@@ -528,18 +526,34 @@ footer svg {
 
 	#calc {
 		border-width: 0;
+        padding: 0;
 	}
+    .content {
+        grid-template-rows: 1fr auto auto;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "count"
+            "price"
+            "cloth";
+    }
+
+    .content > div:first-child {
+        display: grid;
+        grid-gap: 0rem;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: repeat(2, 1fr);
+    }
 
 	#calc_3d > button {
 		border-width: 1px 0;
 	}
 
 	model-viewer {
-		width: 100%;
 		aspect-ratio: 1;
 	}
 
 	footer {
+        display: none;
 		grid-template-areas:
 			"about about"
 			"contact powered"
