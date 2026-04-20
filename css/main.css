@@ -15,31 +15,30 @@
 	--bg: #020305;
 }
 
+
+
+
+
 /* стили, применимые ко всем элементам страницы */
 *,
 *:after,
-*:before {
-	box-sizing: border-box;
-    border: 1px solid blue
-}
+*:before { box-sizing: border-box }
 
-::-webkit-scrollbar {
-	width: 10px
-}
 
+
+
+
+/* S C R O L L */
+::-webkit-scrollbar { width: 10px }
 /* трек */
-::-webkit-scrollbar-track {
-	background: transparent
-}
-
+::-webkit-scrollbar-track { background: transparent }
 /* ползунок */
-::-webkit-scrollbar-thumb {
-	background: var(--text-color)
-}
+::-webkit-scrollbar-thumb { background: var(--text-color) }
+::-webkit-scrollbar-thumb:hover { background: var(--main-color) }
 
-::-webkit-scrollbar-thumb:hover {
-	background: var(--main-color)
-}
+
+
+
 
 /* кастомизация выделения текста */
 ::selection {
@@ -47,14 +46,19 @@
 	background: var(--main-color);
 }
 
+
+
+
+
+/* Ш Р И Ф Т Ы */
 /* Обычное начертание */
 @font-face {
 	font-family: 'JetBrains Mono';
 	src: url('../fonts/JetBrainsMono-Regular.ttf') format('ttf');
 	font-weight: 400;
 	font-style: normal;
+    /* Шрифт появится сразу после загрузки, не блокируя текст */
 	font-display: swap;
-	/* Шрифт появится сразу после загрузки, не блокируя текст */
 }
 
 /* Жирное начертание */
@@ -66,16 +70,11 @@
 	font-display: swap;
 }
 
-/* плавный scroll к якорю */
-html {
-    max-width: 100%;
-	scroll-behavior: smooth;
-}
 
-a {
-	text-decoration: none;
-	color: var(--main-color);
-}
+
+
+
+a { color: var(--main-color) }
 
 /* обнуление стилей */
 button {
@@ -116,15 +115,34 @@ p {
 	/* Даем тексту "дышать", увеличивая интервал */
 }
 
+.no-select {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+
+
+
+
+/* плавный scroll к якорю */
+html { scroll-behavior: smooth }
 
 body {
 	font-family: 'JetBrains Mono', system-ui, monospace;
 	color: var(--text-color);
-	background-color: var(--bg-color);
 	min-height: 100vh;
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	inset: 0;
+	background-color: var(--bg-color);
+	background-size: var(--cell) var(--cell);
+	background-repeat: repeat;
+	background-position: calc(var(--cell) / -2) calc(var(--cell) / -2);
 }
 
 /* ограничение размеров страницы */
@@ -141,28 +159,12 @@ body {
 	/* Поверх канваса */
 }
 
-.grid-overlay {
-	inset: 0;
-	background-color: var(--bg-color);
-	background-size: var(--cell) var(--cell);
-	background-repeat: repeat;
-	background-position: calc(var(--cell) / -2) calc(var(--cell) / -2);
+main {
+	grid-area: M;
+	border-color: var(--border-color);
+	border-style: solid;
+	border-width: 0 1px;
 }
-
-.no-select {
-	-webkit-touch-callout: none;
-	/* iOS Safari */
-	-webkit-user-select: none;
-	/* Chrome, Safari, Opera */
-	-moz-user-select: none;
-	/* Firefox */
-	-ms-user-select: none;
-	/* Internet Explorer/Edge */
-	user-select: none;
-	/* Стандартное свойство */
-}
-
-
 
 #poster {
 	aspect-ratio: 2/1;
@@ -180,15 +182,8 @@ body {
 	position: absolute;
 }
 
-main {
-	grid-area: M;
-	border-color: var(--border-color);
-	border-style: solid;
-	border-width: 0 1px;
-}
-
 #calc_3d {
-	width: 100%;
+    aspect-ratio: 2/1;
 	display: grid;
 	grid-template-rows:
 		1fr auto;
@@ -224,11 +219,10 @@ main {
 .content {
 	display: grid;
 	grid-gap: 1rem;
-	grid-template-rows: auto auto;
-	grid-template-columns: auto 1fr;
 	grid-template-areas:
-		"count price"
-		"cloth cloth";
+		"count"
+		"price"
+		"cloth";
 	position: relative;
 	z-index: 2;
 }
