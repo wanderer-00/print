@@ -54,6 +54,8 @@
 
         <!-- калькулятор -->
         <div id="calc"></div>
+        
+        <div id="check">Итог: 0 &#8381;</div>
 
         <!-- 3D -->
         <script type="module" src="script/model-viewer.min.js"></script>
@@ -92,7 +94,7 @@
             "en": "hoodie",
             "ru": "Худи",
             "count": 4,
-            "price": 500,
+            "price": 1500,
             "camera": [0, 90, 12]
         },
 
@@ -100,7 +102,7 @@
             "en": "umbrella",
             "ru": "Зонт",
             "count": 3,
-            "price": 500,
+            "price": 800,
             "camera": [100,	90,	4]
         },
 
@@ -108,7 +110,7 @@
             "en": "cap",
             "ru": "Кепка",
             "count": 2,
-            "price": 500,
+            "price": 300,
             "camera": [45,	90,	4]
         },
 
@@ -116,13 +118,12 @@
             "en": "shopper",
             "ru": "Шоппер",
             "count": 1,
-            "price": 500,
+            "price": 200,
             "camera": [0, 90, 4]
         }
     ];
 
     // куда вставлять
-    const cluster = document.getElementById('cluster');
     const calc = document.getElementById('calc');
 
     // как вставлять
@@ -166,11 +167,24 @@
             </svg>
         </button>
 
-        <div class="price" id="${d[i].en}-price"></div>
+        <div class="price" id="${d[i].en}-price">0 &#8381;</div>
     `
     };
+    
+    // формируем чек
+    const check = document.getElementById('check');
 
-
+    function checkSumm(){
+        const prices = document.querySelectorAll('.price');
+        // суммарная цена
+        let summPrice = 0;
+        for( i=0; i<prices.length; i++ ){
+            const str = prices[i].textContent;
+            const number = parseInt(str.replace(/\s/g, ''), 10);
+            summPrice = summPrice + number;
+        };
+        return summPrice;
+    };
 
     // форматируем цену: XXX XXX ₽
     const formatter = new Intl.NumberFormat('ru-RU', {
@@ -179,12 +193,12 @@
         minimumFractionDigits: 0,
     });
     
-    // обновление цены
-    const UNIT_PRICE = 100;
-    
-    function updatePrice(input, price) {
-        const summ = input.value * UNIT_PRICE;
+    function updatePrice(input, price, priceUnit) {
+        const summ = input.value * priceUnit;
+//        price.innerHTML = formatter.format(summ);
         price.innerHTML = formatter.format(summ);
+        
+        check.innerHTML = `Итог: ${formatter.format(checkSumm())}`;
     };
 
     // ограничение на ввод с клавиатуры
@@ -200,6 +214,7 @@
             const price = document.getElementById(`${data_btn}-price`);
 
             const max = d.find(item => item.en == data_btn)?.count;
+            const priceUnit = d.find(item => item.en == data_btn)?.price;
 
             if ( countInp.value > max ) {
                 countInp.value = max;
@@ -207,7 +222,7 @@
             else if(countInp.value < 1) {
                 countInp.value = 1;
             }
-            updatePrice(countInp, price);
+            updatePrice(countInp, price, priceUnit);
 
     })});
     
@@ -264,11 +279,13 @@
             const countPrice = document.getElementById(`${data_btn}-price`);
             // получение максимального кол-ва товара
             const maxCount = d.find(item => item.en == data_btn)?.count;
+            // цена товара
+            const priceUnit = d.find(item => item.en == data_btn)?.price;
             
             // изменение цены
             priceChange( countInput, maxCount, data_sign );
             // обновление цены
-            updatePrice( countInput, countPrice );
+            updatePrice( countInput, countPrice, priceUnit);
         });
     });
     
