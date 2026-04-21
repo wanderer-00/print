@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+<div class="receipt">
+  <div class="receipt-header">
+    <h2>ООО "ВЕБ-МАРКЕТ"</h2>
+    <p>Кассовый чек №12345</p>
+    <p>21.04.2026 19:45</p>
+  </div>
+  
+  <div class="receipt-items">
+    <div class="item">
+      <span>Кофе Латте</span>
+      <span>250.00</span>
+    </div>
+    <div class="item">
+      <span>Круассан</span>
+      <span>120.00</span>
+    </div>
+    <div class="item">
+      <span>Сироп (доп) x2</span>
+      <span>60.00</span>
+    </div>
+  </div>
+  
+  <div class="receipt-total">
+    <div class="total-line">
+      <strong>ИТОГ:</strong>
+      <strong>430.00</strong>
+    </div>
+    <p>Наличные: 500.00</p>
+    <p>Сдача: 70.00</p>
+  </div>
+  
+  <div class="receipt-footer">
+    <p>СПАСИБО ЗА ПОКУПКУ!</p>
+    <div class="barcode">|| ||| | ||| || ||</div>
+  </div>
+</div>
+
+<style>
+    body {
+        background-color: #343434
+    }
+    
+  .receipt {
+    width: 300px;
+    background: #fdfdfd;
+    padding: 20px;
+    margin: 20px auto;
+    font-family: 'Courier New', Courier, monospace; /* Имитация кассовой ленты */
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  /* Зубчатый край сверху и снизу */
+  .receipt::before, .receipt::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(-135deg, #fff 5px, transparent 0), 
+                linear-gradient(135deg, #fff 5px, transparent 0);
+    background-size: 10px 10px;
+  }
+  .receipt::before { top: -10px; }
+  .receipt::after { bottom: -10px; transform: rotate(180deg); }
+
+  .receipt-header { text-align: center; border-bottom: 1px dashed #ccc; padding-bottom: 10px; }
+  .receipt-header h2 { font-size: 1.2rem; margin: 5px 0; }
+  .receipt-header p { font-size: 0.8rem; margin: 2px 0; }
+
+  .receipt-items { padding: 15px 0; border-bottom: 1px dashed #ccc; }
+  .item { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; }
+
+  .receipt-total { padding-top: 10px; }
+  .total-line { display: flex; justify-content: space-between; font-size: 1.1rem; margin-bottom: 5px; }
+  .receipt-total p { font-size: 0.8rem; margin: 2px 0; text-align: right; }
+
+  .receipt-footer { text-align: center; margin-top: 20px; font-size: 0.8rem; }
+  .barcode { font-size: 1.5rem; letter-spacing: 2px; margin-top: 10px; }
+</style>
+
+
+
+</body></html>

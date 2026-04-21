@@ -1,0 +1,70 @@
+/* главный контейнер */
+#cluster {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        "calc  model"
+        "check model";
+    background-color: var(--main-color);
+/*    background-color: var(--dark-bg);*/
+}
+
+/* калькулятор */
+#calc {
+    white-space: nowrap;
+    grid-area: calc;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: auto auto 4fr auto auto;
+}
+
+/* 3D модель */
+#cluster model-viewer {
+    grid-area: model;
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+}
+
+/* кнопки + - */
+#calc svg {
+    height: 24px;
+    aspect-ratio: 1;
+    stroke: var(--text-color);
+    stroke-width: 2px;
+}
+
+#check {
+    color: black;
+    background-color: white;
+}
+
+table {
+    width: 100%;
+    max-width: 300px;
+    white-space: nowrap;
+}
+
+table td:nth-child(2) {
+    width: auto;
+    text-align: right;
+}
+
+/* телефонная версия */
+@media (orientation:portrait){
+    #cluster {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        grid-template-areas:
+            "calc"
+            "check"
+            "model";
+    }
+
+    model-viewer {
+        aspect-ratio:1;
+    }
+}

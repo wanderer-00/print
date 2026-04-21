@@ -29,12 +29,14 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- header -->
     <link rel="stylesheet" href="css/header.css">
-    <!-- нам доверяют -->
-    <link rel="stylesheet" href="css/clients.css" media="print" onload="this.media='all'">
     <!-- фон сеткой -->
     <link rel="stylesheet" href="css/net.css">
+    <!-- калькулятор -->
+    <link rel="stylesheet" href="css/calc.css">
     <!-- коллаж -->
     <link rel="stylesheet" href="css/collage.css">
+    <!-- нам доверяют -->
+    <link rel="stylesheet" href="css/clients.css" media="print" onload="this.media='all'">
 </head>
 
 <body class="grid-overlay">
@@ -124,10 +126,12 @@
 -->
             
             <h2 id="title_calc">Расчёт стоимости</h2>
-            <div id="calc_3d">
+<!--            <div id="calc_3d">-->
                 <!-- калькулятор -->
+<!--
                 <div id="calc">
                     <canvas id="canvas"></canvas>
+-->
                     
 <!--
                     <div class="content">
@@ -160,9 +164,59 @@
                     </div>
 -->
                     
-                    <div class="content"></div>
+<!--                    <div class="content"></div>-->
                     
-                    <div id="cluster"></div>
+                        <div id="cluster">
+
+                            <!-- калькулятор -->
+                            <div id="calc"></div>
+
+                            <!-- 3D -->
+                            <script type="module" src="script/model-viewer.min.js"></script>
+                            <model-viewer
+                                id="wireframe-demo"
+                                src="3d/tshirt.glb"
+                                camera-controls
+                                disable-zoom
+                            ></model-viewer>
+                            
+                            <div id="check">
+                                <div id="title">Заказ №3233</div>
+                                <div>
+                                    <div>Футболка</div>
+                                    <div>2000 Р</div>
+                                </div>
+
+                                <div>
+                                    <div>Футболка</div>
+                                    <div>2000 Р</div>
+                                </div>
+
+                                <div>
+                                    <div>Футболка</div>
+                                    <div>2000 Р</div>
+                                </div>
+
+                                <div>
+                                    <div>Футболка</div>
+                                    <div>2000 Р</div>
+                                </div>
+
+                                <div>
+                                    <div>Футболка</div>
+                                    <div>2000 Р</div>
+                                </div>
+                                
+                                <div>************************************</div>
+                                
+                                <div>
+                                    <div>Итог</div>
+                                    <div>2000 Р</div>
+                                </div>
+
+
+                            </div>
+                        </div>
                     
 <!--
                         <div id="btn_cluster">
@@ -170,24 +224,21 @@
                         </div>
 -->
 
+<!--
                         <div id="price"></div>
                 </div>
+-->
                 
-                <button id="buy">[СВЯЖИСЬ С НАМИ]</button>
+<!--                <button id="buy">[СВЯЖИСЬ С НАМИ]</button>-->
                 
 				<!--  -->
-                <script type="module" src="script/model-viewer.min.js"></script>
                 
-				<model-viewer
-					id="wireframe-demo"
-					src="3d/tshirt.glb"
-					camera-controls
-					disable-zoom
-                ></model-viewer>
+                
+
 
                 <!-- переключение 3D моделей в калькуляторе -->
-                <script src="script/model.js"></script>
-            </div>
+<!--                <script src="script/model.js"></script>-->
+<!--            </div>-->
 			
 			<h2>Мерч</h2>
 			<div id="collage">
@@ -337,9 +388,12 @@
                 </g>
             </symbol>
             
+            <!-- - -->
             <symbol id="mns" viewBox="0 0 24 24">
 				<line x1="5" y1="12" x2="19" y2="12"></line>
             </symbol>
+
+            <!-- + -->
             <symbol id="pls" viewBox="0 0 24 24">
 				<line x1="12" y1="5" x2="12" y2="19"></line>
 				<line x1="5" y1="12" x2="19" y2="12"></line>
@@ -352,13 +406,13 @@
 <script src="script/burger.js"></script>
 
 <!-- анимация -->
-<script src="script/animation.js"></script>
+<!--<script src="script/animation.js"></script>-->
 
 <!-- калькулятор -->
-<!--<script src="script/calc.js"></script>-->
+<script src="script/calc.js"></script>
 
 <!-- калькулятор -->
-<script src="script/cluster.js"></script>
+<!--<script src="script/cluster.js"></script>-->
 
 <!-- загрузка типографии -->
 <!--<script src="script/dizziness.js"></script>-->

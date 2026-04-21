@@ -244,15 +244,18 @@ main {
     margin: 30vh 0;
 }
 
+/*
 #calc_3d {
     aspect-ratio: 2/1;
 	display: grid;
 	grid-template-rows:
 		1fr auto;
 	grid-template-columns: auto 1fr;
+*/
 	/* с - calc (калькулятор) */
 	/* v - viewer (поле просмотра) */
 	/* b - buy (купить) */
+/*
 	grid-template-areas:
 		"c v"
 		"b v";
@@ -261,13 +264,18 @@ main {
 	border-style: solid;
 	border-width: 1px 0;
 }
+*/
 
+/*
 #calc {
 	grid-area: c;
 	position: relative;
 	border-right: 1px solid var(--border-color);
 }
+*/
 
+
+/*
 #calc canvas {
 	position: absolute;
 	top: 0;
@@ -275,7 +283,6 @@ main {
 	width: 100%;
 	height: 100%;
 	z-index: 1;
-	/* На заднем плане */
 }
 
 .content {
@@ -295,28 +302,36 @@ main {
 	grid-template-columns: auto 1fr;
 	grid-template-rows: repeat(2, 1fr);
 }
+*/
 
 /* кол-во */
+/*
 input.count::-webkit-outer-spin-button,
 input.count::-webkit-inner-spin-button {
+*/
 	/* удаление встроенных кнопок */
+/*
 	-webkit-appearance: none;
 }
+*/
 
-input[type="number"]:focus { outline: none }
+/*input[type="number"]:focus { outline: none }*/
 /* Основной современный стандарт */
+/*
 input::placeholder {
   color: var(--dark-bg);
-  opacity: 1; /* Нужно для Firefox, чтобы цвет был ярким */
+  opacity: 1;
 }
+*/
 
 /* Для старых версий Internet Explorer */
-input:-ms-input-placeholder { color: var(--dark-bg) }
+/*input:-ms-input-placeholder { color: var(--dark-bg) }*/
 
 /* Для Microsoft Edge */
-input::-ms-input-placeholder { color: var(--dark-bg) }
+/*input::-ms-input-placeholder { color: var(--dark-bg) }*/
 
 
+/*
 input.count {
 	padding: 0 1rem;
 	grid-row: span 2;
@@ -327,7 +342,9 @@ input.count {
 	border: 1px solid var(--border-color);
 	background-color: var(--main-color);
 }
+*/
 
+/*
 button.count {
 	border: 1px solid var(--border-color);
 	background-color: var(--main-color);
@@ -340,28 +357,36 @@ button.count {
 		stroke-width: 4px;
 	}
 }
+*/
 
 
 /* одежда */
+/*
 #btn_cluster {
 	grid-area: cloth;
 	display: flex;
 	grid-gap: 1rem;
 	flex-wrap: wrap;
 }
+*/
 
 /* цена */
+/*
 #price {
 	grid-area: price;
 	font-size: 2rem;
 }
+*/
 
+/*
 #calc_3d model-viewer {
 	grid-area: v;
 	width: 100%;
 	height: 100%;
 }
+*/
 
+/*
 #calc_3d > button {
 	grid-area: b;
 	color: var(--main-color);
@@ -371,8 +396,10 @@ button.count {
 	border-style: solid;
 	border-width: 1px 1px 0 0;
 }
+*/
 
 
+/*
 #task {
 	display: flex;
 	grid-gap: 1rem;
@@ -381,7 +408,9 @@ button.count {
 		color: var(--main-color);
 	}
 }
+*/
 
+/*
 .btn {
 	padding: 6px 8px;
 	color: black;
@@ -390,7 +419,9 @@ button.count {
 	border: 1px solid var(--border-color);
 	cursor: pointer;
 }
+*/
 
+/*
 #display {
 	display: flex;
 	grid-gap: 2px;
@@ -408,6 +439,7 @@ button.count {
 #display > .a {
 	background-color: var(--main-color)
 }
+*/
 
 #clients {
 	width: 100%;
