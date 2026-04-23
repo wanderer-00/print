@@ -1,3 +1,23 @@
+/* кол-во */
+input.count::-webkit-outer-spin-button,
+input.count::-webkit-inner-spin-button {
+	/* удаление встроенных кнопок */
+	-webkit-appearance: none;
+}
+
+input[type="number"]:focus { outline: none }
+/* Основной современный стандарт */
+input::placeholder {
+  color: var(--dark-bg);
+  opacity: 1;
+}
+
+/* Для старых версий Internet Explorer */
+input:-ms-input-placeholder { color: var(--dark-bg) }
+
+/* Для Microsoft Edge */
+input::-ms-input-placeholder { color: var(--dark-bg) }
+
 /* главный контейнер */
 #cluster {
     display: grid;
@@ -7,8 +27,7 @@
     grid-template-areas:
         "calc  model"
         "check model";
-    background-color: var(--main-color);
-/*    background-color: var(--dark-bg);*/
+    background-color: var(--dark-bg);
 }
 
 /* калькулятор */
@@ -16,8 +35,17 @@
     white-space: nowrap;
     grid-area: calc;
     display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: auto auto 4fr auto auto;
+    grid-gap: 0.4rem;
+    grid-template-columns: auto auto auto auto 300px;
+}
+
+#calc input,
+#calc button {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 10px;
+    color: var(--dark-bg);
+    background-color: var(--main-color);
 }
 
 /* 3D модель */
@@ -30,9 +58,9 @@
 
 /* кнопки + - */
 #calc svg {
-    height: 24px;
+    height: 20px;
     aspect-ratio: 1;
-    stroke: var(--text-color);
+    stroke: var(--dark-bg);
     stroke-width: 2px;
 }
 

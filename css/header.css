@@ -101,6 +101,7 @@ header > nav > a {
 
 @media (orientation: portrait) {
 	header {
+        width: 100%;
 		grid-gap: 1rem;
 		grid-template-columns: auto 1fr;
 		grid-template-rows: 1fr;

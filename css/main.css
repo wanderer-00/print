@@ -304,32 +304,6 @@ main {
 }
 */
 
-/* кол-во */
-/*
-input.count::-webkit-outer-spin-button,
-input.count::-webkit-inner-spin-button {
-*/
-	/* удаление встроенных кнопок */
-/*
-	-webkit-appearance: none;
-}
-*/
-
-/*input[type="number"]:focus { outline: none }*/
-/* Основной современный стандарт */
-/*
-input::placeholder {
-  color: var(--dark-bg);
-  opacity: 1;
-}
-*/
-
-/* Для старых версий Internet Explorer */
-/*input:-ms-input-placeholder { color: var(--dark-bg) }*/
-
-/* Для Microsoft Edge */
-/*input::-ms-input-placeholder { color: var(--dark-bg) }*/
-
 
 /*
 input.count {
