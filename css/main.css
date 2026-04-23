@@ -565,41 +565,12 @@ footer svg {
 			"M"
 			"F";
 	}
-
-	#calc_3d {
-		grid-template-columns: 1fr;
-		/* с - calc (калькулятор) */
-		/* v - viewer (поле просмотра) */
-		/* b - buy (купить) */
-		grid-template-areas:
-			"c"
-			"b"
-			"v";
-	}
-
-	#calc {
-		border-width: 0;
-        padding: 0;
-	}
-    .content {
-        grid-template-rows: 1fr auto auto;
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "count"
-            "price"
-            "cloth";
+    
+    .video-container{
+        display: none;
+        max-height: 300px;
     }
 
-    .content > div:first-child {
-        display: grid;
-        grid-gap: 0rem;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: repeat(2, 1fr);
-    }
-
-	#calc_3d > button {
-		border-width: 1px 0;
-	}
 
 	model-viewer {
 		aspect-ratio: 1;
