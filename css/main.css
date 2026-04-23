@@ -555,6 +555,23 @@ footer svg {
 }
 
 @media (orientation: portrait) {
+    :root {
+        /* цвет фона */
+        --bg-color: oklch(13.5900% 0.0648 343.4124);
+        /* цвет текста */
+        --text-color: oklch(59.1300% 0.0761 338.9500);
+        /* акцентный цвет */
+        --main-color: oklch(67.7000% 0.2678 30.3917);
+        /* цвет границ */
+        --border-color: rgba(46, 21, 36, 1);
+        --a-bg: #301426;
+        --dark-bg: #18000F;
+        --poster-color: #FEF1EB;
+
+        /* сеть */
+        --cell: 100px;
+        --bg: #020305;
+    }
 	#pageLayout {
 		margin: 0 0.8rem;
 		grid-template-columns: 1fr;

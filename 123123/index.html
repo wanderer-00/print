@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="background.css">
+</head>
+
+<style>
+    body {
+        color: white;
+        margin: 0;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "control model"
+            "canvas model";
+        width: 100vw;
+        height: 100vh;
+    }
+
+    model-viewer {
+        grid-area: model;
+        width: 100%;
+        height: 100%;
+        border: 1px solid red;
+    }
+
+    .controls {
+        grid-area: control;
+    }
+</style>
+
+<body id="background">
+    <!-- Подключаем скрипт model-viewer -->
+    <script type="module" src="../script/model-viewer.min.js"></script>
+
+    <div class="container">
+        <div class="controls">
+            <input type="file" id="upload" accept="image/*"><br>
+            <label>Размер: <input type="range" id="scale" min="0.1" max="2" step="0.01" value="0.5"></label><br>
+            <label>Вращение: <input type="range" id="rotate" min="0" max="360" value="180"></label><br>
+        </div>
+
+        <model-viewer id="shirt" src="../3d/tshirt.glb" camera-controls disable-zoom></model-viewer>
+
+        <!-- Скрытый или видимый холст для редактирования -->
+        <canvas id="textureCanvas" width="1024" height="1024" style="border:1px solid #ccc; max-width: 200px;"></canvas>
+    </div>
+
+
+    <script>
+        const modelViewer = document.querySelector('#shirt');
+        const canvas = document.getElementById('textureCanvas');
+        const ctx = canvas.getContext('2d');
+        const upload = document.getElementById('upload');
+
+
+        modelViewer.addEventListener('load', () => {
+            // Выводим в консоль список всех материалов модели, чтобы узнать их имена
+            const materialNames = modelViewer.model.materials.map(m => m.name);
+            console.log("Доступные материалы:", materialNames);
+        });
+
+
+
+        let img = new Image();
+        let logoPos = {
+            x: 512,
+            y: 512
+        }; // Начальная позиция (центр)
+        let scale = 0.5;
+        let rotation = 0;
+
+        // Функция отрисовки на Canvas
+        function drawCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Очистка
+            if (!img.src) return;
+
+            ctx.save();
+            ctx.translate(logoPos.x, logoPos.y);
+            ctx.rotate(rotation * Math.PI / 180);
+            const w = img.width * scale;
+            const h = img.height * scale;
+            ctx.drawImage(img, -w / 2, -h / 2, w, h);
+            ctx.restore();
+
+            updateTexture();
+        }
+
+        // Обновление текстуры в 3D модели
+        async function updateTexture() {
+            const material = modelViewer.model.materials.find(m => m.name === 'Material.001');
+            if (material) {
+                // Создаем текстуру из Canvas
+                const texture = await modelViewer.createTexture(canvas.toDataURL());
+                material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
+            }
+        }
+
+        // Обработка загрузки картинки
+        upload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                img.src = event.target.result;
+                img.onload = drawCanvas;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // Ползунки
+        document.getElementById('scale').oninput = (e) => {
+            scale = e.target.value;
+            drawCanvas();
+        };
+        document.getElementById('rotate').oninput = (e) => {
+            rotation = e.target.value;
+            drawCanvas();
+        };
+
+        // Перемещение (простая реализация кликом по Canvas-превью)
+        canvas.onmousedown = (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const updatePos = (moveEvent) => {
+                logoPos.x = (moveEvent.clientX - rect.left) * (canvas.width / rect.width);
+                logoPos.y = (moveEvent.clientY - rect.top) * (canvas.height / rect.height);
+                drawCanvas();
+            };
+            window.onmousemove = updatePos;
+            window.onmouseup = () => window.onmousemove = null;
+        };
+    </script>
+
+</body></html>

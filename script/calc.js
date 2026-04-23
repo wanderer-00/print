@@ -3,7 +3,7 @@ const d = [
     {
         "en": "tshirt",
         "ru": "Футболка",
-        "count": 5000,
+        "count": 10000,
         "price": 500,
         "camera": [100,	90,	4]
     },
@@ -11,7 +11,7 @@ const d = [
     {
         "en": "hoodie",
         "ru": "Худи",
-        "count": 5000,
+        "count": 10000,
         "price": 1500,
         "camera": [0, 90, 12]
     },
@@ -19,7 +19,7 @@ const d = [
     {
         "en": "umbrella",
         "ru": "Зонт",
-        "count": 5000,
+        "count": 10000,
         "price": 800,
         "camera": [100,	90,	4]
     },
@@ -27,7 +27,7 @@ const d = [
     {
         "en": "cap",
         "ru": "Кепка",
-        "count": 5000,
+        "count": 10000,
         "price": 300,
         "camera": [45,	90,	4]
     },
@@ -35,7 +35,7 @@ const d = [
     {
         "en": "shopper",
         "ru": "Шоппер",
-        "count": 5000,
+        "count": 10000,
         "price": 200,
         "camera": [0, 90, 4]
     }
