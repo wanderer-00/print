@@ -10,25 +10,18 @@
     <!--  -->
     <meta name="author" content="casper sync">
     <title>Тестовый полигон</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- основные стили -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FPS, вершины, полигоны -->
+    <link rel="stylesheet" href="css/static-info.css">
 </head>
 
 <body>
     <header>
-        <!-- кол-во кадров в секунду (плавность анимаций) -->
-        <div id="fps">
-            FPS <b>?</b>
-        </div>
+        <h1>BenchMark Model-viewer</h1>
 
-        <!-- кол-во вершин, из которых состоит геометрия 3D модели -->
-        <div id="vertex">
-            Вершин <b>?</b>
-        </div>
 
-        <!-- кол-во полигонов, из которых состоит геометрия 3D модели -->
-        <div id="triangle">
-            Полигонов <b>?</b>
-        </div>
+
 
         <!-- список материалов -->
 <!--        <div id="materialsList"></div>-->
@@ -37,10 +30,33 @@
     <main>
         <div id="statistics">
 
-
-
             <!-- Изменение основного цвета материала. [red, green, blue, alpha] (каждое значение может быть от 0 до 1) (alpha - прозрачность) -->
             <div id="baseColor"></div>
+            
+            <div class="controls">
+                <!-- baseColor -->
+                <label for="color-picker">Цвет модели:</label>
+                <input type="color" id="color-picker" list="palette" value="#FF0000">
+                <!-- Список предустановленных цветов -->
+                <datalist id="palette">
+                    <option value="#7F7F7F"></option>
+                    <option value="#000000"></option>
+                    <option value="#7F0000"></option>
+                    <option value="#007F00"></option>
+                    <option value="#00007F"></option>
+                </datalist>
+            </div>
+            
+            <div id="camera-orbit">
+                <lable for="theta" id="l-theta">X = XXX&deg;</lable>
+                <input type="range" id="theta" min="0" max="360" step="1">
+                
+                <lable for="phi" id="l-phi">Y = YYY&deg;</lable>
+                <input type="range" id="phi" min="0" max="180" step="1">
+                
+                <lable for="radius" id="l-radius">22.00m</lable>
+                <input type="range" id="radius" min="22" max="43">
+            </div>
 
             <!-- Степень «металличности» поверхности (диапазон от 0 до 1) -->
             <div id="metallic" class="control">
@@ -60,21 +76,38 @@
             <div id="colors">
                 <button onclick="setColor([1,0,0,1])">Frame</button>
             </div>
-
-            <!-- Цвет и интенсивность собственного свечения материала (для светящихся элементов) -->
-            <div id="emission"></div>
-
-            <div class="controls">
-                <!-- baseColor -->
-                <label for="color-picker">Цвет модели:</label>
-                <input type="color" id="color-picker" value="#FF0000">
-            </div>
         </div>
 
         <!-- скрипт -->
         <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
 
-        <model-viewer id="#wireframe-demo" src="../3d/hoodie.glb" camera-orbit="100deg 90deg" camera-controls touch-action="pan-y" lighting-color="#FFFFFF" intensity="1"></model-viewer>
+        <model-viewer
+            id="wireframe-demo"
+            src="../3d/hoodie1.glb"
+            camera-orbit="0 90deg"
+            camera-controls
+            touch-action="pan-y"
+            lighting-color="#FFFFFF"
+            intensity="1"
+            alt="Описание 3D модели"
+        >
+            <div id="static-info">
+                <!-- кол-во кадров в секунду (плавность анимаций) -->
+                <div id="fps">
+                    FPS <b>?</b>
+                </div>
+
+                <!-- кол-во полигонов, из которых состоит геометрия 3D модели -->
+                <div id="triangle">
+                    &#9651; <b>?</b>
+                </div>
+
+                <!-- кол-во вершин, из которых состоит геометрия 3D модели -->
+                <div id="vertex">
+                    &otimes; <b>?</b>
+                </div>
+            </div>
+        </model-viewer>
 
     </main>
     <footer></footer>
@@ -84,8 +117,9 @@
 <!-- FPS -->
 <script src="script/fps.js"></script>
 
-<!-- список материалов -->
-<script src="data/materials.js"></script>
+<!-- вывод списка материалов модели -->
+<script src="script/materialList.js"></script>
+
 <!-- управление материалами -->
 <script src="script/material.js"></script>
 
@@ -95,5 +129,9 @@
 <!-- baseColor -->
 <script src="script/baseColor.js"></script>
 
+<!-- camera-orbit -->
+<script src="script/camera-orbit.js"></script>
+
 <!-- вес файла -->
-<script src="script/size.js"></script></html>
+<!--<script src="script/size.js"></script>-->
+</html>

@@ -14,7 +14,7 @@
 
 /* Принудительно задаем белый цвет для всех материалов */
 model-viewer#wireframe-demo {
-    --base-color: #ffffff;
+    --base-color: #FF0000;
 }
 
 body {
@@ -80,6 +80,8 @@ model-viewer {
     border: 1px solid var(--border-color);
 }
 
+
+
 #statistics {
     display: grid;
     grid-gap: 1rem;
@@ -98,6 +100,13 @@ header > div {
     padding: 0;
 }
 
+#camera-orbit {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 9ch 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
 .control {
     display: grid;
     grid-gap: 18px;
@@ -109,6 +118,7 @@ header > div {
 
 .control input {
     grid-area: range;
+    margin-bottom: calc( var(--input-thumb-height) / 2 );
 }
 
 

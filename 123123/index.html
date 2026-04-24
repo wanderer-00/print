@@ -32,6 +32,15 @@
     .controls {
         grid-area: control;
     }
+    
+    canvas {
+        border:1px solid #ccc;
+        max-width: 200px;
+        background-image: url(../3d/hudiLP_TT_checker_512x512_UV_GRID_0.svg);
+        background-position: center;
+        background-size: contain;
+/*        transform: rotate(180deg);*/
+    }
 </style>
 
 <body id="background">
@@ -45,10 +54,13 @@
             <label>Вращение: <input type="range" id="rotate" min="0" max="360" value="180"></label><br>
         </div>
 
-        <model-viewer id="shirt" src="../3d/tshirt.glb" camera-controls disable-zoom></model-viewer>
+        <model-viewer
+            id="shirt" src="../3d/hoodie1.glb"
+            camera-controls
+        ></model-viewer>
 
         <!-- Скрытый или видимый холст для редактирования -->
-        <canvas id="textureCanvas" width="1024" height="1024" style="border:1px solid #ccc; max-width: 200px;"></canvas>
+        <canvas id="textureCanvas" width="1024" height="1024"></canvas>
     </div>
 
 
@@ -93,7 +105,7 @@
 
         // Обновление текстуры в 3D модели
         async function updateTexture() {
-            const material = modelViewer.model.materials.find(m => m.name === 'Material.001');
+            const material = modelViewer.model.materials.find(m => m.name === 'material.1');
             if (material) {
                 // Создаем текстуру из Canvas
                 const texture = await modelViewer.createTexture(canvas.toDataURL());

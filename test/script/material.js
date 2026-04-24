@@ -41,8 +41,8 @@ modelViewer.addEventListener('load', () => {
         }
     });
     // Вывод результатов
-    document.getElementById('vertex').innerHTML = `Вершины ${totalVertices}`;
-    document.getElementById('triangle').innerHTML = `△ ${totalTriangles}`;
+    document.getElementById('vertex').innerHTML = `&otimes; ${totalVertices}`;
+    document.getElementById('triangle').innerHTML = `&#9651; ${totalTriangles}`;
 
 
 
@@ -72,4 +72,10 @@ modelViewer.addEventListener('load', () => {
 //        const metallic = material.pbrMetallicRoughness.metallicFactor;
 //        metallic_div.innerHTML = `metallic: ${metallic}`;
     });
+    
+    // вывод списка материалов
+    materialList(modelViewer);
+    
+    // вывод camera orbit
+    cameraOrbit(modelViewer);
 });

@@ -49,7 +49,7 @@ function setColor(color) {
             obj.material.wireframe = true;
 
             // 3. Красим ребра сетки
-            obj.material.color.set('white'); // Ярко-зеленый
+            obj.material.color.set('white');
 
             obj.material.needsUpdate = true;
         }
