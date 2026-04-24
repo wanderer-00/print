@@ -12,7 +12,7 @@
     --border-width: 1px;
     --border-type: solid;
 
-    --text-color: #FEE;
+    --text-color: #ccff00;
 
     box-sizing: border-box;
 }
@@ -111,16 +111,11 @@ button {
     grid-template-columns: repeat(6, 1fr);
 }
 
-#color-set button {
-    border-radius: 
+#color-set button,
+#color-set input
+{
+    border-radius: 4px;
 }
-
-/*
-#materialsList {
-    display: flex;
-    padding: 0;
-}
-*/
 
 /* данные камеры */
 #camera-orbit {
@@ -158,10 +153,7 @@ input[type="range"]::-moz-range-track {
     }
     
     header,
-    #statistics
-    {
-        padding: var(--padding);
-    }
+    #statistics {padding: var(--padding)}
     
     main {
         width: 100%;
