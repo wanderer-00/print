@@ -1,0 +1,45 @@
+input[type="range"] {
+    -webkit-appearance: none;
+    /* Убирает дефолт в Chrome/Safari/Edge */
+    appearance: none;
+    width: 100%;
+    background: transparent;
+    /* Убирает фон самого инпута */
+    cursor: pointer;
+}
+
+/* Убираем контур при фокусе (по желанию) */
+input[type="range"]:focus {
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: var(--input-thumb-height);
+    width: var(--input-thumb-width);
+    background: var(--input-thumb-color);
+    border-radius: var(--input-thumb-border-radius);
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+    margin-top: var(--input-thumb-h-center);
+    /* Центрируем ползунок относительно дорожки */
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
+    height: var(--input-thumb-height);
+    width: var(--input-thumb-width);
+    background: var(--input-thumb-color);
+    border-radius: var(--input-thumb-border-radius);
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    background: #ddd;
+}

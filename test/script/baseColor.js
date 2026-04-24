@@ -6,10 +6,7 @@ colorPicker.addEventListener('input', (event) => {
     // Конвертируем HEX в массив [r, g, b, a]
     const color = hexToRgb(event.target.value);
 
-    // Применяем ко всем материалам
-    modelViewer.model.materials.forEach((material) => {
-        material.pbrMetallicRoughness.setBaseColorFactor(color);
-    });
+    colorSet(color);
     
     // кол-во знаков после запятой
     const f = 2;
@@ -17,6 +14,13 @@ colorPicker.addEventListener('input', (event) => {
     const baseColor_div = document.getElementById('baseColor');
     baseColor_div.innerHTML = `rgba: (${color[0].toFixed(f)}, ${color[1].toFixed(f)}, ${color[2].toFixed(f)}, ${color[3].toFixed(f)})`;
 });
+
+// Применяем ко всем материалам
+function colorSet(color){
+    modelViewer.model.materials.forEach((material) => {
+        material.pbrMetallicRoughness.setBaseColorFactor(color);
+    });
+};
 
 // Функция для перевода HEX в формат 0-1
 function hexToRgb(hex) {

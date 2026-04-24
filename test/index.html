@@ -10,6 +10,9 @@
     <!--  -->
     <meta name="author" content="casper sync">
     <title>Тестовый полигон</title>
+    
+    <!-- обнуление стандартных стилей input[type=range] -->
+    <link rel="stylesheet" href="css/zero-input-range.css">
     <!-- основные стили -->
     <link rel="stylesheet" href="css/style.css">
     <!-- FPS, вершины, полигоны -->
@@ -58,19 +61,19 @@
 
             <!-- Изменение основного цвета материала. [red, green, blue, alpha] (каждое значение может быть от 0 до 1) (alpha - прозрачность) -->
             <div id="baseColor"></div>
-            
-            <div class="controls">
-                <!-- baseColor -->
-                <label for="color-picker">Цвет модели:</label>
-                <input type="color" id="color-picker" list="palette" value="#FF0000">
+
+            <!-- baseColor -->
+            <div class="controls" id="color-set">
                 <!-- Список предустановленных цветов -->
-                <datalist id="palette">
-                    <option value="#7F7F7F"></option>
-                    <option value="#000000"></option>
-                    <option value="#7F0000"></option>
-                    <option value="#007F00"></option>
-                    <option value="#00007F"></option>
-                </datalist>
+                <div id="palette">
+                    <button onclick="colorSet(hexToRgb('#7F7F7F'))" style="background-color: #FFFFFF"></button>
+                    <button onclick="colorSet(hexToRgb('#000000'))" style="background-color: #000000"></button>
+                    <button onclick="colorSet(hexToRgb('#7F0000'))" style="background-color: #FF0000"></button>
+                    <button onclick="colorSet(hexToRgb('#007F00'))" style="background-color: #00FF00"></button>
+                    <button onclick="colorSet(hexToRgb('#00007F'))" style="background-color: #0000FF"></button>
+                    <!-- кастомный цвет -->
+                    <input type="color" id="color-picker" list="palette" value="#FFFFFF">
+                </div>
             </div>
             
             <div id="camera-orbit">

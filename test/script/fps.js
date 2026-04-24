@@ -12,7 +12,7 @@ function countFPS() {
     if (now >= lastTime + 1000) {
         let fps = Math.round((frames * 1000) / (now - lastTime));
 
-        fps_div.innerHTML = `FPS - ${fps}`;
+        fps_div.innerHTML = `FPS ${fps}`;
 
         frames = 0;
         lastTime = now;
