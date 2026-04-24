@@ -1,4 +1,4 @@
-# print
+# NAME COMPANY
 ## model-viewer
 ### src
 путь до 3D модели
