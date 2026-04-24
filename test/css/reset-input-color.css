@@ -1,0 +1,34 @@
+input[type="color"] {
+    /* Сброс стандартного внешнего вида */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Убираем рамки и внутренние отступы */
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+
+    /* Задаем свои размеры (обязательно) */
+    width: 100%;
+    height: 30px;
+}
+
+/* Убирает внутренний отступ и рамку вокруг цветового квадрата в WebKit */
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+/* Убирает границу у самого цветового пятна в WebKit */
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    /* Можно добавить закругление, если нужно */
+    /* border-radius: 50%; */
+}
+
+/* Аналогичный сброс для Firefox */
+input[type="color"]::-moz-color-swatch {
+    border: none;
+    /* border-radius: 50%; */
+}

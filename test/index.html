@@ -10,9 +10,13 @@
     <!--  -->
     <meta name="author" content="casper sync">
     <title>Тестовый полигон</title>
-    
+
+    <!-- обнуление стандартных стилей button -->
+    <link rel="stylesheet" href="css/reset-button.css">
+    <!-- обнуление стандартных стилей input[type=color] -->
+    <link rel="stylesheet" href="css/reset-input-color.css">
     <!-- обнуление стандартных стилей input[type=range] -->
-    <link rel="stylesheet" href="css/zero-input-range.css">
+    <link rel="stylesheet" href="css/reset-input-range.css">
     <!-- основные стили -->
     <link rel="stylesheet" href="css/style.css">
     <!-- FPS, вершины, полигоны -->
@@ -32,28 +36,29 @@
         <model-viewer
             id="wireframe-demo"
             src="../3d/hoodie1.glb"
-            camera-orbit="0 90deg"
             camera-controls
+            min-camera-orbit="auto 20deg 25m"
+            max-camera-orbit="auto 160deg 40m"
             touch-action="pan-y"
             lighting-color="#FFFFFF"
             intensity="1"
             alt="Описание 3D модели"
-        >
+            >
+
             <div id="static-info">
-                <!-- кол-во кадров в секунду (плавность анимаций) -->
-                <div id="fps">
+
+                <div id="fps" title="Количество кадро в секунду">
                     FPS <b>?</b>
                 </div>
 
-                <!-- кол-во полигонов, из которых состоит геометрия 3D модели -->
-                <div id="triangle">
+                <div id="triangle" title="Количество полигонов в 3D модели">
                     &#9651; <b>?</b>
                 </div>
 
-                <!-- кол-во вершин, из которых состоит геометрия 3D модели -->
-                <div id="vertex">
+                <div id="vertex" title="Количество вершин в 3D модели">
                     &otimes; <b>?</b>
                 </div>
+
             </div>
         </model-viewer>
 
@@ -72,7 +77,7 @@
                     <button onclick="colorSet(hexToRgb('#007F00'))" style="background-color: #00FF00"></button>
                     <button onclick="colorSet(hexToRgb('#00007F'))" style="background-color: #0000FF"></button>
                     <!-- кастомный цвет -->
-                    <input type="color" id="color-picker" list="palette" value="#FFFFFF">
+                    <input type="color" id="color-picker" value="#FFFFFF">
                 </div>
             </div>
             
