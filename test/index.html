@@ -19,15 +19,41 @@
 <body>
     <header>
         <h1>BenchMark Model-viewer</h1>
-
-
-
-
-        <!-- список материалов -->
-<!--        <div id="materialsList"></div>-->
-
     </header>
+
     <main>
+
+        <!-- скрипт -->
+        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
+
+        <model-viewer
+            id="wireframe-demo"
+            src="../3d/hoodie1.glb"
+            camera-orbit="0 90deg"
+            camera-controls
+            touch-action="pan-y"
+            lighting-color="#FFFFFF"
+            intensity="1"
+            alt="Описание 3D модели"
+        >
+            <div id="static-info">
+                <!-- кол-во кадров в секунду (плавность анимаций) -->
+                <div id="fps">
+                    FPS <b>?</b>
+                </div>
+
+                <!-- кол-во полигонов, из которых состоит геометрия 3D модели -->
+                <div id="triangle">
+                    &#9651; <b>?</b>
+                </div>
+
+                <!-- кол-во вершин, из которых состоит геометрия 3D модели -->
+                <div id="vertex">
+                    &otimes; <b>?</b>
+                </div>
+            </div>
+        </model-viewer>
+
         <div id="statistics">
 
             <!-- Изменение основного цвета материала. [red, green, blue, alpha] (каждое значение может быть от 0 до 1) (alpha - прозрачность) -->
@@ -78,41 +104,11 @@
             </div>
         </div>
 
-        <!-- скрипт -->
-        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
-
-        <model-viewer
-            id="wireframe-demo"
-            src="../3d/hoodie1.glb"
-            camera-orbit="0 90deg"
-            camera-controls
-            touch-action="pan-y"
-            lighting-color="#FFFFFF"
-            intensity="1"
-            alt="Описание 3D модели"
-        >
-            <div id="static-info">
-                <!-- кол-во кадров в секунду (плавность анимаций) -->
-                <div id="fps">
-                    FPS <b>?</b>
-                </div>
-
-                <!-- кол-во полигонов, из которых состоит геометрия 3D модели -->
-                <div id="triangle">
-                    &#9651; <b>?</b>
-                </div>
-
-                <!-- кол-во вершин, из которых состоит геометрия 3D модели -->
-                <div id="vertex">
-                    &otimes; <b>?</b>
-                </div>
-            </div>
-        </model-viewer>
-
     </main>
-    <footer></footer>
-</body>
 
+    <footer></footer>
+
+</body>
 
 <!-- FPS -->
 <script src="script/fps.js"></script>
