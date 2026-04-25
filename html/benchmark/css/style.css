@@ -147,6 +147,11 @@ input[type="range"]::-moz-range-track {
     background: #ddd;
 }
 
+#uv-map {
+    aspect-ratio: 1;
+    border: 1px solid var(--border-color);
+}
+
 @media (orientation: portrait) {
     body {
         height: auto;
@@ -154,7 +159,9 @@ input[type="range"]::-moz-range-track {
     }
     
     header,
-    #statistics {padding: var(--padding)}
+    #statistics,
+    footer
+    {padding: var(--padding)}
     
     main {
         width: 100%;

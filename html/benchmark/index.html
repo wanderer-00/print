@@ -71,13 +71,13 @@
             <div class="controls" id="color-set">
                 <!-- Список предустановленных цветов -->
                 <div id="palette">
-                    <button onclick="colorSet(hexToRgb('#7F7F7F'))" style="background-color: #FFFFFF"></button>
-                    <button onclick="colorSet(hexToRgb('#000000'))" style="background-color: #000000"></button>
-                    <button onclick="colorSet(hexToRgb('#7F0000'))" style="background-color: #FF0000"></button>
-                    <button onclick="colorSet(hexToRgb('#007F00'))" style="background-color: #00FF00"></button>
-                    <button onclick="colorSet(hexToRgb('#00007F'))" style="background-color: #0000FF"></button>
+                    <button onclick="colorSet(hexToRgb('#FFFFFF'))" style="background-color: #FFFFFF" title="Белый"></button>
+                    <button onclick="colorSet(hexToRgb('#000000'))" style="background-color: #000000" title="Чёрный"></button>
+                    <button onclick="colorSet(hexToRgb('#c1a07b'))" style="background-color: #c1a07b" title="Бежевый"></button>
+                    <button onclick="colorSet(hexToRgb('#1e7640'))" style="background-color: #1e7640" title="Мятный"></button>
+                    <button onclick="colorSet(hexToRgb('#904c4c'))" style="background-color: #904c4c" title="Розовый"></button>
                     <!-- кастомный цвет -->
-                    <input type="color" id="color-picker" value="#FFFFFF">
+                    <input type="color" id="color-picker" value="#FFFFFF" title="Выбрать свой цвет">
                 </div>
             </div>
             
@@ -110,11 +110,15 @@
             <div id="colors">
                 <button onclick="setColor([1,0,0,1])">Frame</button>
             </div>
+            
+            <div id="uv-map"></div>
         </div>
 
     </main>
 
-    <footer></footer>
+    <footer>
+        <p>v 25.04.2026</p>
+    </footer>
 
 </body>
 
