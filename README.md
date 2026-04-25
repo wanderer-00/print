@@ -5,7 +5,12 @@
 - [Blender - редактор 3D моделей](https://www.blender.org/)
 - [SketchFab - 3D модели в роли заглушек](https://sketchfab.com/)
 - [Mixamo - анимации для персонажей](https://www.mixamo.com/)
-- [Polyhaven - текстуры и HDR](https://polyhaven.com/)
+- Текстуры
+  - [Polyhaven](https://polyhaven.com/)
+  - [Ambientcg](https://ambientcg.com/)
+  - [Sharetextures](https://www.sharetextures.com/)
+  - [Cgbookcase](https://www.cgbookcase.com/)
+  - [cc0-textures](https://cc0-textures.com/)
 - [Khronos - разработчик GLTF формата, этот формат просто разъёб](https://www.khronos.org/gltf/)
 
 
