@@ -12,7 +12,8 @@
     --border-width: 1px;
     --border-type: solid;
 
-    --text-color: #ccff00;
+/*    --text-color: #ccff00;*/
+    --text-color: white;
 
     box-sizing: border-box;
 }
