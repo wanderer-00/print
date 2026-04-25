@@ -1,18 +1,32 @@
 # NAME COMPANY
-## model-viewer
-### src
-путь до 3D модели
-`src="3d/model.glb"`
+## используемые ресурсы
+- [Google Fonts - иконки и шрифты](https://fonts.google.com/)
+- [Model-viewer - проссмотр 3D моделей](https://modelviewer.dev/)
+- [Blender - редактор 3D моделей](https://www.blender.org/)
+- [SketchFab - 3D модели в роли заглушек](https://sketchfab.com/)
+- [Mixamo - анимации для персонажей](https://www.mixamo.com/)
+- Текстуры
+  - [Polyhaven](https://polyhaven.com/)
+  - [Ambientcg](https://ambientcg.com/)
+  - [Sharetextures](https://www.sharetextures.com/)
+  - [Cgbookcase](https://www.cgbookcase.com/)
+  - [cc0-textures](https://cc0-textures.com/)
+- [Khronos - разработчик GLTF формата, этот формат просто разъёб](https://www.khronos.org/gltf/)
 
-### camera-orbit
-Атрибут camera-orbit в компоненте <model-viewer> управляет **начальным положением камеры** в сферических координатах. Он принимает строку, состоящую из трех параметров в формате **"$theta $phi $radius"**
-#### theta (азимутальный угол)
+
+## model-viewer
+`src="3d/model.glb"`
+`camera-orbit="$theta $phi $radius"`
+
+theta (азимутальный угол)
 Горизонтальное вращение камеры вокруг модели
 Полный оборот = **360 deg** или **2π rad**
-#### phi (полярный угол)
+
+phi (полярный угол)
 Вертикальный угол наклона камеры (угол сверху вниз)
 Полный оборот = **360 deg** или **2π rad**
-#### radius (радиус/дистанция)
+
+radius (радиус/дистанция)
 Расстояние от камеры до центра модели (zoom)
 В **метрах (m)**, **сантиметрах (cm)**, **миллиметрах (mm)**, **процентах (%)**. Например, 100% автоматически подберет такое расстояние, чтобы модель полностью вписывалась в окно просмотра. Ключевое слово **auto** вернет значение по умолчанию
 
