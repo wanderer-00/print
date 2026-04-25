@@ -1,4 +1,12 @@
 # NAME COMPANY
+## используемые ресурсы
+- [Google Fonts - иконки и шрифты](https://fonts.google.com/)
+- [Model-viewer - проссмотр 3D моделей](https://modelviewer.dev/)
+- [Blender - редактор 3D моделей](https://www.blender.org/)
+- [SketchFab - 3D модели в роли заглушек](https://sketchfab.com/)
+- [Mixamo - анимации для персонажей](https://www.mixamo.com/)
+
+
 ## model-viewer
 ### src
 путь до 3D модели
