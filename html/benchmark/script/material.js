@@ -78,4 +78,9 @@ modelViewer.addEventListener('load', () => {
     
     // вывод camera orbit
     cameraOrbit(modelViewer);
+    
+    // FPS
+    showFPS(modelViewer);
+    
+    console.log(modelViewer.availableAnimations);
 });
