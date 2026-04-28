@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Текстильная типография</title>
+
+    <!-- С Т И Л И -->
+    <!-- фон -->
+    <link rel="stylesheet" href="css/background.css">
+    <!-- сброс стандартных стилей элементов -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- главные стили -->
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/poster.css">
+        <link rel="stylesheet" href="css/calc.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+    <header>
+		<div id="logo"></div>
+        <ul>
+            <li><a href="#calc">Расчёт стоимости</a></li>
+            <li><a href="#">Редактор дизайна</a></li>
+            <li><a href="#">Связаться с нами</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <!-- постер-видеоо -->
+        <div id="poster">
+			<canvas id="gradient-canvas" data-transition-in />
+        </div>
+
+        <!-- калькулятор -->
+        <div id="calc">
+
+            <h2>Расчёт стоимости</h2>
+            <div id="cluster" class="place">
+
+                <!-- калькулятор -->
+                <div id="display">
+                    <div id="buttons">
+                        <button><svg><use xlink:href="#tshirt"></use></svg></button>
+                        <button><svg><use xlink:href="#hoodie"></use></svg></button>
+                        <button><svg><use xlink:href="#hoodie"></use></svg></button>
+                        <button><svg><use xlink:href="#hoodie"></use></svg></button>
+                        <button><svg><use xlink:href="#hoodie"></use></svg></button>
+                    </div>
+                    
+                    <div id="sizes">
+                        <button>S</button>
+                        <button>M</button>
+                        <button>L</button>
+                    </div>
+                    
+                    <div id="count">
+                        <button>-</button>
+                        <input type="number">
+                        <button>+</button>
+                    </div>
+                </div>
+
+                <!-- 3D просмотр -->
+                <script type="module" src="../../../script/model-viewer.min.js"></script>
+                <model-viewer
+                    id="wireframe-demo"
+                    src="../../../3d/hoodie.glb"
+                    camera-controls
+                ></model-viewer>
+                
+                <!-- стоимость -->
+				<div id="check">
+					<table id="table"></table>
+				</div>
+            </div>
+        </div>
+        
+        <!-- галерея -->
+        <div id="gallery"></div>
+        
+        <!-- наши клиенты -->
+        <div id="clients"></div>
+        
+        <!-- о нас -->
+        <div id="about"></div>
+        
+        <!-- вопрос / ответ -->
+        <div id="question"></div>
+    </main>
+
+    <footer></footer>
+</body>
+
+<svg style="display: none">
+	<!-- футболка -->
+	<symbol id="tshirt" viewBox="0 0 100 100">
+		<path d="M50 89.19c0,0 -12.52,-0.08 -25.23,-2.07l0 -42.48 -7.51 6.21 -12.86 -11.92 16.81 -24.11 14.33 -4.01c0,0 2,10.42 14.46,10.42 12.46,0 14.46,-10.42 14.46,-10.42l14.33 4.01 16.81 24.11 -12.86 11.92 -7.51 -6.21 0 42.48c-12.71,1.99 -25.23,2.07 -25.23,2.07z" />
+	</symbol>
+
+	<symbol id="hoodie" viewBox="0 0 100 100">
+		<path class="fil0 str0" d="M50 96.07c13.19,0.58 24.82,-1.53 24.82,-1.53l0 -45.01c4.97,18.71 5.85,42.52 5.85,42.52l13.26 0c-0.15,-31.78 4.08,-62.9 -24,-74.25 -2.24,-0.9 1.78,-13.97 -19.93,-13.97 -21.71,0 -17.69,13.07 -19.93,13.97 -28.08,11.35 -23.85,42.47 -24,74.25l13.26 0c0,0 0.88,-23.81 5.85,-42.52l0 45.01c0,0 11.63,2.11 24.82,1.53zm-8.02 -71.6l0 19.02m16.04 -19.02l0 19.02m-27.95 -25.69c3.15,4.06 11.38,7.69 19.93,7.69 8.55,0 16.78,-3.63 19.93,-7.69" />
+	</symbol>
+</svg>
+
+<script type="module">
+import { Gradient } from './Gradient.js'
+
+// Create your instance
+const gradient = new Gradient()
+
+// Call `initGradient` with the selector to your canvas
+gradient.initGradient('#gradient-canvas')
+</script>
+
+<script src="js/calc.js"></script>
+<script src="js/footer.js"></script>
+
+<!--  -->
+<!--<script src="#"></script>-->
+
+<!--  -->
+<!--<script src="#"></script>-->
+
+</html>

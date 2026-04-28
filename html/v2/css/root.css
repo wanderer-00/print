@@ -1,0 +1,48 @@
+:root {
+	--gradient-color-3: #23B684;  
+    --back-color: pink;
+    --text-color: darkgray;
+/*	--accent: #c8ff47;*/
+	--accent: var(--gradient-color-3);
+    --padding: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+/*    border: 1px solid red;*/
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+	position: relative;
+    display: grid;
+    grid-gap: calc( var(--padding) * 2 );
+    grid-template-columns: calc( 17ch + var(--padding) * 2 ) auto;
+    grid-template-areas:
+        "head main"
+        "head foot";
+	
+	font-family: monospace;
+/*	background: url(https://hq-wallpapers.ru/wallpapers/10/hq-wallpapers_ru_abstraction3d_46352_1920x1080.jpg);*/
+}
+
+.place {
+	--z-ui: 10;
+/*	--card-bg: rgba(10, 10, 18, 0.52);*/
+	--card-bg: rgba(10, 10, 18, 0.7);
+	--hairline: 0.0625rem;
+	--card-border: rgba(200, 255, 71, 0.14);
+	--dark-card-highlight: rgba(255, 255, 255, 0.06);
+	
+	padding: 1rem;
+	background: var(--card-bg);
+	border: var(--hairline) solid var(--card-border);
+	border-radius: 12px;
+	backdrop-filter: blur(20px) saturate(160%);
+	-webkit-backdrop-filter: blur(20px) saturate(160%);
+	box-shadow:
+		0 -8px 40px rgba(0, 0, 0, 0.45),
+		inset 0 1px 0 var(--dark-card-highlight);
+}

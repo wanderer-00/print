@@ -1,0 +1,15 @@
+/* обнуление стилей */
+button {
+	padding: 0;
+	margin: 0;
+	border: none;
+	border-radius: 0;
+	background: none;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+	/* Убирает системные стили браузера (iOS/Safari) */
+	appearance: none;
+	/* Убирает контур при фокусе (но лучше настроить свой :focus!) */
+	outline: none;
+}

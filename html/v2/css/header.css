@@ -1,0 +1,11 @@
+header {
+    grid-area: head;
+    padding: var(--padding);
+}
+
+/* сброс стандартных стилей */
+header ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
