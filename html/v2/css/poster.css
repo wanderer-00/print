@@ -1,3 +1,9 @@
 #poster {
 	height: 100px;
 }
+
+#poster svg {
+	fill: red;
+	stroke: red;
+	width: 100%;
+}

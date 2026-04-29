@@ -1,0 +1,17 @@
+aside {
+    height: 100vh;
+    position: fixed;
+    grid-area: aside;
+    fill: red;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+aside a {
+    padding: 16px;
+}
+
+aside svg {
+    width: 24px;
+    height: 24px;
+}

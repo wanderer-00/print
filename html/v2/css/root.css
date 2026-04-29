@@ -13,13 +13,13 @@
 }
 
 body {
-    margin: 0;
-    width: 100%;
+    margin: 0 auto;
+    width: 1600px;
     min-height: 100vh;
 	position: relative;
     display: grid;
     grid-gap: calc( var(--padding) * 2 );
-    grid-template-columns: calc( 17ch + var(--padding) * 2 ) 1fr auto;
+    grid-template-columns: calc( 17ch + var(--padding) * 2 ) 1fr 100px;
     grid-template-areas:
         "head	main	aside"
         "head	foot	aside";

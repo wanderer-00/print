@@ -1,3 +1,9 @@
+header,
+aside {
+    height: 100vh;
+    position: fixed;
+}
+
 header {
     grid-area: head;
     padding: var(--padding);
