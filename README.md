@@ -1,4 +1,7 @@
 # NAME COMPANY
+
+[benchmark](https://wanderer-00.github.io/print/html/benchmark/)
+
 ## используемые ресурсы
 - [Google Fonts - иконки и шрифты](https://fonts.google.com/)
 - [Model-viewer - проссмотр 3D моделей](https://modelviewer.dev/)
