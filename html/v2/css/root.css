@@ -19,17 +19,16 @@ body {
 	position: relative;
     display: grid;
     grid-gap: calc( var(--padding) * 2 );
-    grid-template-columns: calc( 17ch + var(--padding) * 2 ) auto;
+    grid-template-columns: calc( 17ch + var(--padding) * 2 ) 1fr auto;
     grid-template-areas:
-        "head main"
-        "head foot";
+        "head	main	aside"
+        "head	foot	aside";
 	
 	font-family: monospace;
-/*	background: url(https://hq-wallpapers.ru/wallpapers/10/hq-wallpapers_ru_abstraction3d_46352_1920x1080.jpg);*/
+	background: url(https://hq-wallpapers.ru/wallpapers/10/hq-wallpapers_ru_abstraction3d_46352_1920x1080.jpg);
 }
 
 .place {
-	--z-ui: 10;
 /*	--card-bg: rgba(10, 10, 18, 0.52);*/
 	--card-bg: rgba(10, 10, 18, 0.7);
 	--hairline: 0.0625rem;

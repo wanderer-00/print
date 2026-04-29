@@ -29,9 +29,7 @@
 
     <main>
         <!-- постер-видеоо -->
-        <div id="poster">
-			<canvas id="gradient-canvas" data-transition-in />
-        </div>
+        <div id="poster"></div>
 
         <!-- калькулятор -->
         <div id="calc">
@@ -44,9 +42,9 @@
                     <div id="buttons">
                         <button><svg><use xlink:href="#tshirt"></use></svg></button>
                         <button><svg><use xlink:href="#hoodie"></use></svg></button>
-                        <button><svg><use xlink:href="#hoodie"></use></svg></button>
-                        <button><svg><use xlink:href="#hoodie"></use></svg></button>
-                        <button><svg><use xlink:href="#hoodie"></use></svg></button>
+                        <button><svg><use xlink:href="#cap"></use></svg></button>
+                        <button><svg><use xlink:href="#shopper"></use></svg></button>
+                        <button><svg><use xlink:href="#umbrella"></use></svg></button>
                     </div>
                     
                     <div id="sizes">
@@ -63,10 +61,10 @@
                 </div>
 
                 <!-- 3D просмотр -->
-                <script type="module" src="../../../script/model-viewer.min.js"></script>
+                <script type="module" src="../../script/model-viewer.min.js"></script>
                 <model-viewer
                     id="wireframe-demo"
-                    src="../../../3d/hoodie.glb"
+                    src="../../3d/hoodie1.glb"
                     camera-controls
                 ></model-viewer>
                 
@@ -90,6 +88,8 @@
         <div id="question"></div>
     </main>
 
+	<aside>123</aside>
+
     <footer></footer>
 </body>
 
@@ -100,19 +100,21 @@
 	</symbol>
 
 	<symbol id="hoodie" viewBox="0 0 100 100">
-		<path class="fil0 str0" d="M50 96.07c13.19,0.58 24.82,-1.53 24.82,-1.53l0 -45.01c4.97,18.71 5.85,42.52 5.85,42.52l13.26 0c-0.15,-31.78 4.08,-62.9 -24,-74.25 -2.24,-0.9 1.78,-13.97 -19.93,-13.97 -21.71,0 -17.69,13.07 -19.93,13.97 -28.08,11.35 -23.85,42.47 -24,74.25l13.26 0c0,0 0.88,-23.81 5.85,-42.52l0 45.01c0,0 11.63,2.11 24.82,1.53zm-8.02 -71.6l0 19.02m16.04 -19.02l0 19.02m-27.95 -25.69c3.15,4.06 11.38,7.69 19.93,7.69 8.55,0 16.78,-3.63 19.93,-7.69" />
+		<path d="M50 96.07c13.19,0.58 24.82,-1.53 24.82,-1.53l0 -45.01c4.97,18.71 5.85,42.52 5.85,42.52l13.26 0c-0.15,-31.78 4.08,-62.9 -24,-74.25 -2.24,-0.9 1.78,-13.97 -19.93,-13.97 -21.71,0 -17.69,13.07 -19.93,13.97 -28.08,11.35 -23.85,42.47 -24,74.25l13.26 0c0,0 0.88,-23.81 5.85,-42.52l0 45.01c0,0 11.63,2.11 24.82,1.53zm-8.02 -71.6l0 19.02m16.04 -19.02l0 19.02m-27.95 -25.69c3.15,4.06 11.38,7.69 19.93,7.69 8.55,0 16.78,-3.63 19.93,-7.69" />
+	</symbol>
+
+	<symbol id="cap" viewBox="0 0 100 100">
+		<path d="M24.64 54c-7.42,3.43 -26.43,15.99 -21.26,16.63 15.1,1.87 27.74,16.84 40.45,16.85 12.26,0.02 23.43,-12.47 31.1,-20.12 0,0 16.52,1.24 20.03,-3.93 3.5,-5.18 8.91,-40.17 -26.94,-45.57 -35.85,-5.4 -45.37,22.55 -43.38,36.14zm50.29 13.36c0,0 -21.41,0.06 -50.29,-13.36m43.38 -36.14c4.2,9.09 8.78,23.93 0.68,49.07m-6.44 -49.67c0.53,-6.65 10.55,-6.43 10.07,1.43" />
+	</symbol>
+
+	<symbol id="shopper" viewBox="0 0 100 100">
+		<path d="M16.41 40.47l67.18 0 0 52.81 -67.18 0 0 -52.81zm50.54 0c0,-28.6 -11.42,-33.75 -20.95,-33.75m-20.95 33.75c0,-28.6 11.42,-33.75 20.95,-33.75m28.95 33.75c0,-28.6 -11.42,-33.75 -20.95,-33.75m-20.95 33.75c0,-28.6 11.42,-33.75 20.95,-33.75" />
+	</symbol>
+
+	<symbol id="umbrella" viewBox="0 0 100 100">
+		<path d="M10 90l47.32 -47.32m-20.24 -5.6c15.61,-15.71 27.64,-14.46 38.5,-12.66l14.42 -14.42m-0.91 78.67c2.91,-7.06 4.1,-13.75 4.1,-21.86 0,-33.14 -26.86,-60 -60,-60 -8.16,0 -14.79,1.16 -21.88,4.11 5.36,-2.09 12.64,-0.85 19.78,6.29 7.14,7.14 9.82,16.03 5.99,19.87 3.83,-3.84 13.1,-1.54 20.24,5.6 7.14,7.14 9.44,16.41 5.6,20.24 3.84,-3.83 12.73,-1.15 19.87,5.99 7.14,7.14 7.8,15.44 6.3,19.76zm-26.17 -25.75c15.71,-15.62 14.5,-27.68 12.7,-38.54" />
 	</symbol>
 </svg>
-
-<script type="module">
-import { Gradient } from './Gradient.js'
-
-// Create your instance
-const gradient = new Gradient()
-
-// Call `initGradient` with the selector to your canvas
-gradient.initGradient('#gradient-canvas')
-</script>
 
 <script src="js/calc.js"></script>
 <script src="js/footer.js"></script>

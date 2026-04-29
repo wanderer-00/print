@@ -52,7 +52,7 @@
 			height: 100%;
 			/* Иконка будет принимать цвет текста кнопки */
 			stroke: currentColor;
-			stroke-width: 5;
+			stroke-width: 2;
 		}
 	}
 }
