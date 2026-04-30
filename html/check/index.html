@@ -1,94 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Martian Radar Clone</title>
+    <style>
+        body {
+            margin: 0;
+            background: #0b0e14; /* Темный фон в стиле Evil Martians */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            color: #ff5a5f;
+            font-family: sans-serif;
+        }
+        canvas {
+            border: 1px solid #1a1f29;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 90, 95, 0.1);
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="receipt">
-  <div class="receipt-header">
-    <h2>ООО "ВЕБ-МАРКЕТ"</h2>
-    <p>Кассовый чек №12345</p>
-    <p>21.04.2026 19:45</p>
-  </div>
-  
-  <div class="receipt-items">
-    <div class="item">
-      <span>Кофе Латте</span>
-      <span>250.00</span>
-    </div>
-    <div class="item">
-      <span>Круассан</span>
-      <span>120.00</span>
-    </div>
-    <div class="item">
-      <span>Сироп (доп) x2</span>
-      <span>60.00</span>
-    </div>
-  </div>
-  
-  <div class="receipt-total">
-    <div class="total-line">
-      <strong>ИТОГ:</strong>
-      <strong>430.00</strong>
-    </div>
-    <p>Наличные: 500.00</p>
-    <p>Сдача: 70.00</p>
-  </div>
-  
-  <div class="receipt-footer">
-    <p>СПАСИБО ЗА ПОКУПКУ!</p>
-    <div class="barcode">|| ||| | ||| || ||</div>
-  </div>
-</div>
+    <canvas id="radar"></canvas>
 
-<style>
-    body {
-        background-color: #343434
+<script>
+    const canvas = document.getElementById('radar');
+    const ctx = canvas.getContext('2d');
+
+    // Настройки
+    const size = 400;
+    canvas.width = size;
+    canvas.height = size;
+    const centerX = size / 2;
+    const centerY = size / 2;
+    const radius = size / 2 - 10;
+
+    let angle = 0;
+    const targets = [];
+
+    // Создаем случайные "цели"
+    for(let i = 0; i < 5; i++) {
+        targets.push({
+            x: centerX + (Math.random() - 0.5) * radius * 1.5,
+            y: centerY + (Math.random() - 0.5) * radius * 1.5,
+            opacity: 0,
+            dist: 0
+        });
     }
-    
-  .receipt {
-    width: 300px;
-    background: #fdfdfd;
-    padding: 20px;
-    margin: 20px auto;
-    font-family: 'Courier New', Courier, monospace; /* Имитация кассовой ленты */
-    color: #333;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    position: relative;
-  }
 
-  /* Зубчатый край сверху и снизу */
-  .receipt::before, .receipt::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    background: linear-gradient(-135deg, #fff 5px, transparent 0), 
-                linear-gradient(135deg, #fff 5px, transparent 0);
-    background-size: 10px 10px;
-  }
-  .receipt::before { top: -10px; }
-  .receipt::after { bottom: -10px; transform: rotate(180deg); }
+    function drawRadar() {
+        ctx.clearRect(0, 0, size, size);
 
-  .receipt-header { text-align: center; border-bottom: 1px dashed #ccc; padding-bottom: 10px; }
-  .receipt-header h2 { font-size: 1.2rem; margin: 5px 0; }
-  .receipt-header p { font-size: 0.8rem; margin: 2px 0; }
+        // 1. Сетка (круги)
+        ctx.strokeStyle = 'rgba(255, 90, 95, 0.2)';
+        ctx.lineWidth = 1;
+        for(let i = 1; i <= 3; i++) {
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, (radius / 3) * i, 0, Math.PI * 2);
+            ctx.stroke();
+        }
 
-  .receipt-items { padding: 15px 0; border-bottom: 1px dashed #ccc; }
-  .item { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; }
+        // 2. Отрисовка целей
+        targets.forEach(target => {
+            // Проверяем, пересекается ли луч с целью (упрощенно по углу)
+            const targetAngle = Math.atan2(target.y - centerY, target.x - centerX);
+            const normalizedAngle = (angle % (Math.PI * 2));
+            const diff = Math.abs(normalizedAngle - (targetAngle + Math.PI)); 
+            
+            // Если луч проходит над точкой, "зажигаем" её
+            if (diff < 0.1) target.opacity = 1;
+            
+            if (target.opacity > 0) {
+                ctx.fillStyle = `rgba(255, 90, 95, ${target.opacity})`;
+                ctx.beginPath();
+                ctx.arc(target.x, target.y, 4, 0, Math.PI * 2);
+                ctx.fill();
+                target.opacity -= 0.01; // Постепенное затухание
+            }
+        });
 
-  .receipt-total { padding-top: 10px; }
-  .total-line { display: flex; justify-content: space-between; font-size: 1.1rem; margin-bottom: 5px; }
-  .receipt-total p { font-size: 0.8rem; margin: 2px 0; text-align: right; }
+        // 3. Вращающийся луч (градиент)
+        const gradient = ctx.createConicGradient(angle, centerX, centerY);
+        gradient.addColorStop(0, 'rgba(255, 90, 95, 0.5)');
+        gradient.addColorStop(0.1, 'rgba(255, 90, 95, 0)');
+        gradient.addColorStop(1, 'rgba(255, 90, 95, 0)');
 
-  .receipt-footer { text-align: center; margin-top: 20px; font-size: 0.8rem; }
-  .barcode { font-size: 1.5rem; letter-spacing: 2px; margin-top: 10px; }
-</style>
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.arc(centerX, centerY, radius, angle, angle + 0.5);
+        ctx.closePath();
+        ctx.fill();
 
+        // 4. Линия луча
+        ctx.strokeStyle = '#ff5a5f';
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.lineTo(
+            centerX + Math.cos(angle) * radius,
+            centerY + Math.sin(angle) * radius
+        );
+        ctx.stroke();
 
+        angle += 0.03;
+        requestAnimationFrame(drawRadar);
+    }
 
-</body></html>
+    drawRadar();
+</script>
+</body>
+</html>

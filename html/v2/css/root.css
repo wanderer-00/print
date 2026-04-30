@@ -1,7 +1,7 @@
 :root {
 	--gradient-color-3: #23B684;  
-    --back-color: pink;
-    --text-color: darkgray;
+    --back-color: oklch(13.59% 0.0648 343.4124);
+    --text-color: oklch(59.13% 0.0761 338.95);
 /*	--accent: #c8ff47;*/
 	--accent: var(--gradient-color-3);
     --padding: 1rem;
@@ -13,8 +13,9 @@
 }
 
 body {
+	color: var(--text-color);
     margin: 0 auto;
-    width: 1600px;
+    max-width: 1600px;
     min-height: 100vh;
 	position: relative;
     display: grid;
@@ -25,7 +26,7 @@ body {
         "head	foot	aside";
 	
 	font-family: monospace;
-	background: url(https://hq-wallpapers.ru/wallpapers/10/hq-wallpapers_ru_abstraction3d_46352_1920x1080.jpg);
+	background-color: var(--back-color);
 }
 
 .place {
@@ -44,4 +45,31 @@ body {
 	box-shadow:
 		0 -8px 40px rgba(0, 0, 0, 0.45),
 		inset 0 1px 0 var(--dark-card-highlight);
+}
+
+@media (orientation: portrait) {
+	body {
+		margin: 0 auto;
+		max-width: 1600px;
+		min-height: 100vh;
+		grid-gap: 1rem;
+		grid-template-columns: 1fr;
+		grid-template-rows:
+			auto
+			auto
+			1fr
+			auto;
+		grid-template-areas:
+			"head"
+			"aside"
+			"main"
+			"foot";
+		background-color: rgb(132, 110, 255);
+	}
+
+	header,
+	aside {
+		height: 100px;
+		position: static;
+	}
 }

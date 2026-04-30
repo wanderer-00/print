@@ -105,3 +105,15 @@ thead,
 tfoot {
 	font-size: 2rem;
 }
+
+@media (orientation: portrait) {
+	#calc #cluster {
+		display: grid;
+		grid-gap: calc( var(--padding)*5 )var(--padding);
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"viewer"
+			"display"
+			"check";
+	}
+}

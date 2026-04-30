@@ -1,6 +1,4 @@
 aside {
-    height: 100vh;
-    position: fixed;
     grid-area: aside;
     fill: red;
     display: grid;

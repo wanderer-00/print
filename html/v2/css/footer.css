@@ -1,3 +1,10 @@
 footer {
     grid-area: foot;
+    display: grid;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }

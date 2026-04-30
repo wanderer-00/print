@@ -1,9 +1,31 @@
 #poster {
-	height: 100px;
+	height: 100vh;
+	position: relative;
 }
 
+/* имя компании */
 #poster svg {
-	fill: red;
-	stroke: red;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/* Параметры: смещение-x, смещение-y, размытие, цвет */
+	/* filter: drop-shadow(0 0 15px orange); */
+	filter: 
+		drop-shadow(0 0 2px #fff)
+		/* 2. Близкое интенсивное свечение */
+		drop-shadow(0 0 10px rgba(255, 65, 0, .5))
+		/* 3. Среднее рассеивание */
+		drop-shadow(0 0 20px rgba(255, 165, 0, .3));
+	fill: #fffbf4;
+	stroke-width: 0;
 	width: 100%;
+	height: auto;
+	aspect-ratio: 10/1;
+}
+
+@media (orientation: portrait) {
+	#poster {
+		height: auto;
+	}
 }
