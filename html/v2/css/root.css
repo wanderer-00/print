@@ -1,15 +1,15 @@
 :root {
-	--gradient-color-3: #23B684;  
+	--gradient-color-3: #23B684;
     --back-color: oklch(13.59% 0.0648 343.4124);
     --text-color: oklch(59.13% 0.0761 338.95);
 /*	--accent: #c8ff47;*/
 	--accent: var(--gradient-color-3);
     --padding: 1rem;
+	--a-color: rgb(255, 0, 0, 1);
 }
 
 * {
     box-sizing: border-box;
-/*    border: 1px solid red;*/
 }
 
 body {

@@ -1,27 +1,62 @@
+/* 1-ый слайд айта */
 #poster {
 	height: 100vh;
 	position: relative;
-}
 
-/* имя компании */
-#poster svg {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	/* Параметры: смещение-x, смещение-y, размытие, цвет */
-	/* filter: drop-shadow(0 0 15px orange); */
-	filter: 
-		drop-shadow(0 0 2px #fff)
-		/* 2. Близкое интенсивное свечение */
-		drop-shadow(0 0 10px rgba(255, 65, 0, .5))
-		/* 3. Среднее рассеивание */
-		drop-shadow(0 0 20px rgba(255, 165, 0, .3));
-	fill: #fffbf4;
-	stroke-width: 0;
-	width: 100%;
-	height: auto;
-	aspect-ratio: 10/1;
+	/* стабилизатор */
+	& > div {
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: grid;
+		gap: 1.2rem;
+		grid-template-columns: 1fr auto;
+		grid-template-areas:
+			"neon neon"
+			"text call";
+		font-size: 1.2rem;
+		font-weight: bolder;
+
+		/* имя компании (неон) */
+		& svg {
+			grid-area: neon;
+			/* Параметры: смещение-x, смещение-y, размытие, цвет */
+			/* filter: drop-shadow(0 0 15px orange); */
+			filter: 
+				drop-shadow(0 0 2px #fff)
+				/* 2. Близкое интенсивное свечение */
+				drop-shadow(0 0 10px rgba(255, 65, 0, .5))
+				/* 3. Среднее рассеивание */
+				drop-shadow(0 0 20px rgba(255, 165, 0, .3));
+			fill: #fffbf4;
+			stroke-width: 0;
+			width: 100%;
+			height: auto;
+			aspect-ratio: 10/1;
+		}
+
+		/* описание */
+		& p {
+			grid-area: text;
+			margin: 0;
+		}
+
+		/* связаться */
+		& a {
+			grid-area: call;
+			padding: 12px 16px;
+			color: var(--back-color);
+			background-color: var(--a-color);
+			text-decoration: none;
+
+			&:hover {
+				background-color: var(--a-color);
+				opacity: 0.9;
+			}
+		}
+	}
 }
 
 @media (orientation: portrait) {

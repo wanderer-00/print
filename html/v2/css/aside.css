@@ -1,6 +1,6 @@
 aside {
     grid-area: aside;
-    fill: red;
+    fill: var(--a-color);
     display: grid;
     grid-template-columns: 1fr;
 }
