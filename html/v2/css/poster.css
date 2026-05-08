@@ -4,7 +4,6 @@ body > model-viewer {
 	width: 100%;
 	height: auto;
 	aspect-ratio: 1;
-	background-color: rgba(0, 0, 0, .4);
 }
 
 #poster {

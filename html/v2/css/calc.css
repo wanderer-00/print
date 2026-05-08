@@ -12,6 +12,7 @@
 }
 
 #calc #display {
+	margin: 1rem;
 	grid-area: display;
 	display: grid;
 	grid-gap: 2rem;
@@ -72,6 +73,7 @@
 
 
 table {
+	margin: 1rem;
 	border-collapse: collapse; /* Убирает двойные линии между ячейками */
 	width: 100%;
 }
