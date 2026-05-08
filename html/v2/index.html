@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Текстильная типография</title>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <title>Эта принт</title>
 
     <!-- С Т И Л И -->
     <!-- сброс стандартных стилей элементов -->
@@ -18,8 +19,22 @@
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
+    <!-- 3D -->
+    <model-viewer
+        id="3D-poster"
+        src="3D/v2.gl"
+        autoplay
+        disable-zoom
+        environment-image="neutral"
+        exposure="1.5"
+        alt="Анимированная модель"
+    ></model-viewer>
+
     <header>
-		<div id="logo"></div>
+		<div id="logo">
+            <div></div>
+            <p>&#951; PRINT</p>
+        </div>
         <ul>
             <li><a href="#calc">Расчёт стоимости</a></li>
             <li><a href="#">Редактор дизайна</a></li>
@@ -174,6 +189,7 @@
     </symbol>
 </svg>
 
+<script src="js/3d_poster.js"></script>
 <script src="js/calc.js"></script>
 <script src="js/footer.js"></script>
 

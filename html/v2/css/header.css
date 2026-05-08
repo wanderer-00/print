@@ -9,6 +9,22 @@ header {
     padding: var(--padding);
 }
 
+header > #logo > :nth-child(1) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 10/11;
+    background-image: url(../../../favicon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+header > #logo > :nth-child(2) {
+    font-size: 2rem;
+    font-weight: bolder;
+    margin: 1rem 0;
+}
+
 /* сброс стандартных стилей */
 header ul {
     list-style-type: none;
