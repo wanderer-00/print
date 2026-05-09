@@ -1,15 +1,52 @@
 :root {
 	--gradient-color-3: #23B684;
     --back-color: oklch(13.59% 0.0648 343.4124);
-    --text-color: oklch(59.13% 0.0761 338.95);
+    --text-color: oklch(58.941% 0.0771 339.358);
 /*	--accent: #c8ff47;*/
 	--accent: var(--gradient-color-3);
     --padding: 1rem;
 	--a-color: rgb(255, 0, 0, 1);
+	--border-color: #2f1524;
+
+	cursor: url('../cursor.svg') 13 13, auto;
 }
 
 * {
     box-sizing: border-box;
+}
+
+/* 1. Стили для Chrome, Safari и Edge */
+/* Ширина всей полосы прокрутки */
+::-webkit-scrollbar {
+	width: 10px;               /* Ширина вертикального скролла */
+	height: 10px;              /* Высота горизонтального скролла */
+}
+
+/* Фон дорожки (трека), по которому движется ползунок */
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+/* Сам ползунок (бегунок) */
+::-webkit-scrollbar-thumb {
+	background: var(--text-color);
+}
+
+/* Ползунок при наведении */
+::-webkit-scrollbar-thumb:hover {
+	background: var(--a-color);
+}
+
+@font-face {
+    font-family: 'RobotoCondensed'; /* Имя для использования в стилях */
+    src: url('../../../fonts/RobotoCondensed/RobotoCondensed-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400; /* Начертание: 400=Regular, 700=Bold */
+    font-style: normal; /* Стиль: normal или italic */
+    font-display: swap; /* Защита от мигания текста */
+}
+
+html {
+	scroll-behavior: smooth;
 }
 
 body {
@@ -19,13 +56,13 @@ body {
     min-height: 100vh;
 	position: relative;
     display: grid;
-    grid-gap: 0 calc( var(--padding) * 2 );
-    grid-template-columns: calc( 17ch + var(--padding) * 2 ) 1fr 100px;
+    grid-gap: 0 calc( var(--padding) * 4 );
+    grid-template-columns: calc( 180px + var(--padding) * 2 ) 1fr 100px;
     grid-template-areas:
         "head	main	aside"
         "head	foot	aside";
 	
-	font-family: monospace;
+	font-family: 'RobotoCondensed', monospace;
 	background-color: var(--back-color);
 }
 
@@ -45,6 +82,6 @@ body {
 			"foot foot";
 		border-style: solid;
 		border-width: 0 1px 0 1px;
-		border-color: var(--text-color);
+		border-color: var(--border-color);
 	}
 }

@@ -5,9 +5,9 @@
 	--card-border: rgba(200, 255, 71, 0.14);
 	--dark-card-highlight: rgba(255, 255, 255, 0.06);
 	
-	border: 1px solid var(--text-color);
-	border-left: 0;
-	border-right: 0;
+    border-style: solid;
+    border-width: 1px 0;
+    border-color: var(--border-color);
 	backdrop-filter: blur(20px) saturate(160%);
 	-webkit-backdrop-filter: blur(20px) saturate(160%);
 	box-shadow:
@@ -78,7 +78,6 @@
 		padding: 4px;
 		color: var(--text-color);
 		border: 1px solid var(--text-color);
-		border-radius: 4px;
 		background-color: transparent;
 		aspect-ratio: 1;
 
@@ -101,6 +100,7 @@
 	grid-area: viewer;
 	width: 100%;
 	height: auto;
+	border-left: 1px solid var(--border-color);
 }
 
 #calc #check {
@@ -116,17 +116,17 @@ table {
 
 	margin: var(--m);
 	border-collapse: collapse; /* Убирает двойные линии между ячейками */
-	width: 100%;
+	width: calc( 100% - 2 * var(--m) );
 }
 
 thead,
 tbody {
-	border-bottom: 1px solid var(--text-color);
+	border-bottom: 1px solid var(--border-color);
 }
 
 th, td {
 	padding: 1rem 0;
-	border-right: 1px solid var(--text-color); /* Создает линию справа от каждой ячейки */
+	border-right: 1px solid var(--border-color); /* Создает линию справа от каждой ячейки */
 }
 
 /* Опционально: убираем линию у последней колонки, чтобы не было внешней рамки */

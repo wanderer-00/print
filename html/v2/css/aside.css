@@ -1,15 +1,21 @@
 aside {
     grid-area: aside;
-    fill: var(--a-color);
+    fill: var(--text-color);
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+aside #mess-links {
+    display: grid;
+    align-content: center;
 }
 
 aside a {
     padding: 16px;
 
     &:hover {
-        opacity: .9;
+        border-radius: 4px;
+        background-color: rgb(156, 107, 140, .3);
     }
 }
 

@@ -2,8 +2,8 @@ footer {
     grid-area: foot;
     display: grid;
     border-style: solid;
-    border-width: 0 1px 0 1px;
-    border-color: var(--text-color);
+    border-width: 0 1px;
+    border-color: var(--border-color);
 }
 
 footer ul {

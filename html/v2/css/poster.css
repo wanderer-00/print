@@ -47,6 +47,7 @@ body > model-viewer {
 
 		/* описание */
 		& p {
+			color: var(--a-color);
 			grid-area: text;
 			margin: 0;
 		}

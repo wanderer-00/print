@@ -6,6 +6,8 @@ aside {
 
 header {
     grid-area: head;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
     padding: var(--padding);
 }
 
@@ -20,16 +22,36 @@ header > #logo > :nth-child(1) {
 }
 
 header > #logo > :nth-child(2) {
+    text-align: center;
     font-size: 2rem;
     font-weight: bolder;
     margin: 1rem 0;
 }
 
 /* сброс стандартных стилей */
-header ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+header nav {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: -10px;
+    margin-top: -10px;
+
+    & > a {
+        color: var(--text-color);
+        font-weight: bold;
+        font-size: 20px;
+        text-decoration: none;
+
+        & > div {
+            padding: 10px 8px;
+
+            &:hover {
+                border-radius: 4px;
+                background-color: rgb(156, 107, 140, .3);
+            }
+        }
+    }
 }
 
 @media (orientation: portrait) {
@@ -43,7 +65,7 @@ header ul {
         padding: 0;
     }
 
-    header ul {
+    header nav {
         display: none;
     }
 
