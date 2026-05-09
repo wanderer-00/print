@@ -34,3 +34,19 @@ window.addEventListener('mousemove', (event) => {
     // Применяем новые координаты камеры
     modelViewer.cameraOrbit = `${theta}deg ${phi}deg auto`;
 });
+
+window.addEventListener('deviceorientation', (event) => {
+  // Получаем данные поворота
+  // gamma: наклон влево/вправо (-90 до 90)
+  // beta: наклон вперед/назад (-180 до 180)
+  // alpha: компас (0 до 360)
+  
+  const gamma = event.gamma; 
+  const beta = event.beta;
+
+  // Рассчитываем новую орбиту камеры
+  // Умножаем на коэффициент, чтобы скорость вращения была приятной
+  let newOrbit = `${gamma * 2}deg 75deg 105%`;
+  
+  modelViewer.cameraOrbit = newOrbit;
+});
