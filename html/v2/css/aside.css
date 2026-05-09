@@ -20,13 +20,13 @@ aside svg {
 
 @media (orientation: portrait) {
     aside {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        justify-content: flex-end;
     }
 
     aside a {
         padding: 5px;
-        height: 100%;
+        height: 46px;
         aspect-ratio: 1;
     }
 

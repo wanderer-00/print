@@ -50,10 +50,11 @@ header ul {
     header > #logo {
         display: flex;
         gap: 1rem;
+        display: none;
     }
 
     header > #logo > :nth-child(1) {
-        width: 40px;
+        width: 50px;
     }
 
     header > #logo > :nth-child(2) {

@@ -68,9 +68,21 @@ body > model-viewer {
 }
 
 @media (orientation: portrait) {
+	/* 1-ый слайд айта */
+	body > model-viewer {
+		width: 100%;
+		height: 100vh;
+		pointer-events: none; /* Клики будут проходить СКВОЗЬ этот элемент */
+		background-image: url(../../../favicon.svg);
+		opacity: .5;
+		background-position: 1% 1%;
+		background-repeat: no-repeat;
+		background-size: 26vw;
+	}
+	
 	#poster {
 		width: 100%;
-		height: auto;
+		height: 80vh;
 		aspect-ratio: 10/8;
 
 		/* стабилизатор */
