@@ -7,9 +7,31 @@ aside {
 
 aside a {
     padding: 16px;
+
+    &:hover {
+        opacity: .9;
+    }
 }
 
 aside svg {
     width: 24px;
     height: 24px;
+}
+
+@media (orientation: portrait) {
+    aside {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    aside a {
+        padding: 5px;
+        height: 100%;
+        aspect-ratio: 1;
+    }
+
+    aside svg {
+        width: 34px;
+        height: 34px;
+    }
 }

@@ -31,3 +31,34 @@ header ul {
     padding: 0;
     margin: 0;
 }
+
+@media (orientation: portrait) {
+	header,
+	aside {
+		height: auto;
+		position: static;
+	}
+
+    header {
+        padding: 0;
+    }
+
+    header ul {
+        display: none;
+    }
+
+    header > #logo {
+        display: flex;
+        gap: 1rem;
+    }
+
+    header > #logo > :nth-child(1) {
+        width: 40px;
+    }
+
+    header > #logo > :nth-child(2) {
+        font-size: 2rem;
+        font-weight: bolder;
+        margin: 0;
+    }
+}

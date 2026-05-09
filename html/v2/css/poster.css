@@ -4,6 +4,7 @@ body > model-viewer {
 	width: 100%;
 	height: auto;
 	aspect-ratio: 1;
+	pointer-events: none; /* Клики будут проходить СКВОЗЬ этот элемент */
 }
 
 #poster {
@@ -68,6 +69,8 @@ body > model-viewer {
 
 @media (orientation: portrait) {
 	#poster {
+		width: 100%;
 		height: auto;
+		aspect-ratio: 10/8;
 	}
 }
