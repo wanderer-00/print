@@ -1,3 +1,42 @@
+.place {
+/*	--card-bg: rgba(10, 10, 18, 0.52);*/
+	--card-bg: rgba(10, 10, 18, 0.7);
+	--hairline: 0.0625rem;
+	--card-border: rgba(200, 255, 71, 0.14);
+	--dark-card-highlight: rgba(255, 255, 255, 0.06);
+	
+	border: 1px solid var(--text-color);
+	border-left: 0;
+	border-right: 0;
+	backdrop-filter: blur(20px) saturate(160%);
+	-webkit-backdrop-filter: blur(20px) saturate(160%);
+	box-shadow:
+		0 -8px 40px rgba(0, 0, 0, 0.45),
+		inset 0 1px 0 var(--dark-card-highlight);
+
+	--b: 2px;     /* Толщина линии */
+	--s: 30px;    /* Длина стороны */
+	--c: var(--a-color); /* Цвет */
+  	--o: -1px;    /* Смещение (отступ наружу) */
+
+	background: 
+		/* Верхний левый */
+		conic-gradient(from 90deg at var(--b) var(--b), #0000 25%, var(--c) 0) 
+		var(--o) var(--o),
+		/* Верхний правый */
+		conic-gradient(from 180deg at calc(100% - var(--b)) var(--b), #0000 25%, var(--c) 0) 
+		calc(100% - var(--o)) var(--o),
+		/* Нижний левый */
+		conic-gradient(from 0deg at var(--b) calc(100% - var(--b)), #0000 25%, var(--c) 0) 
+		var(--o) calc(100% - var(--o)),
+		/* Нижний правый */
+		conic-gradient(from -90deg at calc(100% - var(--b)) calc(100% - var(--b)), #0000 25%, var(--c) 0) 
+		calc(100% - var(--o)) calc(100% - var(--o));
+
+	background-size: var(--s) var(--s);
+	background-repeat: no-repeat;
+}
+
 #calc {
 	color: var(--text-color);
 }
@@ -73,7 +112,9 @@
 
 
 table {
-	margin: 1rem;
+	--m: 1rem;
+
+	margin: var(--m);
 	border-collapse: collapse; /* Убирает двойные линии между ячейками */
 	width: 100%;
 }
@@ -111,11 +152,17 @@ tfoot {
 @media (orientation: portrait) {
 	#calc #cluster {
 		display: grid;
-		grid-gap: calc( var(--padding)*5 )var(--padding);
+		grid-gap: 1rem;
 		grid-template-columns: 1fr;
 		grid-template-areas:
 			"viewer"
 			"display"
 			"check";
 	}
+
+	#cluster model-viewer {
+		aspect-ratio: 1;
+	}
+
+	table {	width: calc( 100% - 2 * var(--m) );}
 }

@@ -72,5 +72,14 @@ body > model-viewer {
 		width: 100%;
 		height: auto;
 		aspect-ratio: 10/8;
+
+		/* стабилизатор */
+		& > div {
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				"neon"
+				"text"
+				"call";
+		}
 	}
 }
