@@ -1,0 +1,59 @@
+#questionAnswer {
+	font-size: 1rem;
+	display: flex;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+#questionAnswer > div {
+	width: 100%;
+	border-style: solid;
+	border-color: var(--border-color);
+	border-width: 1px 0;
+	background-color: var(--dark-bg);
+}
+
+#questionAnswer button {
+	color: var(--a-color);
+	width: 100%;
+	padding: 12px 16px;
+	text-align: left;
+}
+
+#questionAnswer div.answer {
+	overflow: hidden;
+}
+
+#questionAnswer p {
+	color: antiquewhite;
+	margin: 0;
+	padding: 0 16px 16px 16px;
+}
+
+#questionAnswer .question button {
+	display: grid;
+	grid-template-columns: 1fr auto;
+    align-items: center;
+
+	& svg {
+		height: 16px;
+		stroke: var(--a-color);
+		stroke-width: 2px;
+	}
+}
+
+.answer {
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	transition: all 0.4s ease;
+	/* Скорость анимации */
+}
+
+/* Класс, который будет добавлять JavaScript */
+.answer.is-open {
+	max-height: 500px;
+	/* Достаточная высота для контента */
+	opacity: 1;
+	/* Возвращаем вертикальные отступы */
+}

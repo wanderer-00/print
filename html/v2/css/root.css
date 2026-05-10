@@ -46,24 +46,42 @@
 }
 
 html {
+	scroll-padding-top: 80px;
 	scroll-behavior: smooth;
 }
+
+/* Когда элемент становится целью перехода по ссылке */
+h2:target {
+	border-left: 3px solid var(--a-color); /* Оранжевая полоска слева */
+	padding-left: 1rem;
+	transition: padding-left 2s ease; /* Плавное появление */
+}
+
+main h2 {
+    color: antiquewhite;
+    margin-top: 140px;
+}
+
 
 body {
 	color: var(--text-color);
     margin: 0 auto;
-    max-width: 1600px;
+    max-width: 1800px;
     min-height: 100vh;
 	position: relative;
     display: grid;
     grid-gap: 0 calc( var(--padding) * 4 );
-    grid-template-columns: calc( 180px + var(--padding) * 2 ) 1fr 100px;
+    grid-template-columns: calc( 180px + var(--padding) * 2 ) 1fr 60px;
     grid-template-areas:
         "head	main	aside"
         "head	foot	aside";
 	
 	font-family: 'RobotoCondensed', monospace;
 	background-color: var(--back-color);
+	background-image: 
+		radial-gradient(circle at 50% 30%, rgba(56, 189, 248, 0.3) 0%, transparent 15%),
+		radial-gradient(circle at 50% 10%, rgba(248, 56, 56, 0.3) 0%, transparent 15%),
+		radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.3) 0%, transparent 20%);
 }
 
 @media (orientation: portrait) {

@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="css/calc.css">
         <link rel="stylesheet" href="css/services.css">
         <link rel="stylesheet" href="css/clients.css">
+        <link rel="stylesheet" href="css/question.css">
     <link rel="stylesheet" href="css/aside.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
@@ -40,11 +41,16 @@
             <p>&#951; PRINT</p>
         </div>
         <nav>
-            <a href="#calc"><div>Расчёт стоимости</div></a>
-            <a href="#"><div>Редактор дизайна</div></a>
-            <a href="tel:+79872972282"><div>Связаться с нами</div></a>
+            <a href="#"><div>Вышивка</div></a>
+            <a href="#"><div>DTF печать</div></a>
+            <a href="#calculate"><div>Расчёт стоимости</div></a>
             <a href="#clients"><div>Наши клиенты</div></a>
+            <a href="#clients"><div>Отзывы</div></a>
+            <a href="#question"><div>Вопрос / ответ</div></a>
+            <a href="#footer"><div>Контакты</div></a>
         </nav>
+
+        <a href="#"><div>Создай свой дизайн</div></a>
     </header>
 
     <main>
@@ -53,14 +59,13 @@
             <div>
                 <svg><use xlink:href="#poster-icon"></use></svg>
                 <p>Опт брендирования текстиля<br>быстро и с энтузиазмом</p>
-                <a href="tel:+79872972282">Свяжись с нами</a>
+                <a href="tel:+79872972282">Связаться с нами</a>
             </div>
         </div>
 
         <!-- калькулятор -->
+        <h2 id="calculate">Расчёт стоимости</h2>
         <div id="calc">
-
-            <h2>Расчёт стоимости</h2>
             <div id="cluster" class="place">
 
                 <!-- калькулятор -->
@@ -141,8 +146,11 @@
             </div>
         </div>
         
-        <!-- вопрос / ответ -->
-        <div id="question"></div>
+        <!-- воппрос / ответ -->
+        <h2 id="question">Вопрос // ответ</h2>
+        <div id="questionAnswer"></div>
+
+
     </main>
 
 	<aside id="aside">
@@ -259,6 +267,7 @@
 
 <script src="js/3d_poster.js"></script>
 <script src="js/calc.js"></script>
+<script src="js/question.js"></script>
 <script src="js/footer.js"></script>
 
 </html>
