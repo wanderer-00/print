@@ -82,8 +82,8 @@
 		aspect-ratio: 1;
 
 		&:hover {
-			color: var(--accent);
-			border: 1px solid var(--accent);
+			color: var(--a-color);
+			border: 1px solid var(--a-color);
 		}
 		& svg {
 			fill: none;

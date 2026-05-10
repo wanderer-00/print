@@ -1,0 +1,28 @@
+#clients,
+#services {
+    color: antiquewhite;
+    margin-top: 140px;
+}
+
+#clientsCluster {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    padding: 60px 0;
+
+    border-style: solid;
+    border-width: 1px 0;
+    border-color: var(--border-color);
+    
+    & > div {
+        height: 100px;
+
+        & svg {
+            fill: var(--a-color);
+            height: 100%;
+            width: auto;
+            aspect-ratio: 1;
+        }
+    }
+}
