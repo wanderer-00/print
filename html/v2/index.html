@@ -22,6 +22,38 @@
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-labelledby="t">
+        <image href="https://images.steamusercontent.com/ugc/499142917007376857/B855E15F5C38DE0021846257CDC189783921C188/"
+            width="200" height="200"
+            preserveAspectRatio="xMidYMid slice"
+            clip-path="url(#blobClip)"/>
+        <clipPath id="blobClip">
+        <path d="M43.1,-68.5C56.2,-58.6,67.5,-47.3,72.3,-33.9C77.2,-20.5,75.5,-4.9,74.2,11.3C72.9,27.6,71.9,44.5,63.8,57.2C55.7,69.8,40.6,78.2,25.5,79.2C10.4,80.1,-4.7,73.6,-20.9,69.6C-37.1,65.5,-54.5,63.9,-66,54.8C-77.5,45.8,-83.2,29.3,-85.7,12.3C-88.3,-4.8,-87.7,-22.3,-79.6,-34.8C-71.5,-47.3,-55.8,-54.9,-41.3,-64.2C-26.7,-73.6,-13.4,-84.7,0.8,-86C15,-87.2,29.9,-78.5,43.1,-68.5Z"
+                transform="translate(100 100)"/>
+        </clipPath>
+
+    <path
+        class="blob"
+        d="M43.1,-68.5C56.2,-58.6,67.5,-47.3,72.3,-33.9C77.2,-20.5,75.5,-4.9,74.2,11.3C72.9,27.6,71.9,44.5,63.8,57.2C55.7,69.8,40.6,78.2,25.5,79.2C10.4,80.1,-4.7,73.6,-20.9,69.6C-37.1,65.5,-54.5,63.9,-66,54.8C-77.5,45.8,-83.2,29.3,-85.7,12.3C-88.3,-4.8,-87.7,-22.3,-79.6,-34.8C-71.5,-47.3,-55.8,-54.9,-41.3,-64.2C-26.7,-73.6,-13.4,-84.7,0.8,-86C15,-87.2,29.9,-78.5,43.1,-68.5Z"
+        transform="translate(100 100)"
+                    fill="url(#imgFill)"
+    />
+    <path
+        id="text"    d="M43.1,-68.5C56.2,-58.6,67.5,-47.3,72.3,-33.9C77.2,-20.5,75.5,-4.9,74.2,11.3C72.9,27.6,71.9,44.5,63.8,57.2C55.7,69.8,40.6,78.2,25.5,79.2C10.4,80.1,-4.7,73.6,-20.9,69.6C-37.1,65.5,-54.5,63.9,-66,54.8C-77.5,45.8,-83.2,29.3,-85.7,12.3C-88.3,-4.8,-87.7,-22.3,-79.6,-34.8C-71.5,-47.3,-55.8,-54.9,-41.3,-64.2C-26.7,-73.6,-13.4,-84.7,0.8,-86C15,-87.2,29.9,-78.5,43.1,-68.5Z"
+        transform="translate(100 100)"
+        fill="none" stroke="none"
+        pathLength="100"
+    />
+
+        <text class="text-content">
+        <textPath href="#text" startOffset="0%">SUPER HOT SUPER HOT SUPER HOT SUPER HOT SUPER HOT  SUPER HOT SUPER HOT
+            <animate attributeName="startOffset" from="0%" to="100%" dur="15s" repeatCount="indefinite" />
+            </textPath>
+                <textPath href="#text" startOffset="100%">SUPER HOT SUPER HOT SUPER HOT SUPER HOT SUPER HOT SUPER HOT SUPER HOT
+                <animate attributeName="startOffset" from="-100%" to="0%" dur="15s" repeatCount="indefinite" />
+            </textPath>
+        </text>
+    </svg>
     <!-- 3D -->
     <model-viewer
         id="3D-poster"
@@ -33,7 +65,8 @@
         environment-image="neutral"
         exposure="1.5"
         alt="Анимированная модель"
-    ></model-viewer>
+    >
+    </model-viewer>
 
     <header>
 		<div id="logo">
@@ -41,9 +74,9 @@
             <p>&#951; PRINT</p>
         </div>
         <nav>
-            <a href="#"><div>Вышивка</div></a>
-            <a href="#"><div>DTF печать</div></a>
-            <a href="#calculate"><div>Расчёт стоимости</div></a>
+            <a href="#embroidery"><div>Вышивка</div></a>
+            <a href="#dtf"><div>DTF печать</div></a>
+            <a href="#calc"><div>Расчёт стоимости</div></a>
             <a href="#clients"><div>Наши клиенты</div></a>
             <a href="#clients"><div>Отзывы</div></a>
             <a href="#question"><div>Вопрос / ответ</div></a>
@@ -64,45 +97,64 @@
         </div>
 
         <!-- калькулятор -->
-        <h2 id="calculate">Расчёт стоимости</h2>
-        <div id="calc">
-            <div id="cluster" class="place">
+        <h2 id="calc">Расчёт стоимости</h2>
+        <div id="calc-cluster" class="glass">
 
-                <!-- калькулятор -->
-                <div id="display">
-                    <div id="buttons">
-                        <button><svg><use xlink:href="#tshirt"></use></svg></button>
-                        <button><svg><use xlink:href="#hoodie"></use></svg></button>
-                        <button><svg><use xlink:href="#cap"></use></svg></button>
-                        <button><svg><use xlink:href="#shopper"></use></svg></button>
-                        <button><svg><use xlink:href="#umbrella"></use></svg></button>
+            <!-- калькулятор -->
+            <div id="display">
+                <div id="button-cluster">
+                    <button class=""><svg><use xlink:href="#tshirt"></use></svg></button>
+                    <button class="clotch-active"><svg><use xlink:href="#hoodie"></use></svg></button>
+                    <button class=""><svg><use xlink:href="#cap"></use></svg></button>
+                    <button class=""><svg><use xlink:href="#shopper"></use></svg></button>
+                    <button class=""><svg><use xlink:href="#umbrella"></use></svg></button>
+                </div>
+                
+                <div id="count">
+                    <button>-</button>
+                    <input type="number">
+                    <button>+</button>
+                </div>
+            </div>
+
+            <!-- 3D просмотр -->
+            <script type="module" src="../../script/model-viewer.min.js"></script>
+            <model-viewer
+                id="wireframe-demo"
+                src="../../3d/hoodie1.glb"
+                camera-controls
+            >
+
+                <div id="positioner">
+                    <div id="palette" class="glass">
+                        <h4>Цвет изделия:</h4>
+                        <div class="cluster">
+                            <button class="color-active" style="background-color: white"></button>
+                            <button class="" style="background-color: black"></button>
+                            <button class="" style="background-color: red"></button>
+                            <button class="" style="background-color: green"></button>
+                            <button class="" style="background-color: blue"></button>
+                        </div>
                     </div>
-                    
-                    <div id="sizes">
-                        <button>S</button>
-                        <button>M</button>
-                        <button>L</button>
-                    </div>
-                    
-                    <div id="count">
-                        <button>-</button>
-                        <input type="number">
-                        <button>+</button>
+
+                    <div id="sizes" class="glass">
+                        <h4>Размер изделия:</h4>
+                        <div class="cluster">
+                            <button disabled class="">XS</button>
+                            <button class="size-active">S</button>
+                            <button class="">M</button>
+                            <button class="">L</button>
+                            <button disabled class="">XL</button>
+                            <button disabled class="">XXL</button>
+                            <button disabled class="">XXXL</button>
+                        </div>
                     </div>
                 </div>
-
-                <!-- 3D просмотр -->
-                <script type="module" src="../../script/model-viewer.min.js"></script>
-                <model-viewer
-                    id="wireframe-demo"
-                    src="../../3d/hoodie1.glb"
-                    camera-controls
-                ></model-viewer>
-                
-                <!-- стоимость -->
-				<div id="check">
-					<table id="table"></table>
-				</div>
+            </model-viewer>
+            
+            <!-- стоимость -->
+            <div id="check" class="glass">
+                <table id="table"></table>
             </div>
         </div>
         
@@ -110,16 +162,12 @@
         <h2 id="services">Услуги</h2>
         <div id="services-cluster">
             <div>
-                <div class="title">DTF-нанесения</div>
+                <div class="title" id="dtf">DTF-нанесения</div>
                 <p>DTF-печать (Direct To Film) — это одна из самых универсальных и современных технологий брендирования одежды и аксессуаров. Если объяснять клиенту суть услуги простыми словами: мы печатаем полноцветное изображение на специальной пленке, покрываем его термоклеем и под прессом «впечатываем» в ткань.</p>
             </div>
             <div>
-                <div class="title">Вышивка</div>
+                <div class="title" id="embroidery">Вышивка</div>
                 <p>Вышивка — это премиальный способ брендирования, который придает изделию объемную фактуру и статусный внешний вид. Это самый долговечный метод нанесения: нити не выцветают на солнце, не линяют при стирке и сохраняют форму в течение многих лет. Технология идеально подходит для логотипов на плотных тканях, таких как худи, поло, бейсболки или корпоративная спецодежда. Выбирая вышивку, вы получаете износостойкое и эффектное изображение, которое подчеркивает качество и надежность вашего бренда.</p>
-            </div>
-            <div>
-                <div class="title">Термо плёнки</div>
-                <p>Термопленки со спецэффектами позволяют создавать уникальный дизайн, который меняется в зависимости от освещения, температуры или прикосновений. Глиттерные пленки добавляют эффектному мерчу яркое сияние и плотную фактуру, а светоотражающие элементы обеспечивают безопасность и футуристичный вид в темное время суток. Особое место занимают термочувствительные материалы, которые меняют цвет от тепла тела, превращая обычную одежду в интерактивный арт-объект. Это идеальный выбор для тех, кто хочет выделить свой бренд с помощью тактильных и визуальных акцентов, недоступных обычной печати.</p>
             </div>
         </div>
 

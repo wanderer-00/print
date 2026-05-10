@@ -7,7 +7,7 @@ aside {
 header {
     grid-area: head;
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: auto 1fr auto;
     padding: var(--padding);
 }
 

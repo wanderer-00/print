@@ -1,19 +1,10 @@
-.place {
-/*	--card-bg: rgba(10, 10, 18, 0.52);*/
-	--card-bg: rgba(10, 10, 18, 0.7);
-	--hairline: 0.0625rem;
-	--card-border: rgba(200, 255, 71, 0.14);
-	--dark-card-highlight: rgba(255, 255, 255, 0.06);
-	
+#calc-cluster {
+	/* border */
     border-style: solid;
     border-width: 1px 0;
     border-color: var(--border-color);
-	backdrop-filter: blur(20px) saturate(160%);
-	-webkit-backdrop-filter: blur(20px) saturate(160%);
-	box-shadow:
-		0 -8px 40px rgba(0, 0, 0, 0.45),
-		inset 0 1px 0 var(--dark-card-highlight);
 
+	/* углы */
 	--b: 2px;     /* Толщина линии */
 	--s: 30px;    /* Длина стороны */
 	--c: var(--a-color); /* Цвет */
@@ -35,23 +26,17 @@
 
 	background-size: var(--s) var(--s);
 	background-repeat: no-repeat;
-}
 
-#calc {
-	color: var(--text-color);
-}
-
-#calc #cluster {
+	/* позиционирование */
     display: grid;
 	grid-gap: calc( var(--padding)*5 )var(--padding);
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 3fr minmax(auto, 2fr);
     grid-template-areas:
-        "display	viewer"
-        "check		viewer";
+        "display	display"
+        "viewer		check";
 }
 
-#calc #display {
-	margin: 1rem;
+#display {
 	grid-area: display;
 	display: grid;
 	grid-gap: 2rem;
@@ -59,8 +44,9 @@
 	grid-template-areas:
 		"buttons 	buttons"
 		"sizes 		count";
-	& #buttons {grid-area: buttons}
+
 	& #sizes {grid-area: sizes}
+
 	& #count {
 		grid-area: count;
 		display: grid;
@@ -69,22 +55,30 @@
 	}
 }
 
-#calc #display #buttons {
+#calc-cluster > #display > #button-cluster {
+	grid-area: buttons;
 	display: grid;
-	grid-gap: 1rem;
+	grid-gap: 2rem;
 	grid-template-columns: repeat(5, 1fr);
+	padding: 2rem;
 	
-	& button {
-		padding: 4px;
+	& > button {
+		padding: 1rem;
 		color: var(--text-color);
 		border: 1px solid var(--text-color);
 		background-color: transparent;
 		aspect-ratio: 1;
 
+		&.clotch-active {
+			color: var(--a-color);
+			border: 1px solid var(--a-color);
+		}
+
 		&:hover {
 			color: var(--a-color);
 			border: 1px solid var(--a-color);
 		}
+
 		& svg {
 			fill: none;
 			width: 100%;
@@ -96,15 +90,73 @@
 	}
 }
 
-#cluster model-viewer {
+/* 3D предпросмотр */
+#calc-cluster > model-viewer {
 	grid-area: viewer;
 	width: 100%;
 	height: auto;
-	border-left: 1px solid var(--border-color);
+	position: relative;
+
+	& > #positioner {
+		width: 100%;
+		--padding: .5rem;
+
+		/* позиционирование */
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		display: flex;
+		justify-content: space-between;
+		padding: 1rem;
+
+		& h4 {
+			margin: .1rem;
+		}
+	}
 }
 
-#calc #check {
-	grid-area: check
+#palette,
+#sizes {
+	display: grid;
+	padding: var(--padding);
+	gap: var(--padding);
+
+	& > .cluster {
+		display: flex;
+		gap: var(--padding);
+	}
+}
+
+#palette button {
+	width: 20px;
+	height: auto;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	border: 2px solid var(--text-color);
+}
+
+model-viewer #sizes > .cluster > button {
+	padding-right: var(--padding);
+	border-right: 1px solid var(--border-color);
+
+	&:last-child {
+		padding-right: 0;
+		border-right: 0px solid var(--text-color);
+	}
+
+	&:disabled {
+		color: rgba(255, 255, 255, .1);
+	}
+
+	&.size-active {
+		color: var(--a-color);
+	}
+}
+
+/* Чековоя таблица */
+#calc-cluster #check {
+	grid-area: check;
+	margin: 1rem;
 }
 
 
@@ -150,17 +202,17 @@ tfoot {
 }
 
 @media (orientation: portrait) {
-	#calc #cluster {
+	#calc-cluster {
 		display: grid;
 		grid-gap: 1rem;
 		grid-template-columns: 1fr;
 		grid-template-areas:
-			"viewer"
 			"display"
+			"viewer"
 			"check";
 	}
 
-	#cluster model-viewer {
+	#calc-cluster model-viewer {
 		aspect-ratio: 1;
 	}
 

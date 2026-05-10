@@ -1,9 +1,40 @@
 /* 1-ый слайд айта */
+body > svg:first-child {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	pointer-events: none; /* Клики будут проходить СКВОЗЬ этот элемент */
+
+	aspect-ratio: 1/1;
+	#blobClip{
+    transform-origin: center;
+		transition: ease-out transform .4s;
+	}
+	&:hover{
+		#blobClip{
+			transform: scale(1.15) translate(0%, 0%);
+		}
+		.text-content{
+			fill: white;
+			mix-blend-mode: overlay;
+		}
+	}
+}
+
+.text-content {
+	font: 700 10px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	fill: var(--a-color);
+	mix-blend-mode: normal;
+	transition: ease fill .5s;
+}
+
+
 body > model-viewer {
 	position: absolute;
 	width: 100%;
-	height: auto;
-	aspect-ratio: 1;
+	height: 100vh;
 	pointer-events: none; /* Клики будут проходить СКВОЗЬ этот элемент */
 }
 
