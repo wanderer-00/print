@@ -16,6 +16,10 @@ modelViewer.addEventListener('load', () => {
 
     // 4. Добавляем свечение (Emissive), чтобы модель "горела" изнутри как в игре
     material.setEmissiveFactor([0, 0, 0]);
+
+    // Замедлить анимацию в 2 раза (0.5 от нормальной скорости)
+    modelViewer.play();
+    modelViewer.timeScale = 0.6;
 });
 
 window.addEventListener('mousemove', (event) => {

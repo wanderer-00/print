@@ -29,45 +29,32 @@
 
 	/* позиционирование */
     display: grid;
-	grid-gap: calc( var(--padding)*5 )var(--padding);
+	grid-gap: var(--padding) var(--padding);
     grid-template-columns: 3fr minmax(auto, 2fr);
     grid-template-areas:
-        "display	display"
-        "viewer		check";
+        "clotch	count"
+        "viewer	check";
 }
 
-#display {
-	grid-area: display;
+#count {
+	grid-area: count;
 	display: grid;
-	grid-gap: 2rem;
-	grid-template-columns: 1fr 1fr;
-	grid-template-areas:
-		"buttons 	buttons"
-		"sizes 		count";
-
-	& #sizes {grid-area: sizes}
-
-	& #count {
-		grid-area: count;
-		display: grid;
-		grid-gap: var(--padding);
-		grid-template-columns: 1fr auto 1fr;
-	}
+	grid-gap: var(--padding);
+	grid-template-columns: 1fr auto 1fr;
 }
 
-#calc-cluster > #display > #button-cluster {
-	grid-area: buttons;
+#calc-cluster > #button-cluster {
+	grid-area: clotch;
 	display: grid;
-	grid-gap: 2rem;
-	grid-template-columns: repeat(5, 1fr);
+	gap: 2rem;
 	padding: 2rem;
+	grid-template-columns: repeat(5, 1fr);
 	
 	& > button {
-		padding: 1rem;
+		padding: 1rem 0 0;
 		color: var(--text-color);
 		border: 1px solid var(--text-color);
 		background-color: transparent;
-		aspect-ratio: 1;
 
 		&.clotch-active {
 			color: var(--a-color);
@@ -81,8 +68,8 @@
 
 		& svg {
 			fill: none;
-			width: 100%;
-			height: 100%;
+			max-width: 100%;
+			max-height: 100%;
 			/* Иконка будет принимать цвет текста кнопки */
 			stroke: currentColor;
 			stroke-width: 2;

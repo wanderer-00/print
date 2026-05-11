@@ -79,6 +79,7 @@ body > model-viewer {
 		/* описание */
 		& p {
 			color: var(--a-color);
+			text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 			grid-area: text;
 			margin: 0;
 		}

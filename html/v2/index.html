@@ -58,7 +58,6 @@
     <model-viewer
         id="3D-poster"
         src="3D/v2.glb"
-        autoplay
         disable-zoom
         camera-controls
         interaction-prompt="none"
@@ -101,20 +100,33 @@
         <div id="calc-cluster" class="glass">
 
             <!-- калькулятор -->
-            <div id="display">
-                <div id="button-cluster">
-                    <button class=""><svg><use xlink:href="#tshirt"></use></svg></button>
-                    <button class="clotch-active"><svg><use xlink:href="#hoodie"></use></svg></button>
-                    <button class=""><svg><use xlink:href="#cap"></use></svg></button>
-                    <button class=""><svg><use xlink:href="#shopper"></use></svg></button>
-                    <button class=""><svg><use xlink:href="#umbrella"></use></svg></button>
-                </div>
-                
-                <div id="count">
-                    <button>-</button>
-                    <input type="number">
-                    <button>+</button>
-                </div>
+            <div id="button-cluster">
+                <button class="">
+                    <svg><use xlink:href="#tshirt"></use></svg>
+                    <p>Футболка</p>
+                </button>
+                <button class="clotch-active">
+                    <svg><use xlink:href="#hoodie"></use></svg>
+                    <p>Кофта</p>
+                </button>
+                <button class="">
+                    <svg><use xlink:href="#cap"></use></svg>
+                    <p>Кепка</p>
+                </button>
+                <button class="">
+                    <svg><use xlink:href="#shopper"></use></svg>
+                    <p>Эко-сумка</p>
+                </button>
+                <button class="">
+                    <svg><use xlink:href="#umbrella"></use></svg>
+                    <p>Зонт</p>
+                </button>
+            </div>
+
+            <div id="count">
+                <button>-</button>
+                <input type="number">
+                <button>+</button>
             </div>
 
             <!-- 3D просмотр -->
@@ -162,12 +174,12 @@
         <h2 id="services">Услуги</h2>
         <div id="services-cluster">
             <div>
-                <div class="title" id="dtf">DTF-нанесения</div>
-                <p>DTF-печать (Direct To Film) — это одна из самых универсальных и современных технологий брендирования одежды и аксессуаров. Если объяснять клиенту суть услуги простыми словами: мы печатаем полноцветное изображение на специальной пленке, покрываем его термоклеем и под прессом «впечатываем» в ткань.</p>
-            </div>
-            <div>
                 <div class="title" id="embroidery">Вышивка</div>
                 <p>Вышивка — это премиальный способ брендирования, который придает изделию объемную фактуру и статусный внешний вид. Это самый долговечный метод нанесения: нити не выцветают на солнце, не линяют при стирке и сохраняют форму в течение многих лет. Технология идеально подходит для логотипов на плотных тканях, таких как худи, поло, бейсболки или корпоративная спецодежда. Выбирая вышивку, вы получаете износостойкое и эффектное изображение, которое подчеркивает качество и надежность вашего бренда.</p>
+            </div>
+            <div>
+                <div class="title" id="dtf">DTF-нанесения</div>
+                <p>DTF-печать (Direct To Film) — это одна из самых универсальных и современных технологий брендирования одежды и аксессуаров. Если объяснять клиенту суть услуги простыми словами: мы печатаем полноцветное изображение на специальной пленке, покрываем его термоклеем и под прессом «впечатываем» в ткань.</p>
             </div>
         </div>
 
